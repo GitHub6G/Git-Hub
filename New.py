@@ -139,7 +139,7 @@ class iAmMain:
 		p(" [3] Dump Tool")
 		p(" [4] Pass changer ")
 		p(' [W] Join Whatsapp Group ')
-		p(" [E] Exit Tool ")
+		p(" [A] Admin Contact ")
 		line()
 		opt1 = input(" {√} Select An Option : ")
 		if opt1 == "1":self.file_menu()
@@ -147,8 +147,8 @@ class iAmMain:
 		elif opt1 == "2":self.num_menu()
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
-		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-		elif opt1 == "E":exit(" [•] KATM.TATA BY BY")
+		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf') pass
+		elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
 		else:p(" [•] Wrong Select ");sp(2);self.iAmMenu()
 	  
 	

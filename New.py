@@ -156,7 +156,7 @@ class iAmMain:
  	   os.system("xdg-open https://wa.me/+923021431324")
 	else:
    		print('\n Select a valid option ... ')
-  		time.sleep(2)
+  	time.sleep(2)
    		SSB(allkey)
 	  
 	

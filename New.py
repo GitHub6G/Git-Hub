@@ -978,7 +978,7 @@ def generate_random_key(length=8):
     key = ''.join(random.choices('0123456789', k=length))
     return key
 
-# Example: Generate a random key of length 8
+	#Example: Generate a random key of length 8
 random_key = generate_random_key()
 print("Random Key:", random_key)
 

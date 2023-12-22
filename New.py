@@ -978,7 +978,7 @@ def shoha_menu():
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:
-        'Main'()
+        'Main()'
     else:
         os.system("clear")
         os.system("xdg-open https://wa.me/+923021431324")

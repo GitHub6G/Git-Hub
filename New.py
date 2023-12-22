@@ -1,4 +1,4 @@
-import os,sys,tempfile,string,random,subprocess,platform,uuid,os,shutil,zlib,smtplib,base64,uuid,time,json,re
+`import os,sys,tempfile,string,random,subprocess,platform,uuid,os,shutil,zlib,smtplib,base64,uuid,time,json,re
 from uuid import uuid4
 from time import sleep as sp
 
@@ -986,8 +986,6 @@ def shoha_menu():
     DARK = requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     
     if id in DARK:
-        # Assuming Main() is defined elsewhere
-        Main()
     else:
         os.system("clear")
         os.system("xdg-open https://wa.me/+923021431324")
@@ -1004,8 +1002,6 @@ def shoha_menu():
         input("Press Enter To Send Key")
         os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()
-
-# Call the function to start the menu
 shoha_menu()
 
 
@@ -1017,4 +1013,4 @@ shoha_menu()
 if __name__=="__main__":
 	#update()
 	iAmMain().iAmMenu()
-	#iAmMain().method4('100089112641726','vishnu singh',['Muhammad Siyal'])
+	#iAmMain().method4('100089112641726','vishnu singh',['Muhammad Siyal'])`

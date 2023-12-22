@@ -985,8 +985,8 @@ def shoha_menu():
     
     DARK = requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     
-    if id in DARK:
-    else:
+if id in DARK:
+else:
         os.system("clear")
         os.system("xdg-open https://wa.me/+923021431324")
         time.sleep(3.0)

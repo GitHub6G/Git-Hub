@@ -155,9 +155,8 @@ class iAmMain:
 	elif opt1 == "A":
  	   os.system("xdg-open https://wa.me/+923021431324")
 	else:
-   		print('\n Select a valid option ... ')
-       time.sleep(2)
-   		SSB(allkey)
+    print('\n Select a valid option ... ')
+    time.sleep(2)
 	  
 	
 	def dump_menu(self):

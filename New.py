@@ -971,25 +971,25 @@ class automation:
 		input("[•] Press Enter to go back ")
 
 		self.iAmPasswordManager()
-		
+
 def shoha_menu():
-    UMO="IN-"
+    UMO="Umar-"
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)
     print(logo)
-    DARK=requests.get("https://github.com/U7P4L-IN/CRACK/blob/main/Appove.txt").text
+    DARK=requests.get("https://raw.githubusercontent.com/GitHub6G/Git-Hub/main/Approval.txt").text
     if id in DARK:
         Main()
     else:
         os.system("clear")
-        os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")
+        os.system("xdg-open https://wa.me/+923021431324")
         time.sleep(3.0)
         
         os.system("clear")
         print(logo)
-        print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
+        print("First Get Approvel")
         print ("")
-        print("┌━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━┐ \n\033[1;32m│ Note : That is Paid because 100% ok id just now login│\033[1;37m\n└━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━┘")
+        print("YOUR KEY IS NOT APROVED")
         print ("")
         print("                Your Key is Not Approved ")
         print("               Copy And Send Key To Admin")
@@ -999,7 +999,7 @@ def shoha_menu():
         name = input(" Your Name : ")
         print ("")
         input(" Press Enter To Send Key")
-        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
+        os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()   
 shoha_menu()
 

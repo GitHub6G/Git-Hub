@@ -147,7 +147,8 @@ class iAmMain:
 		elif opt1 == "2":self.num_menu()
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
-		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/J3gpK8NYNQBHhEYnVxN4X7')
+		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+		pass
 		elif opt1 == "E":exit(" [•] KATM.TATA BY BY")
 		else:p(" [•] Wrong Select ");sp(2);self.iAmMenu()
 	  

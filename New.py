@@ -142,21 +142,13 @@ class iAmMain:
 		p(" [A] Admin Contact ")
 		line()
 		opt1 = input(" {√} Select An Option : ")
-	if opt1 == "1":
- 	   self.file_menu()
-	elif opt1 == "2":
- 	   self.num_menu()
-	elif opt1 == "4":
- 	   automation().menu()
-	elif opt1 == "3":
- 	   Grep().links_only()
-	elif opt1 == "W":
- 	   os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-	elif opt1 == "A":
- 	   os.system("xdg-open https://wa.me/+923021431324")
-	else:
-    print('\n Select a valid option ... ')
-    time.sleep(2)
+		if opt1 == "1":self.file_menu()
+		
+		elif opt1 == "2":self.num_menu()
+		elif opt1 == "4":automation().menu()
+		elif opt1 == "3":Grep().links_only()
+		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+		elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
 	  
 	
 	def dump_menu(self):

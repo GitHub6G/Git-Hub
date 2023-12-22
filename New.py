@@ -1,4 +1,3 @@
-from json.tool import main
 import os,sys,tempfile,string,random,subprocess,platform,uuid,os,shutil,zlib,smtplib,base64,uuid,time,json,re
 from uuid import uuid4
 from time import sleep as sp
@@ -973,43 +972,42 @@ class automation:
 
 		self.iAmPasswordManager()
 
-def shoha_menu():
-    UMO="Umar-"
-    uuid = str(os.geteuid()) + str(os.getlogin()) 
-    id = "5".join(uuid)
-    print(logo)
-    UMAR=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
-    if id in UMAR:
-       main()
-    else:
-        os.system("clear")
-        os.system("xdg-open https://wa.me/+923021431324")
-        time.sleep(3.0)
 
-        os.system("clear")
-        print(logo)
-        print("First Get Approvel")
-        print ("")
-        print("YOUR KEY IS NOT APROVED")
-        print ("")
-        print("                Your Key is Not Approved ")
-        print("               Copy And Send Key To Admin")
-        print ("")
-        print (" Your Key : "+UMO+id)
-        print ("\n")
-        name = input(" Your Name : ")
-        print ("")
-        input(" Press Enter To Send Key")
-        os.system("xdg-open https://wa.me/+923021431324")
-        shoha_menu()   
-shoha_menu()
-
-
-
-
-
-
-if __name__=="__main__":
-	#update()
-	iAmMain().iAmMenu()
-	#iAmMain().method4('100089112641726','vishnu singh',['Muhammad Siyal'])
+def Subscraption():
+	key1=open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
+	clear()
+	print(logo)
+	r1=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+	if key1 in r1:
+		os.system('clear')
+		print(logo)
+		#Main()
+	else:
+		os.system("clear")
+		print(logo)
+		print("\t \033[1;32m First Get Approvel\033[1;37m ")
+		time.sleep(1)
+		os.system("clear")
+		print(logo)
+		print ("")
+		print(" \033[1;32m ALIYAN Toll Free BUT You Need Get Approved First\033[1;37m\n")
+		print(" \033[1;32m Note : ALIYAN FREE HA BHAIYO ENJOYA   \033[1;37m")
+		print ("")
+		print(" Your Key is Not Approved ")
+		print("")
+		print(" Copy And Send Key To Admin")
+		print ("")
+		print (" Your Key : "+ak+ah+key1 )
+		print ("")
+		name = input(" Your Name : ")
+		print ("")
+		gf = input(" Your gf Name : ")
+		print ("")
+		lol = input(" Your Your Email : ")
+		print ("")
+		input(" Press Enter To Send Key")
+		time.sleep(3.5)
+		tks = 'Dear%20Admin,%20Please%20Approved%20My%20Key%20To%20Premium%20%20Thanks%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20Email%20:%20'+lol+'%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20Name%20:%20'+name+'%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20%20Key%20%20:%20'+ak+ah+key1
+		os.system('am start https://wa.me/+923344706269?text=' + tks)
+		Subscraption()        
+Subscraption()

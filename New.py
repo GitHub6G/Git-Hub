@@ -971,44 +971,40 @@ class automation:
 		input("[•] Press Enter to go back ")
 
 		self.iAmPasswordManager()
-def shoha_menu():
-    import random
-UMO="IN-"
-def generate_random_key(length=8):
-    uuid = ''.join(random.choices('0123456789', k=length))
-    return key
-
-	#Example: Generate a random key of length 8
-random_key = generate_random_key()
-print("Random Key:", random_key)
-
-print(logo)
-DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
-if id in DARK:
-        'Main()'
-else:
-        os.system("clear")
-        os.system("xdg-open https://wa.me/+923021431324")
-        time.sleep(3.0)
-        
-        os.system("clear")
-        print(logo)
-        print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
-        print ("")
-        print(" That is Paid because 100% ok id just now login")
-        print ("")
-        print("                Your Key is Not Approved ")
-        print("               Copy And Send Key To Admin")
-        print ("")
-        print (" Your Key : "+UMO+id)
-        print ("\n")
-        name = input(" Your Name : ")
-        print ("")
-        input(" Press Enter To Send Key")
-        os.system("xdg-open https://wa.me/+923021431324")
-        shoha_menu()   
-shoha_menu()
-
+def Subscraption():
+	key1=open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
+	clear()
+	print(logo)
+	r1=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+	if key1 in r1:
+		os.system('clear')
+		print(logo)
+		'Main()'
+	else:
+		os.system("clear")
+		print(logo)
+		print("\t \033[1;32m First Get Approvel\033[1;37m ")
+		time.sleep(1)
+		os.system("clear")
+		print(logo)
+		print ("")
+		print(" \033[1;32m ALIYAN Toll Free BUT You Need Get Approved First\033[1;37m\n")
+		print(" \033[1;32m Note : ALIYAN FREE HA BHAIYO ENJOYA   \033[1;37m")
+		print ("")
+		print(" Your Key is Not Approved ")
+		print("")
+		print(" Copy And Send Key To Admin")
+		print ("")
+		print (" Your Key : "+ak+ah+key1 )
+		print ("")
+		name = input(" Your Name : ")
+		print ("")
+		input(" Press Enter To Send Key")
+		time.sleep(3.5)
+		tks = 'Dear%20Admin,%20Please%20Approved%20My%20Key%20To%20Premium%20%20Thanks%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20Email%20:%20'+lol+'%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20Name%20:%20'+name+'%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20My%20%20Key%20%20:%20'+ak+ah+key1
+		os.system('am start https://wa.me/+923021431324?text=' + tks)
+		Subscraption()        
+Subscraption()
 
 if __name__=="__main__":
 	#update()

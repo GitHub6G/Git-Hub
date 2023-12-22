@@ -975,7 +975,7 @@ def shoha_menu():
     import random
 UMO="IN-"
 def generate_random_key(length=8):
-    key = ''.join(random.choices('0123456789', k=length))
+    uuid = ''.join(random.choices('0123456789', k=length))
     return key
 
 	#Example: Generate a random key of length 8

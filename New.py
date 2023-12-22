@@ -971,7 +971,7 @@ class automation:
 		input("[•] Press Enter to go back ")
 
 		self.iAmPasswordManager()
-	def Subscraption():
+def Subscraption():
 		key1=open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
 		clear()
 		print(logo)

@@ -971,8 +971,6 @@ class automation:
 		input("[•] Press Enter to go back ")
 
 		self.iAmPasswordManager()
-
-
 def Subscraption():
 	key1=open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
 	clear()
@@ -1011,3 +1009,10 @@ def Subscraption():
 		os.system('am start https://wa.me/+923344706269?text=' + tks)
 		Subscraption()        
 Subscraption()
+
+
+
+if __name__=="__main__":
+	#update()
+	iAmMain().iAmMenu()
+	#iAmMain().method4('100089112641726','vishnu singh',['Muhammad Siyal'])

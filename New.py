@@ -982,11 +982,11 @@ def generate_random_key(length=8):
 random_key = generate_random_key()
 print("Random Key:", random_key)
 
-    print(logo)
-    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
-    if id in DARK:
+print(logo)
+DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+if id in DARK:
         'Main()'
-    else:
+else:
         os.system("clear")
         os.system("xdg-open https://wa.me/+923021431324")
         time.sleep(3.0)

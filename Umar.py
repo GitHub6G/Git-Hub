@@ -60,7 +60,7 @@ $$      $$$$$$$$$$$"$$$c$$$cc$$$c $$$$$$c
  ╰◈▪➣ Github    : https://github.com/CyberAttack 
  ╰◈▪➣ Facebook  : https://www.facebook.com/InnocentUmarr
  ╰◈▪➣ Author    : ★彡[ᴜᴍᴀʀ ɴᴀᴢᴇᴇʀ]彡★ 
- ╰◈▪➣ Version   : DC Extreme [2.2]
+ ╰◈▪➣ Version   : DC Extreme [10.2]
  ╰◈▪➣   \033[1;96m★彡[ɪᴍʀᴀɴ ᴋʜᴀɴ ʟᴏᴠᴇʀ]彡★\033[1;97m
 -------------------------------------------------- 
 \033[1;97m""")  

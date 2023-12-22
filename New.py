@@ -1,3 +1,4 @@
+from ast import main
 import os,sys,tempfile,string,random,subprocess,platform,uuid,os,shutil,zlib,smtplib,base64,uuid,time,json,re
 from uuid import uuid4
 from time import sleep as sp
@@ -979,12 +980,11 @@ def shoha_menu():
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:
-       # Main()
-    #else:
+       main()
+    else:
         os.system("clear")
         os.system("xdg-open https://wa.me/+923021431324")
         time.sleep(3.0)
-        
         os.system("clear")
         print(logo)
         print("First Get Approvel")

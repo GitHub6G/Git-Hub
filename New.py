@@ -1,4 +1,4 @@
-from ast import main
+from json.tool import main
 import os,sys,tempfile,string,random,subprocess,platform,uuid,os,shutil,zlib,smtplib,base64,uuid,time,json,re
 from uuid import uuid4
 from time import sleep as sp
@@ -978,13 +978,14 @@ def shoha_menu():
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)
     print(logo)
-    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
-    if id in DARK:
+    UMAR=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+    if id in UMAR:
        main()
     else:
         os.system("clear")
         os.system("xdg-open https://wa.me/+923021431324")
         time.sleep(3.0)
+
         os.system("clear")
         print(logo)
         print("First Get Approvel")

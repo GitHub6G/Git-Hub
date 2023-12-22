@@ -149,7 +149,9 @@ class iAmMain:
 		elif opt1 == "3":Grep().links_only()
 		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
 		elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
-		else:p(" [•] Wrong Select ");sp(2);self.iAmMenu()
+		else:
+        print('\n Select valid option ... ')
+        time.sleep(2)
 	  
 	
 	def dump_menu(self):

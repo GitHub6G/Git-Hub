@@ -979,7 +979,7 @@ def Subscraption():
 	if key1 in r1:
 		os.system('clear')
 		print(logo)
-		Subscraption()
+		'Main()'
 	else:
 		os.system("clear")
 		print(logo)

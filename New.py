@@ -969,15 +969,16 @@ class automation:
 		p(" [•] Your New Password : %s "%(change_pw))
 		line()
 		input("[•] Press Enter to go back ")
-
+	
 		self.iAmPasswordManager()
 def shoha_menu():
     ak="UMAR-"
     myid=uuid.uuid4().hex[:10].upper() 
     id = "+ak+myid"
+    	#qureshi ke jaga apna mame lagau
     print(logo)
-    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
-    if id in DARK:
+    key1=open('https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt').text
+    if id in key1:
         'Main()'
     else:
         os.system("clear")
@@ -989,7 +990,7 @@ def shoha_menu():
         print ("          THIS IS YOUR KEY BRO")
         print ("[*]--------------------------------------------------------------")
         print ("")
-        print ("          YOUR KEY : "+ak"+"key1"
+        print (""          YOUR KEY : "+ak"+"key1")
         print ("[*]--------------------------------------------------------------")
         print ("     Copy Key And Sent Me WP Approvel Your Key ")
         print ("[*]--------------------------------------------------------------")

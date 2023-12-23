@@ -101,7 +101,7 @@ def uaa():
         'pt_BR', 'zh_CN', 'ar_SA', 'hi_IN', 'tr_TR', 'nl_NL', 'id_ID', 'pl_PL', 'sv_SE',
         'no_NO', 'da_DK', 'fi_FI', 'hu_HU', 'cs_CZ', 'el_GR', 'he_IL', 'vi_VN', 'ro_RO',
         'bg_BG', 'hr_HR', 'sr_RS', 'sk_SK', 'sl_SI', 'et_EE', 'lv_LV', 'lt_LT', 'uk_UA']  # Add more locales if needed
-    carriers = ['null', 'AIS', 'Verizon', 'Vodafone']  # Add more carriers if needed
+    carriers = ['null' 'zong' 'AIS', 'Verizon', 'Vodafone']  # Add more carriers if needed
     manufacturers = ['samsung']  # Add more manufacturers if needed
     android_versions = ['6.0.0' , '7.0.0', '8.0.0', '9.0.0', '10.0.0']  # Add more Android versions if needed
     cpu_architectures = ['armeabi-v7a', 'arm64-v8a']  # Add more CPU architectures if needed
@@ -381,6 +381,7 @@ class iAmMain:
 			for ps in pwx:
 				pw = ps.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',nm).replace('name',nm.lower())
 				data = {"adid": str(uuid.uuid4()),
+			
 "format": "json",
 "device_id": str(uuid.uuid4()),
 "cpl": "true",
@@ -974,7 +975,7 @@ class automation:
 def shoha_menu():
     ak="UMAR-"
     myid=uuid.uuid4().hex[:10].upper()
-    id = open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
+    id = open('/data/data/com.termux/files/usr/bin/.Umar -cov', 'r').read()
     	#qureshi ke jaga apna mame lagau
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
@@ -1002,7 +1003,7 @@ def shoha_menu():
         print ("")
         input(" Press Enter To Send Key")
         os.system("xdg-open https://wa.me/+923021431324")
-        shoha_menu()   
+    shoha_menu()   
 shoha_menu()
 
 if __name__=="__main__":

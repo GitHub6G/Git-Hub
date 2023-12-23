@@ -982,20 +982,20 @@ def shoha_menu():
         'Main()'
     else:
         os.system("clear")
-        #os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')
+        os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
         logo()
         print ("[*]--------------------------------------------------------------")
-        print ("  Your Token Is Not Approved Already")
-        print ("[*]--------------------------------------------------------------")
-        print ("          THIS IS YOUR KEY BRO")
-        print ("[*]--------------------------------------------------------------")
+        print ("          Your Token Is Not Approved Already")
+    
+        print ("              THIS IS YOUR KEY BRO")
+        
         print ("")
 		#qureshi ke jaga apna name or kch ni cherna
         kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
         kok.close()
-        print ("         YOUR KEY : "+ak+id)
+        print ("        		 YOUR KEY : "+ak+id)
         print ("[*]--------------------------------------------------------------")
-        print ("     Copy Key And Sent Me WP Approvel Your Key ")
+        print ("    		 Copy Key And Sent To Admin ")
         print ("[*]--------------------------------------------------------------")
         print ("\n")
         name = input(" Your Name : ")

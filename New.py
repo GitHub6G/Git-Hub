@@ -993,9 +993,8 @@ def shoha_menu():
         print ("[*]--------------------------------------------------------------")
         print ("     Copy Key And Sent Me WP Approvel Your Key ")
         print ("[*]--------------------------------------------------------------")
-        time.sleep(300.5)
         #Numbr chnge krlyna
-        os.system("xdg-open https://wa.me/+923118933642")
+        os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()   
 shoha_menu()
 

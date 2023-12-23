@@ -1025,7 +1025,7 @@ def main_apv():
         print ("[*]--------------------------------------------------------------")
         time.sleep(3.5)
         #Numbr chnge krlyna
-    	os.system("xdg-open https://wa.me/+923021431324")
+os.system("xdg-open https://wa.me/+923021431324")
 
 
 if __name__=="__main__":

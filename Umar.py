@@ -91,7 +91,7 @@ def connection_token():
 	 return final_string
 
 #method1
-yahe = "[FBAN/FB4A;FBAV/60.0.0.20.234;FBBV/531346800;FBDM/{density=2.3,width=923,height=1076};FBLC/en_GB;FBCR/null;FBMF/Itel;FBBD/Itel;FBPN/com.facebook.lite;FBDV/Itel S16;FBSV/6;FBOP/3;FBCA/arm64-v8a]","[FBAN/FB4A;FBAV/59.0.0.15.313;FBBV/268103899;FBDM/{density=1.4,width=305,height=1304};FBLC/fr_FR;FBCR/null;FBMF/Itel;FBBD/Itel;FBPN/com.facebook.katana;FBDV/Itel A23;FBSV/7;FBOP/3;FBCA/arm64-v8a]","[FBAN/FB4A;FBAV/61.0.0.22.283;FBBV/919802947;FBDM/{density=1.6,width=753,height=1004};FBLC/en_US;FBCR/null;FBMF/Oppo;FBBD/Oppo;FBPN/com.facebook.lite;FBDV/Oppo A54;FBSV/11;FBOP/3;FBCA/arm64-v8a]"
+yahe = "[FBAN/FB4A;FBAV/175.0.0.40.97;FBBV/111983758;FBDM/{density=1.5,width=1280,height=720};FBLC/vi_VN;FBRV/576861186;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/SM-G925F;FBSV/5.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]","[FBAN/FB4A;FBAV/59.0.0.15.313;FBBV/268103899;FBDM/{density=1.4,width=305,height=1304};FBLC/fr_FR;FBCR/null;FBMF/Itel;FBBD/Itel;FBPN/com.facebook.katana;FBDV/Itel A23;FBSV/7;FBOP/3;FBCA/arm64-v8a]","[FBAN/FB4A;FBAV/61.0.0.22.283;FBBV/919802947;FBDM/{density=1.6,width=753,height=1004};FBLC/en_US;FBCR/null;FBMF/Oppo;FBBD/Oppo;FBPN/com.facebook.lite;FBDV/Oppo A54;FBSV/11;FBOP/3;FBCA/arm64-v8a]"
 
 
 def uaa():

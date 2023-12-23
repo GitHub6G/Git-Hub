@@ -974,13 +974,13 @@ class automation:
 def main_apv():
     os.system('clear')
     #Wasi ke jaga apna name likhlo 
-    ak="WASI"
+    ak="UMAR"
     logo()
     #apni id ke link dal lo 
     os.system('xdg-open https://www.Facebook.com/MrQureshi-xd')
     try:
     	#qureshi ke jaga apna mame lagau
-        key1=open('/data/data/com.termux/files/usr/bin/.qureshi-cov', 'r').read()
+        key1=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'r').read()
     except IOError:
         os.system("clear")
         logo()
@@ -995,7 +995,7 @@ def main_apv():
         print ("          YOUR KEY : "+ak+myid)
         print ("[*]--------------------------------------------------------------")
         #qureshi ke jaga apna name or kch ni cherna
-        kok=open('/data/data/com.termux/files/usr/bin/.qureshi-cov', 'w')
+        kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
         kok.close()
         print ("")
         print ("")
@@ -1008,7 +1008,7 @@ def main_apv():
     r1=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if key1 in r1:
     	#R ke jaga apne main jahan sy script started krna chahty wo lagao 
-        R()
+        main_apv()
     else:
         os.system("clear")
         os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')
@@ -1025,7 +1025,7 @@ def main_apv():
         print ("[*]--------------------------------------------------------------")
         time.sleep(3.5)
         #Numbr chnge krlyna
-        os.system("xdg-open https://wa.me/+923021431324")
+    	os.system("xdg-open https://wa.me/+923021431324")
 
 
 if __name__=="__main__":

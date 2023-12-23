@@ -977,8 +977,8 @@ def shoha_menu():
     id = "+ak+myid"
     	#qureshi ke jaga apna mame lagau
     print(logo)
-    key1=open('https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt').text
-    if id in key1:
+    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+    if id in DARK:
         'Main()'
     else:
         os.system("clear")
@@ -990,7 +990,7 @@ def shoha_menu():
         print ("          THIS IS YOUR KEY BRO")
         print ("[*]--------------------------------------------------------------")
         print ("")
-        print ("          YOUR KEY : +ak+key1")
+        print ("         YOUR KEY : "+ak+DARK)
         print ("[*]--------------------------------------------------------------")
         print ("     Copy Key And Sent Me WP Approvel Your Key ")
         print ("[*]--------------------------------------------------------------")

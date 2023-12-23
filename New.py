@@ -974,8 +974,8 @@ class automation:
 		self.iAmPasswordManager()
 def shoha_menu():
     ak="UMAR-"
-    myid= uuid.uuid4().hex[:10].upper()
-    id = open('/data/data/com.termux/files/usr/bin/.myid -cov', 'r').read()
+    UMAR= uuid.uuid4().hex[:10].upper()
+    id = open('/data/data/com.termux/files/usr/bin/.UMAR -cov', 'r').read()
     	#qureshi ke jaga apna mame lagau
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text

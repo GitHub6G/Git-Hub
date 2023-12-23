@@ -971,39 +971,36 @@ class automation:
 		input("[•] Press Enter to go back ")
 	
 		self.iAmPasswordManager()
-def shoha_menu():
-    ak="UMAR-"
-    myid=uuid.uuid4().hex[:10].upper()
-    id = open('/data/data/com.termux/files/usr/bin/.Umar -cov', 'r').read()
-    	#qureshi ke jaga apna mame lagau
+def danger_menu():
+    UMO="DANGER-"
+    uuid = str(os.geteuid()) + str(os.getlogin()) 
+    id = "5".join(uuid)
     print(logo)
-    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+    DARK=requests.get("https://github.com/Kawcar/APPROBALL1/blob/main/Paid.txt").text
     if id in DARK:
-        'Main()'
+        'DANGER()'
     else:
         os.system("clear")
-        os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-        logo()
-        print ("[*]--------------------------------------------------------------")
-        print ("          Your Token Is Not Approved Already")
-    
-        print ("                THIS IS YOUR KEY BRO")
+        os.system("xdg-open https://chat.whatsapp.com/LTBJe0upO8SIUsMXvHVAQd")
+        time.sleep(3.0)
         
+        os.system("clear")
+        print(logo)
+        print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
         print ("")
-		#qureshi ke jaga apna name or kch ni cherna
-        kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
-        kok.close()
-        print ("          YOUR KEY : "+ak+id)
-        print ("[*]--------------------------------------------------------------")
-        print ("    	        Copy Key And Sent To Admin ")
-        print ("[*]--------------------------------------------------------------")
+        print("â”Œâ”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â” \n\033[1;32mâ”‚ Note : That is Paid Tools because 100% ok id And FF GAME ID just now loginâ”‚\033[1;37m\nâ””â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”˜")
+        print ("")
+        print("   7 Day-150à§³             Your Key is Not Approved ")
+        print("   15 Day-250à§³           Copy And Send Key To Admin")
+        print ("")
+        print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
         print ("")
         input(" Press Enter To Send Key")
-        os.system("xdg-open https://wa.me/+923021431324")
-        shoha_menu()
-shoha_menu()
+        os.system("xdg-open https://wa.me/+8801780782237")
+        danger_menu()   
+danger_menu()
 
 
 if __name__=="__main__":

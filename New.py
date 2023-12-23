@@ -989,7 +989,7 @@ def shoha_menu():
         print ("          THIS IS YOUR KEY BRO")
         print ("[*]--------------------------------------------------------------")
         print ("")
-        print ("          YOUR KEY : "+ak+myid)
+        print ("          YOUR KEY : "+ak"+"key1"
         print ("[*]--------------------------------------------------------------")
         print ("     Copy Key And Sent Me WP Approvel Your Key ")
         print ("[*]--------------------------------------------------------------")

@@ -981,7 +981,7 @@ def shoha_menu():
         'Main()'
     else:
         os.system("clear")
-        os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')
+        #os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')
         logo()
         print ("[*]--------------------------------------------------------------")
         print ("  Your Token Is Not Approved Already")

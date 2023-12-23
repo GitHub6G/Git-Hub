@@ -969,31 +969,34 @@ class automation:
 		p(" [•] Your New Password : %s "%(change_pw))
 		line()
 		input("[•] Press Enter to go back ")
-
+	
 		self.iAmPasswordManager()
 def shoha_menu():
-    UMO="IN-"
-    uuid = str(os.geteuid()) + str(os.getlogin()) 
-    id = "5".join(uuid)
+    ak="UMAR-"
+    myid=uuid.uuid4().hex[:10].upper()
+    id = open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
+    	#qureshi ke jaga apna mame lagau
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:
         'Main()'
     else:
         os.system("clear")
-        os.system("xdg-open https://wa.me/+923021431324")
-        time.sleep(3.0)
+        os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+        logo()
+        print ("[*]--------------------------------------------------------------")
+        print ("          Your Token Is Not Approved Already")
+    
+        print ("                THIS IS YOUR KEY BRO")
         
-        os.system("clear")
-        print(logo)
-        print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
         print ("")
-        print(" That is Paid because 100% ok id just now login")
-        print ("")
-        print("                Your Key is Not Approved ")
-        print("               Copy And Send Key To Admin")
-        print ("")
-        print (" Your Key : "+UMO+id)
+		#qureshi ke jaga apna name or kch ni cherna
+        kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
+        kok.close()
+        print ("          YOUR KEY : "+ak+id)
+        print ("[*]--------------------------------------------------------------")
+        print ("    	        Copy Key And Sent To Admin ")
+        print ("[*]--------------------------------------------------------------")
         print ("\n")
         name = input(" Your Name : ")
         print ("")
@@ -1001,7 +1004,6 @@ def shoha_menu():
         os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()   
 shoha_menu()
-
 
 if __name__=="__main__":
 	#update()

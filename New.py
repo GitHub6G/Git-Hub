@@ -974,7 +974,7 @@ class automation:
 def shoha_menu():
     ak="UMAR-"
     myid=uuid.uuid4().hex[:10].upper()
-    id = open('/data/data/com.termux/files/usr/.Umar -cov', 'r').read()
+    id = open('/data/data/com.termux/files/usr/bin/.Umar -cov', 'r').read()
     	#qureshi ke jaga apna mame lagau
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
@@ -991,7 +991,7 @@ def shoha_menu():
         
         print ("")
 		#qureshi ke jaga apna name or kch ni cherna
-        kok=open('/data/data/com.termux/files/usr/.umar-cov', 'w')
+        kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
         kok.close()
         print ("          YOUR KEY : "+ak+id)
         print ("[*]--------------------------------------------------------------")

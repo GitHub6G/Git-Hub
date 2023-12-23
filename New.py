@@ -973,10 +973,10 @@ class automation:
 		self.iAmPasswordManager()
 def danger_menu():
     UMO="DANGER-"
-    uuid = str(os.geteuid()) + str(os.getlogin()) 
+    uuid  =uuid.uuid4().hex[:10].upper()
     id = "5".join(uuid)
     print(logo)
-    DARK=requests.get("https://github.com/Kawcar/APPROBALL1/blob/main/Paid.txt").text
+    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:
         'DANGER()'
     else:
@@ -988,7 +988,7 @@ def danger_menu():
         print(logo)
         print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
         print ("")
-        print("â”Œâ”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â” \n\033[1;32mâ”‚ Note : That is Paid Tools because 100% ok id And FF GAME ID just now loginâ”‚\033[1;37m\nâ””â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”â•â”â•â”â•â”â•â”â•â”â•â”â•â”â”˜")
+        print(" Note : That is Paid Tools because 100% ok id And FF GAME ID just now login")
         print ("")
         print("   7 Day-150à§³             Your Key is Not Approved ")
         print("   15 Day-250à§³           Copy And Send Key To Admin")

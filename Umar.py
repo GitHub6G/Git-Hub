@@ -91,7 +91,7 @@ def connection_token():
 	 return final_string
 
 #method1
-yahe = "[FBAN/FB4A;FBAV/66.0.3774.127;FBBV/854283466;FBDM/{density=2.25,width=1024,height=2049};FBLC/en_US;FBRV/0;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.Orca;FBDV/SM-J250F;FBSV/7.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]","[FBAN/FB4A;FBAV/364.0.0.10.112;FBBV/374667243;FBDM/{density=1.3312501,width=1280,height=736};FBLC/en_US;FBRV/0;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.Orca;FBDV/SM-T290;FBSV/7.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]"
+yahe ="[FBAN/FB4A;FBAV/63.0.0.3574;FBBV/167256[FBAN/Orca-Android;FBAV/260.0.0.22.122;FBPN/com.facebook.orca;FBLC/en_US;FBBV/209190396;FBCR/null;FBMF/samsung;FBBD/samsung;FBDV/SM-G960U;FBSV/8.0.0;FBCA/armeabi-v7a:armeabi;FBDM/{density=3.0,width=1080,height=2076};FB_FW/1:;]","[FBAN/FB4A;FBAV/66.0.3774.127;FBBV/854283466;FBDM/{density=2.25,width=1024,height=2049};FBLC/en_US;FBRV/0;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.Orca;FBDV/SM-J250F;FBSV/7.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]","[FBAN/FB4A;FBAV/364.0.0.10.112;FBBV/374667243;FBDM/{density=1.3312501,width=1280,height=736};FBLC/en_US;FBRV/0;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.Orca;FBDV/SM-T290;FBSV/7.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 
 
 def uaa():

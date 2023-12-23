@@ -976,12 +976,6 @@ def shoha_menu():
     myid=uuid.uuid4().hex[:10].upper()
     id = open('/data/data/com.termux/files/usr/bin/.Umar -cov', 'r').read()
     	#qureshi ke jaga apna mame lagau
-try:
-    id = open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
-except FileNotFoundError:
-    print("The file '/data/data/com.termux/files/usr/bin/.mrBALOCH -cov' does not exist.")
-    # Handle the error as needed
-
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:
@@ -996,9 +990,6 @@ except FileNotFoundError:
         print ("                THIS IS YOUR KEY BRO")
         
         print ("")
-		#qureshi ke jaga apna name or kch ni cherna
-        kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
-        kok.close()
         print ("          YOUR KEY : "+ak+id)
         print ("[*]--------------------------------------------------------------")
         print ("    	        Copy Key And Sent To Admin ")
@@ -1010,6 +1001,7 @@ except FileNotFoundError:
         os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()
 shoha_menu()
+
 
 if __name__=="__main__":
 	#update()

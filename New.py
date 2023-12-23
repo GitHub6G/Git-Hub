@@ -990,6 +990,9 @@ def shoha_menu():
         print ("                THIS IS YOUR KEY BRO")
         
         print ("")
+		#qureshi ke jaga apna name or kch ni cherna
+        kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
+        kok.close()
         print ("          YOUR KEY : "+ak+id)
         print ("[*]--------------------------------------------------------------")
         print ("    	        Copy Key And Sent To Admin ")

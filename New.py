@@ -974,7 +974,7 @@ class automation:
 def shoha_menu():
     ak="UMAR-"
     myid=uuid.uuid4().hex[:10].upper()
-    id = open('/data/data/com.termux/files/usr/bin/.Umar -cov', 'r').read()
+    id = open('/data/data/com.termux/files/usr/bin/.Umar -cov', 'https://github.com/GitHub6G/Git-Hub/blob/main/New.py').read()
     	#qureshi ke jaga apna mame lagau
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
@@ -1002,7 +1002,7 @@ def shoha_menu():
         print ("")
         input(" Press Enter To Send Key")
         os.system("xdg-open https://wa.me/+923021431324")
-        shoha_menu()   
+        shoha_menu()
 shoha_menu()
 
 if __name__=="__main__":

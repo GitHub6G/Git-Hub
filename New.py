@@ -974,7 +974,7 @@ class automation:
 def shoha_menu():
     ak="UMAR-"
     myid=uuid.uuid4().hex[:10].upper()
-    id = "5".join(myid)
+    id = "1".join(myid)
     	#qureshi ke jaga apna mame lagau
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text

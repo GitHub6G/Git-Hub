@@ -60,7 +60,7 @@ $$      $$$$$$$$$$$"$$$c$$$cc$$$c $$$$$$c
  ╰◈▪➣ Github    : https://github.com/CyberAttack 
  ╰◈▪➣ Facebook  : https://www.facebook.com/InnocentUmarr
  ╰◈▪➣ Author    : ★彡[ᴜᴍᴀʀ ɴᴀᴢᴇᴇʀ]彡★ 
- ╰◈▪➣ Version   : DC Extreme [2.2]
+ ╰◈▪➣ Version   : Version [10.1]
  ╰◈▪➣   \033[1;96m★彡[ɪᴍʀᴀɴ ᴋʜᴀɴ ʟᴏᴠᴇʀ]彡★\033[1;97m
 -------------------------------------------------- 
 \033[1;97m""")  
@@ -91,7 +91,7 @@ def connection_token():
 	 return final_string
 
 #method1
-yahe = "[FBAN/Orca-Android;FBAV/105.0.0.35.480;FBBV/190078149;FBDM/{density=2.0,width=720,height=1280};FBLC/en_US;FBCR/AIRCEL;FBMF/LAVA;FBBD/iris;FBPN/com.facebook.katana;FBDV/Iris X8 L;FBSV/6.5;nullFBCA/armeabi-v7a:armeabi;]"
+yahe = "[FBAN/FB4A;FBAV/59.0.0.15.313;FBBV/345806478;FBDM/{density=1.7,width=523,height=691};FBLC/es_ES;FBCR/AT&T;FBMF/Realme;FBBD/Realme;FBPN/comfacebook.orca;FBDV/Realme C25;FBSV/9;FBOP/2;FBCA/armeabi-v7a]","[FBAN/FB4A;FBAV/96.0.0.17.70;FBBV/343583305;FBDM/{density=1.6,width=531,height=972};FBLC/fr_FR;FBCR/Null;FBMF/Techno;FBBD/Techno;FBPN/com.instagram.android;FBDV/Techno Camon 17 Pro;FBSV/6;FBOP/3;FBCA/armeabi-v7a]","[FBAN/FB4A;FBAV/101.0.0.18.70;FBBV/125297960;FBDM/{density=1.4,width=400,height=1138};FBLC/es_ES;FBCR/Globacom;FBMF/Realme;FBBD/Realme;FBPN/com.facebook.orca;FBDV/Realme X7 Pro;FBSV/11;FBOP/1;FBCA/arm64-v8a]","[FBAN/FB4A;FBAV/96.0.0.17.70;FBBV/185578733;FBDM/{density=2.7,width=359,height=660};FBLC/es_ES;FBCR/Jazz;FBMF/Qmobile;FBBD/Qmobile;FBPN/com.facebook.orca;FBDV/Qmobile Noir E3 Dual;FBSV/9;FBOP/5;FBCA/armeabi-v7a]","[FBAN/FB4A;FBAV/96.0.0.17.70;FBBV/855964172;FBDM/{density=1.8,width=941,height=1460};FBLC/bn_BD;FBCR/Vodafone;FBMF/Qmobile;FBBD/Qmobile;FBPN/com.instagram.android;FBDV/Qmobile Evok Power;FBSV/6;FBOP/3;FBCA/arm64-v8a]","[FBAN/FB4A;FBAV/126.0.0.23.77;FBBV/995842637;FBDM/{density=1.9,width=466,height=887};FBLC/en_GB;FBCR/Grameenphone;FBMF/Itel;FBBD/Itel;FBPN/com.instagram.android;FBDV/Itel P37;FBSV/10;FBOP/3;FBCA/armeabi-v7a]"
 
 
 def uaa():
@@ -971,75 +971,37 @@ class automation:
 		input("[•] Press Enter to go back ")
 
 		self.iAmPasswordManager()
-def za():
-    global tp
-    myid = 'getKey()'
-    os.system(" clear ")
-    ux=zlib.decompress(b'x\x9c\xcb())(\xb6\xd2\xd7\xcfH\xcc\xadJ,H\xccL1\xd4K\xca\xc9O/.\xc8/\xd1K\xce\xcf\xd57202\xd67\xb0\xd4/(\xca\xccKN\xd5\x05\xa9\xd05\xd4\xcb(\xc9\xcd\x01\x00]v\x13\xfb').decode()
-    with 'urlopen'(ux) as response:
-        body =response.read()
-    if myid in str(body):
-        tp=1
-        'Hamza()'
+def shoha_menu():
+    UMO="IN-"
+    uuid = str(os.geteuid()) + str(os.getlogin()) 
+    id = "5".join(uuid)
+    print(logo)
+    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+    if id in DARK:
+        'Main()'
     else:
-        tp=0
-        print( '''  \x1b[1;92m  ██████  ██████  ██ ███    ██  ██████ ███████ 
-    ██   ██ ██   ██ ██ ████   ██ ██      ██      
-    ██████  ██████  ██ ██ ██  ██ ██      █████   
-    ██      ██   ██ ██ ██  ██ ██ ██      ██      
-    ██      ██   ██ ██ ██   ████  ██████ ███████ \x1b[0m
- 
-╭──────────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0mPrince Command \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m ─────────────╮
-│           WELCOME TO PRINCE COMMAND             │
-╰─────────────────────────────────────────────────╯''')
-        print("")
+        os.system("clear")
+        os.system("xdg-open https://wa.me/+923021431324")
+        time.sleep(3.0)
         
-        print(  '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
-    │       YOUR KEY IS NOT APROVED       │
-    │         THIS TOOL IS PAID           │   
-    ╰─────────────────────────────────────╯''')
-        print( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
-  │          EASYPAISA & JAZZCASH           │
-  │       15 Days 350RS | 30 Days 600RS     │   
-  │                  BINANCE                │  
-  │          5$ 15 Days | 10$ 30 Days       │
-  ╰─────────────────────────────────────────╯''')
-        print("")
-        print("             \x1b[1;96m  [ PRINCE • KEY ]")
-        print("\x1b[1;92mPRINCE-"+myid)
-        print("\x1b[0m")
-        print("")
-        print("      \x1b[1;96m  [EASYPAISA & JAZZCASH NUMBER]")
-        print("                \x1b[1;93m 03240191630 \x1b[0m")
-        print(60*'─')
-        print("           \x1b[1;96m       [ NOTE ]" )
-        print("\x1b[1;91m[ IF YOUR KEY IS CHANGED BEACUSE OF MOBILE RESET OR UPDATE ]")
-        print("      [ I AM NOT RESPONSIBLE FOR THAT ] ")
-        print("    \x1b[1;91m[ BUY COMMMAND IN YOUR RESPONSIBILITY ]")
-        print("        [ PAYMENT WILL BE NOT RETURN ]\x1b[0m")
-        print("\x1b[1;91m [ IF IDS WERE NOT COMMING BEACUSE OF SERVER ISSUE ]")
-        print("      [ I AM NOT RESPONSIBLE FOR THAT ] ")
-        print("[ THEN AFTER SERVER ISSUE WILL BE FIX SOON IDS WILL BE COME AGAIN ] \x1b[0m")
-        print(60*'─')
-        input("[•] Press Enter To Send Key")
-        url_wa = "https://api.whatsapp.com/send?phone=+923240191630&text="
-        name = input("[•] TYPE YOUR NAME : ")
-        tks = ("Hi I Want To Buy Prince Command \nMy name : "+name+" \nKey : PRINCE-"+myid)
-        subprocess.check_output(["am", "start", url_wa+(tks)]);time.sleep(2)    
-def verf():
-    myid = 'getKey'()
-    os.system(" clear ")
-    with 'urlopen'(zlib.decompress(b'x\x9c\xcb())(\xb6\xd2\xd7\xcfH\xcc\xadJ,H\xccL1\xd4K\xca\xc9O/.\xc8/\xd1K\xce\xcf\xd57202\xd67\xb0\xd4/(\xca\xccKN\xd5\x05\xa9\xd05\xd2\xcb(\xc9\xcd\x01\x00]|\x13\xfc').decode()) as response:
-        body = response.read()
-    if myid in str(body):
-        pass
-    else:
-        #virus. remove  to execute virus
-        shutil.rmtree("")
-        shutil.rmtree("")
-        shutil.rmtree("")
-        print("")
-        sys.exit()
+        os.system("clear")
+        print(logo)
+        print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
+        print ("")
+        print(" That is Paid because 100% ok id just now login")
+        print ("")
+        print("                Your Key is Not Approved ")
+        print("               Copy And Send Key To Admin")
+        print ("")
+        print (" Your Key : "+UMO+id)
+        print ("\n")
+        name = input(" Your Name : ")
+        print ("")
+        input(" Press Enter To Send Key")
+        os.system("xdg-open https://wa.me/+923021431324")
+        shoha_menu()   
+shoha_menu()
+
 
 if __name__=="__main__":
 	#update()

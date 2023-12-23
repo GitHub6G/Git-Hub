@@ -973,7 +973,7 @@ class automation:
 		self.iAmPasswordManager()
 def shoha_menu():
     ak="UMAR-"
-    myid=str(uuid.uuid4()) + hex[:10].upper()  
+    myid=uuid.uuid4().hex[:10].upper()
     id = "5".join(myid)
     	#qureshi ke jaga apna mame lagau
     print(logo)
@@ -990,6 +990,9 @@ def shoha_menu():
         print ("          THIS IS YOUR KEY BRO")
         print ("[*]--------------------------------------------------------------")
         print ("")
+		#qureshi ke jaga apna name or kch ni cherna
+        kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
+        kok.close()
         print ("         YOUR KEY : "+ak+id)
         print ("[*]--------------------------------------------------------------")
         print ("     Copy Key And Sent Me WP Approvel Your Key ")

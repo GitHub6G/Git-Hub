@@ -972,7 +972,7 @@ class automation:
 
 		self.iAmPasswordManager()
 def shoha_menu():
-    ak="WASI"
+    ak="UMAR-"
     myid=uuid.uuid4().hex[:10].upper() 
     id = "+ak+myid"
     print(logo)
@@ -993,11 +993,13 @@ def shoha_menu():
         print ("[*]--------------------------------------------------------------")
         print ("     Copy Key And Sent Me WP Approvel Your Key ")
         print ("[*]--------------------------------------------------------------")
-        #Numbr chnge krlyna
+        print ("\n")
+        name = input(" Your Name : ")
+        print ("")
+        input(" Press Enter To Send Key")
         os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()   
 shoha_menu()
-
 
 if __name__=="__main__":
 	#update()

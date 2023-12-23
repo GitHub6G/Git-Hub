@@ -973,7 +973,7 @@ class automation:
 		self.iAmPasswordManager()
 def shoha_menu():
     ak="UMAR-"
-    myid=str(uuid.uuid4()) + str(hex[:10].upper())  
+    myid=str(uuid.uuid4()) + str .hex[:10].upper()  
     id = "5".join(myid)
     	#qureshi ke jaga apna mame lagau
     print(logo)

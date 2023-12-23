@@ -60,7 +60,7 @@ $$      $$$$$$$$$$$"$$$c$$$cc$$$c $$$$$$c
  ╰◈▪➣ Github    : https://github.com/CyberAttack 
  ╰◈▪➣ Facebook  : https://www.facebook.com/InnocentUmarr
  ╰◈▪➣ Author    : ★彡[ᴜᴍᴀʀ ɴᴀᴢᴇᴇʀ]彡★ 
- ╰◈▪➣ Version   : DC Extreme [10.2]
+ ╰◈▪➣ Version   : DC Extreme [10.1]
  ╰◈▪➣   \033[1;96m★彡[ɪᴍʀᴀɴ ᴋʜᴀɴ ʟᴏᴠᴇʀ]彡★\033[1;97m
 -------------------------------------------------- 
 \033[1;97m""")  
@@ -91,7 +91,7 @@ def connection_token():
 	 return final_string
 
 #method1
-yahe = "[FBAN/FB4A;FBAV/175.0.0.40.97;FBBV/111983758;FBDM/{density=1.5,width=1280,height=720};FBLC/vi_VN;FBRV/576861186;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/SM-G925F;FBSV/5.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]","[FBAN/FB4A;FBAV/59.0.0.15.313;FBBV/268103899;FBDM/{density=1.4,width=305,height=1304};FBLC/fr_FR;FBCR/null;FBMF/Itel;FBBD/Itel;FBPN/com.facebook.katana;FBDV/Itel A23;FBSV/7;FBOP/3;FBCA/arm64-v8a]","[FBAN/FB4A;FBAV/61.0.0.22.283;FBBV/919802947;FBDM/{density=1.6,width=753,height=1004};FBLC/en_US;FBCR/null;FBMF/Oppo;FBBD/Oppo;FBPN/com.facebook.lite;FBDV/Oppo A54;FBSV/11;FBOP/3;FBCA/arm64-v8a]"
+yahe = "[FBAN/Orca-Android;FBAV/220.0.0.20.121;FBBV/159507260;FBDM/{density=4.0,width=1440,height=2768};FBLC/en_US;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.orca;FBDV/SM-G950U;FBSV/8.0.0;FBCA/armeabi-v7a:armeabi;]","[FBAN/Orca-Android;FBAV/44.0.0.8.52;FBBV/16048044;FBDM/{density=2.0,width=720,height=1184};FBLC/en_US;FBCR/null;FBMF/zte;FBBD/zte;FBPN/com.facebook.orca;FBDV/Z987;FBSV/4.4.4;FBCA/armeabi-v7a:armeabi;]","[FBAN/Orca-Android;FBAV/196.0.0.29.99;FBBV/135374479;FBDM/{density=3.0,width=1080,height=1920};FBLC/th_TH;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.orca;FBDV/SM-A720F;FBSV/8.0.0;FBCA/armeabi-v7a:armeabi;]"
 
 
 def uaa():

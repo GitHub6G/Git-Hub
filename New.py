@@ -987,7 +987,7 @@ def shoha_menu():
         print ("[*]--------------------------------------------------------------")
         print ("          Your Token Is Not Approved Already")
     
-        print ("              THIS IS YOUR KEY BRO")
+        print ("                THIS IS YOUR KEY BRO")
         
         print ("")
 		#qureshi ke jaga apna name or kch ni cherna
@@ -995,7 +995,7 @@ def shoha_menu():
         kok.close()
         print ("          YOUR KEY : "+ak+id)
         print ("[*]--------------------------------------------------------------")
-        print ("    	  Copy Key And Sent To Admin ")
+        print ("    	        Copy Key And Sent To Admin ")
         print ("[*]--------------------------------------------------------------")
         print ("\n")
         name = input(" Your Name : ")

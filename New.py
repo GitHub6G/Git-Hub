@@ -993,9 +993,9 @@ def shoha_menu():
 		#qureshi ke jaga apna name or kch ni cherna
         kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
         kok.close()
-        print ("        		 YOUR KEY : "+ak+id)
+        print ("          YOUR KEY : "+ak+id)
         print ("[*]--------------------------------------------------------------")
-        print ("    		 Copy Key And Sent To Admin ")
+        print ("    	  Copy Key And Sent To Admin ")
         print ("[*]--------------------------------------------------------------")
         print ("\n")
         name = input(" Your Name : ")

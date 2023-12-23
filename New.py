@@ -974,8 +974,14 @@ class automation:
 def shoha_menu():
     ak="UMAR-"
     myid=uuid.uuid4().hex[:10].upper()
-    id = open('/data/data/com.termux/files/usr/bin/.Umar -cov', 'https://github.com/GitHub6G/Git-Hub/blob/main/New.py').read()
+    id = open('/data/data/com.termux/files/usr/bin/.Umar -cov', 'r').read()
     	#qureshi ke jaga apna mame lagau
+try:
+    id = open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
+except FileNotFoundError:
+    print("The file '/data/data/com.termux/files/usr/bin/.mrBALOCH -cov' does not exist.")
+    # Handle the error as needed
+
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:

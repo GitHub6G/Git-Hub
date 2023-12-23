@@ -1005,7 +1005,7 @@ def main_apv():
         #nichy number ki hata k apna numbr dal lo 
         os.system("xdg-open https://wa.me/+923021431324")
         #nichy  link hata k apni github ke link lagau
-    r1=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+    r1=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/paid.txt").text
     if key1 in r1:
     	#R ke jaga apne main jahan sy script started krna chahty wo lagao 
         main_apv()

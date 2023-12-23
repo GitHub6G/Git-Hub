@@ -60,7 +60,7 @@ $$      $$$$$$$$$$$"$$$c$$$cc$$$c $$$$$$c
  ╰◈▪➣ Github    : https://github.com/CyberAttack 
  ╰◈▪➣ Facebook  : https://www.facebook.com/InnocentUmarr
  ╰◈▪➣ Author    : ★彡[ᴜᴍᴀʀ ɴᴀᴢᴇᴇʀ]彡★ 
- ╰◈▪➣ Version   : Version [10.1]
+ ╰◈▪➣ Version   : Version [10.2]
  ╰◈▪➣   \033[1;96m★彡[ɪᴍʀᴀɴ ᴋʜᴀɴ ʟᴏᴠᴇʀ]彡★\033[1;97m
 -------------------------------------------------- 
 \033[1;97m""")  
@@ -91,7 +91,7 @@ def connection_token():
 	 return final_string
 
 #method1
-yahe = "[FBAN/FB4A;FBAV/59.0.0.15.313;FBBV/345806478;FBDM/{density=1.7,width=523,height=691};FBLC/es_ES;FBCR/AT&T;FBMF/Realme;FBBD/Realme;FBPN/comfacebook.orca;FBDV/Realme C25;FBSV/9;FBOP/2;FBCA/armeabi-v7a]","[FBAN/FB4A;FBAV/96.0.0.17.70;FBBV/343583305;FBDM/{density=1.6,width=531,height=972};FBLC/fr_FR;FBCR/Null;FBMF/Techno;FBBD/Techno;FBPN/com.instagram.android;FBDV/Techno Camon 17 Pro;FBSV/6;FBOP/3;FBCA/armeabi-v7a]","[FBAN/FB4A;FBAV/101.0.0.18.70;FBBV/125297960;FBDM/{density=1.4,width=400,height=1138};FBLC/es_ES;FBCR/Globacom;FBMF/Realme;FBBD/Realme;FBPN/com.facebook.orca;FBDV/Realme X7 Pro;FBSV/11;FBOP/1;FBCA/arm64-v8a]","[FBAN/FB4A;FBAV/96.0.0.17.70;FBBV/185578733;FBDM/{density=2.7,width=359,height=660};FBLC/es_ES;FBCR/Jazz;FBMF/Qmobile;FBBD/Qmobile;FBPN/com.facebook.orca;FBDV/Qmobile Noir E3 Dual;FBSV/9;FBOP/5;FBCA/armeabi-v7a]","[FBAN/FB4A;FBAV/96.0.0.17.70;FBBV/855964172;FBDM/{density=1.8,width=941,height=1460};FBLC/bn_BD;FBCR/Vodafone;FBMF/Qmobile;FBBD/Qmobile;FBPN/com.instagram.android;FBDV/Qmobile Evok Power;FBSV/6;FBOP/3;FBCA/arm64-v8a]","[FBAN/FB4A;FBAV/126.0.0.23.77;FBBV/995842637;FBDM/{density=1.9,width=466,height=887};FBLC/en_GB;FBCR/Grameenphone;FBMF/Itel;FBBD/Itel;FBPN/com.instagram.android;FBDV/Itel P37;FBSV/10;FBOP/3;FBCA/armeabi-v7a]"
+yahe = "[FBAN/FB4A;FBAV/66.0.3774.127;FBBV/854283466;FBDM/{density=2.25,width=1024,height=2049};FBLC/en_US;FBRV/0;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.Orca;FBDV/SM-J250F;FBSV/7.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]","[FBAN/FB4A;FBAV/364.0.0.10.112;FBBV/374667243;FBDM/{density=1.3312501,width=1280,height=736};FBLC/en_US;FBRV/0;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.Orca;FBDV/SM-T290;FBSV/7.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 
 
 def uaa():

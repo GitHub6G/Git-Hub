@@ -972,37 +972,36 @@ class automation:
 	
 		self.iAmPasswordManager()
 
-def danger_menu():
-    UMO="DANGER-"
+def shoha_menu():
+    UMO="IN-"
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)
     print(logo)
-    DARK=requests.get("https://github.com/Kawcar/APPROBALL1/blob/main/Paid.txt").text
+    DARK=requests.get("https://github.com/U7P4L-IN/CRACK/blob/main/Appove.txt").text
     if id in DARK:
         'Main()'
     else:
         os.system("clear")
-        os.system("xdg-open https://chat.whatsapp.com/LTBJe0upO8SIUsMXvHVAQd")
+        os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")
         time.sleep(3.0)
         
         os.system("clear")
         print(logo)
         print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
         print ("")
-        print("  That is Paid Tools because 100% ok id And FF GAME ID just now login")
+        print("┌━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━┐ \n\033[1;32m│ Note : That is Paid because 100% ok id just now login│\033[1;37m\n└━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━┘")
         print ("")
-        print("   7 Day-150à§³             Your Key is Not Approved ")
-        print("   15 Day-250à§³           Copy And Send Key To Admin")
+        print("                Your Key is Not Approved ")
+        print("               Copy And Send Key To Admin")
         print ("")
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
         print ("")
         input(" Press Enter To Send Key")
-        os.system("xdg-open https://wa.me/+923021431324")
-        danger_menu()   
-danger_menu()
-
+        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
+        shoha_menu()   
+shoha_menu()
 
 
 

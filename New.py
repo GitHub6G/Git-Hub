@@ -999,8 +999,9 @@ def shoha_menu():
   │    15 Days 350RS | 30 Days 600RS      	│  
   │          					│
   ╰─────────────────────────────────────────╯''')
-        kok=open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
-        kok.close()
+        print("")
+        print("               Copy And Send Key To Admin")
+        print ("")
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
@@ -1008,6 +1009,7 @@ def shoha_menu():
         input(" Press Enter To Send Key")
         os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()
+
 shoha_menu() 
 
 

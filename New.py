@@ -979,7 +979,7 @@ def shoha_menu():
     print(logo)
     DARK=requests.get("https://github.com/U7P4L-IN/CRACK/blob/main/Appove.txt").text
     if id in DARK:
-        iAmMain()
+        'Main()'
     else:
         os.system("clear")
         os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")
@@ -997,9 +997,6 @@ def shoha_menu():
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
-        print ("")
-        input(" Press Enter To Send Key")
-        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
         shoha_menu()   
 shoha_menu()
 

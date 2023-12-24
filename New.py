@@ -1000,7 +1000,6 @@ def shoha_menu():
   │          					│
   ╰─────────────────────────────────────────╯''')
         kok=open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
-        print("               Copy And Send Key To Admin")
         kok.close()
         print (" Your Key : "+UMO+id)
         print ("\n")
@@ -1009,7 +1008,6 @@ def shoha_menu():
         input(" Press Enter To Send Key")
         os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()
-
 shoha_menu() 
 
 

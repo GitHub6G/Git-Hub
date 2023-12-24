@@ -994,11 +994,10 @@ def shoha_menu():
         print("                Your Key is Not Approved ")
         print("               Copy And Send Key To Admin")
         print ("")
+        print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
-        print ("")
-        input(" Press Enter To Send Key")
-        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
+      
         shoha_menu()   
 shoha_menu()
 

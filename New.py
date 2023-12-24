@@ -132,7 +132,7 @@ class iAmMain:
 		self.ap = "https://b-api.facebook.com/auth/login"
 	def iAmMenu(self):
 		logo()
-		import webbrowser
+		
 		
 		p(" [1] File Cloning ")
 		p(" [2] Random Clone")
@@ -147,8 +147,8 @@ class iAmMain:
 		elif opt1 == "2":self.num_menu()
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
-		elif opt1 == "W":webbrowser.open("https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
-		elif opt1 == "A":webbrowser.open("https://wa.me/+923021431324")
+		elif opt1 == "W":os.system('webbrowser.open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+		elif opt1 == "A":os.system("webbrowser.open https://wa.me/+923021431324")
 	  
 	
 	def dump_menu(self):

@@ -982,9 +982,9 @@ def shoha_menu():
         'main()'
     else:
         os.system("clear")
-        os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")
+        os.system("xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
         time.sleep(3.0)
-        
+        id = open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
         os.system("clear")
         logo()
         print( '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
@@ -999,15 +999,15 @@ def shoha_menu():
   │    15 Days 350RS | 30 Days 600RS      	│  
   │          					│
   ╰─────────────────────────────────────────╯''')
-        print("")
+        kok=open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
         print("               Copy And Send Key To Admin")
-        print ("")
+        kok.close()
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
         print ("")
         input(" Press Enter To Send Key")
-        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
+        os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()
 
 shoha_menu() 

@@ -987,7 +987,10 @@ def shoha_menu():
         
         os.system("clear")
         logo()
-        print("")
+        print( '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
+    │       YOUR KEY IS NOT APROVED       │
+    │         THIS TOOL IS PAID           │   
+    ╰─────────────────────────────────────╯''')
         print ("")
         print("Note : That is Paid because 100% ok id just now login")
         print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮

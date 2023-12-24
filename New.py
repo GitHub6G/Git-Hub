@@ -972,7 +972,7 @@ class automation:
 	
 		self.iAmPasswordManager()
 
-		def shoha_menu():
+def shoha_menu():
     UMO="IN-"
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)

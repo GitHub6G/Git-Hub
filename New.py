@@ -986,7 +986,7 @@ def shoha_menu():
         time.sleep(3.0)
         
         os.system("clear")
-        print("")
+        logo()
         print("")
         print ("")
         print("Note : That is Paid because 100% ok id just now login")

@@ -977,29 +977,21 @@ def shoha_menu():
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)
     print(logo)
-    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+    DARK=requests.get("https://github.com/U7P4L-IN/CRACK/blob/main/Appove.txt").text
     if id in DARK:
-        'main()'
+        'Main()'
     else:
         os.system("clear")
-        os.system("xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
+        os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")
         time.sleep(3.0)
-        id = open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
+        
         os.system("clear")
-        logo()
-        print( '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
-    │       YOUR KEY IS NOT APROVED       │
-    │         THIS TOOL IS PAID           │   
-    ╰─────────────────────────────────────╯''')
+        print(logo)
+        print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
         print ("")
-        print("")
-        print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
-  │          	 JAZZCASH     	      		│
-  │            					│   
-  │    15 Days 350RS | 30 Days 600RS      	│  
-  │          					│
-  ╰─────────────────────────────────────────╯''')
-        print("")
+        print("┌━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━┐ \n\033[1;32m│ Note : That is Paid because 100% ok id just now login│\033[1;37m\n└━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━┘")
+        print ("")
+        print("                Your Key is Not Approved ")
         print("               Copy And Send Key To Admin")
         print ("")
         print (" Your Key : "+UMO+id)
@@ -1007,10 +999,9 @@ def shoha_menu():
         name = input(" Your Name : ")
         print ("")
         input(" Press Enter To Send Key")
-        os.system("xdg-open https://wa.me/+923021431324")
-        shoha_menu()
-
-shoha_menu() 
+        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
+        shoha_menu()   
+shoha_menu()
 
 
 if __name__=="__main__":

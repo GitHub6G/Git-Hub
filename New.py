@@ -979,7 +979,7 @@ def shoha_menu():
     print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:
-        uuid()
+        'main()'
     else:
         os.system("clear")
         os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")

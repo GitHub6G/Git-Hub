@@ -972,7 +972,7 @@ class automation:
 	
 		self.iAmPasswordManager()
 
-def shoha_menu():
+		def shoha_menu():
     UMO="IN-"
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)
@@ -997,9 +997,11 @@ def shoha_menu():
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
+        print ("")
+        input(" Press Enter To Send Key")
+        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
         shoha_menu()   
 shoha_menu()
-
 
 
 if __name__=="__main__":

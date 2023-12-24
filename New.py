@@ -979,7 +979,7 @@ def shoha_menu():
     print(logo)
     DARK=requests.get("https://github.com/U7P4L-IN/CRACK/blob/main/Appove.txt").text
     if id in DARK:
-        'Main()'
+        iAmMain()
     else:
         os.system("clear")
         os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")

@@ -972,7 +972,6 @@ class automation:
 	
 		self.iAmPasswordManager()
 
-	logo()
 def shoha_menu():
     UMO="IN-"
     uuid = str(os.geteuid()) + str(os.getlogin()) 
@@ -991,7 +990,12 @@ def shoha_menu():
         print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
         print ("")
         print("Note : That is Paid because 100% ok id just now login")
-        print ("")
+        print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
+  │          EASYPAISA & JAZZCASH           │
+  │       15 Days 350RS | 30 Days 600RS     │   
+  │                  BINANCE                │  
+  │          5$ 15 Days | 10$ 30 Days       │
+  ╰─────────────────────────────────────────╯''')
         print("                Your Key is Not Approved ")
         print("               Copy And Send Key To Admin")
         print ("")

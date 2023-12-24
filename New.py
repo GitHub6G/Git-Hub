@@ -1,4 +1,3 @@
-from ast import main
 import os,sys,tempfile,string,random,subprocess,platform,uuid,os,shutil,zlib,smtplib,base64,uuid,time,json,re
 from uuid import uuid4
 from time import sleep as sp
@@ -35,7 +34,7 @@ def p(x):
 	print(x)
 
 #___________ [ Lists Used in Script]________
-main()
+
 id = []
 ok = []
 cp = []
@@ -1010,7 +1009,7 @@ def main_apv():
     r1=requests.get("https://pastebin.com/raw/GUgkVAWC").text
     if key1 in r1:
     	#R ke jaga apne main jahan sy script started krna chahty wo lagao 
-        main()
+        uuidd
     else:
         os.system("clear")
         os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')

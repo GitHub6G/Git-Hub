@@ -994,10 +994,10 @@ def shoha_menu():
         print ("")
         print("")
         print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
-  │          	 JAZZCASH     	      		│
-  │            					│   
-  │    15 Days 350RS | 30 Days 600RS      	│  
-  │          					│
+  │          	 JAZZCASH     	      	    │
+  │            				    │   
+  │    15 Days 350RS | 30 Days 600RS        │  
+  │          				    │
   ╰─────────────────────────────────────────╯''')
         print("")
         print("               Copy And Send Key To Admin")

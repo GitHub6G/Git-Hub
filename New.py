@@ -1007,9 +1007,10 @@ def shoha_menu():
         name = input(" Your Name : ")
         print ("")
         input(" Press Enter To Send Key")
+        os.system("clear")
         os.system("xdg-open https://wa.me/+923021431324")
+        time.sleep(3.0)
         shoha_menu()
-
 shoha_menu() 
 
 

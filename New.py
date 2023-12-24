@@ -986,8 +986,8 @@ def shoha_menu():
         time.sleep(3.0)
         
         os.system("clear")
-        print(logo)
-        print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
+        print("")
+        print("")
         print ("")
         print("Note : That is Paid because 100% ok id just now login")
         print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮

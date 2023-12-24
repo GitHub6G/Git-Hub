@@ -976,7 +976,7 @@ def shoha_menu():
     UMO="IN-"
     uuid = str(os.geteuid()) + str(os.getlogin()) 
     id = "5".join(uuid)
-	
+    print(logo)
     DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
     if id in DARK:
         'main()'
@@ -1007,10 +1007,9 @@ def shoha_menu():
         name = input(" Your Name : ")
         print ("")
         input(" Press Enter To Send Key")
-        os.system("clear")
         os.system("xdg-open https://wa.me/+923021431324")
-        time.sleep(3.0)
         shoha_menu()
+
 shoha_menu() 
 
 

@@ -982,7 +982,7 @@ def shoha_menu():
         'main()'
     else:
         os.system("clear")
-        os.system("xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
+        os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")
         time.sleep(3.0)
         
         os.system("clear")
@@ -1007,7 +1007,7 @@ def shoha_menu():
         name = input(" Your Name : ")
         print ("")
         input(" Press Enter To Send Key")
-        os.system("xdg-open https://wa.me/+923021431324")
+        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
         shoha_menu()
 
 shoha_menu() 

@@ -984,7 +984,17 @@ def shoha_menu():
         os.system("clear")
         os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")
         time.sleep(3.0)
-        
+		
+        os.system("clear")
+        print(logo)       
+        print (" Your Key : "+UMO+id)
+        print ("\n")
+        name = input(" Your Name : ")
+        print ("")
+        input(" Press Enter To Send Key")
+        os.system("xdg-open https://t.me/ANONYMOUS_07XD")
+        shoha_menu()   
+shoha_menu()
 
 
 if __name__=="__main__":

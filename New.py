@@ -1006,8 +1006,6 @@ def shoha_menu():
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
-        shoha_menu()
-
 shoha_menu() 
 if __name__=="__main__":
 	#update()

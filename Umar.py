@@ -971,39 +971,7 @@ class automation:
 		input("[•] Press Enter to go back ")
 	
 		self.iAmPasswordManager()
-def shoha_menu():
-    ak="UMAR-"
-    myid=uuid.uuid4().hex[:10].upper()
-    id = open('/data/data/com.termux/files/usr/bin/.mrBALOCH -cov', 'r').read()
-    	#qureshi ke jaga apna mame lagau
-    print(logo)
-    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
-    if id in DARK:
-        'Main()'
-    else:
-        os.system("clear")
-        os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-        logo()
-        print ("[*]--------------------------------------------------------------")
-        print ("          Your Token Is Not Approved Already")
-    
-        print ("                THIS IS YOUR KEY BRO")
-        
-        print ("")
-		#qureshi ke jaga apna name or kch ni cherna
-        kok=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'w')
-        kok.close()
-        print ("          YOUR KEY : "+ak+id)
-        print ("[*]--------------------------------------------------------------")
-        print ("    	        Copy Key And Sent To Admin ")
-        print ("[*]--------------------------------------------------------------")
-        print ("\n")
-        name = input(" Your Name : ")
-        print ("")
-        input(" Press Enter To Send Key")
-        os.system("xdg-open https://wa.me/+923021431324")
-        shoha_menu()   
-shoha_menu()
+
 
 if __name__=="__main__":
 	#update()

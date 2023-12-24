@@ -972,35 +972,63 @@ class automation:
 	
 		self.iAmPasswordManager()
 
-def shoha_menu():
-    UMO="IN-"
-    uuid = str(os.geteuid()) + str(os.getlogin()) 
-    id = "5".join(uuid)
-    print(logo)
-    DARK=requests.get("https://github.com/U7P4L-IN/CRACK/blob/main/Appove.txt").text
-    if id in DARK:
-        'Main()'
+def main_apv():
+    os.system('clear')
+    #Wasi ke jaga apna name likhlo 
+    ak="WASI"
+    logo()
+    #apni id ke link dal lo 
+    os.system('xdg-open https://www.Facebook.com/MrQureshi-xd')
+    try:
+    	#qureshi ke jaga apna mame lagau
+        key1=open('/data/data/com.termux/files/usr/bin/.qureshi-cov', 'r').read()
+    except IOError:
+        os.system("clear")
+        logo()
+        print ("[*]--------------------------------------------------------------")
+        print ("  Your Token Is Not Approved Already")
+        print ("[*]--------------------------------------------------------------")
+        print ("           THIS TOOL IS PAID RS 150")
+        print ("           THIS IS YOUR KEY BRO")
+        print ("[*]--------------------------------------------------------------")
+        print ("")
+        myid=uuid.uuid4().hex[:10].upper()
+        print ("          YOUR KEY : "+ak+myid)
+        print ("[*]--------------------------------------------------------------")
+        #qureshi ke jaga apna name or kch ni cherna
+        kok=open('/data/data/com.termux/files/usr/bin/.qureshi-cov', 'w')
+        kok.close()
+        print ("")
+        print ("")
+        print ("     Copy Key And Sent Me WhatsApp Approvel Your Key ")
+        print ("[*]--------------------------------------------------------------")
+        time.sleep(6)
+        #nichy number ki hata k apna numbr dal lo 
+        os.system("xdg-open https://wa.me/+923118933642")
+        #nichy  link hata k apni github ke link lagau
+    r1=requests.get("https://pastebin.com/raw/GUgkVAWC").text
+    if key1 in r1:
+    	#R ke jaga apne main jahan sy script started krna chahty wo lagao 
+        R()
     else:
         os.system("clear")
-        os.system("xdg-open https://t.me/ANONYMOUS_CYBER07")
-        time.sleep(3.0)
-		
-        os.system("clear")
-        print(logo)
-        print("\t\033[30m   [\033[1;32m\033[47m First Get Approvel\033[00m\033[1;30m]")
+        os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')
+        logo()
+        print ("[*]--------------------------------------------------------------")
+        print ("  Your Token Is Not Approved Already")
+        print ("[*]--------------------------------------------------------------")
+        print ("          THIS IS YOUR KEY BRO")
+        print ("[*]--------------------------------------------------------------")
         print ("")
-        print("┌━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━┐ \n\033[1;32m│ Note : That is Paid because 100% ok id just now login│\033[1;37m\n└━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━┘")
-        print ("")
-        print("                Your Key is Not Approved ")
-        print("               Copy And Send Key To Admin")
-        print ("")
-        print (" Your Key : "+UMO+id)
-        print ("\n")
-        name = input(" Your Name : ")
-      
-        shoha_menu()   
-shoha_menu()
-
+        print ("          YOUR KEY : "+ak+key1)
+        print ("[*]--------------------------------------------------------------")
+        print ("     Copy Key And Sent Me WP Approvel Your Key ")
+        print ("[*]--------------------------------------------------------------")
+        time.sleep(3.5)
+        #Numbr chnge krlyna
+        os.system("xdg-open https://wa.me/+923118933642")
+        main_apv()   
+main_apv()
 
 if __name__=="__main__":
 	#update()

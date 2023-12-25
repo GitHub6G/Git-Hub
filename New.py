@@ -975,7 +975,7 @@ class automation:
 def shoha_menu():
     os.system('clear')
     #Wasi ke jaga apna name likhlo 
-    ak="WASI"
+    ak="Umar"
     logo()
     #apni id ke link dal lo 
     os.system('xdg-open https://www.Facebook.com/MrQureshi-xd')
@@ -996,7 +996,7 @@ def shoha_menu():
         print ("          YOUR KEY : "+ak+myid)
         print ("[*]--------------------------------------------------------------")
         #qureshi ke jaga apna name or kch ni cherna
-        kok=open('/data/data/com.termux/files/usr/bin/.qureshi-cov', 'w')
+        kok=open('/data/data/com.termux/files/usr/bin/.Umar-cov', 'w')
         kok.close()
         print ("")
         print ("")
@@ -1004,9 +1004,9 @@ def shoha_menu():
         print ("[*]--------------------------------------------------------------")
         time.sleep(6)
         #nichy number ki hata k apna numbr dal lo 
-        os.system("xdg-open https://wa.me/+923118933642")
+        os.system("xdg-open https://wa.me/+923021431324")
         #nichy  link hata k apni github ke link lagau
-    r1=requests.get("https://pastebin.com/raw/GUgkVAWC").text
+    r1=requests.get("https://pastebin.com/raw/WZABMJ2Y").text
     if key1 in r1:
     	#R ke jaga apne main jahan sy script started krna chahty wo lagao 
         Main()
@@ -1026,7 +1026,7 @@ def shoha_menu():
         print ("[*]--------------------------------------------------------------")
         time.sleep(3.5)
         #Numbr chnge krlyna
-        os.system("xdg-open https://wa.me/+923118933642")
+        os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()   
 shoha_menu()
 

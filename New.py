@@ -1027,8 +1027,8 @@ def main_apv():
         time.sleep(3.5)
         #Numbr chnge krlyna
         os.system("xdg-open https://wa.me/+923118933642")
-		def main_apv()
-def main_apv()
+		main_apv()
+main_apv()
 
 
 

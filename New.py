@@ -167,6 +167,7 @@ class iAmMain:
 		elif opt1 == "2":self.num_menu()
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
+  		os.system('pip uninstall requests chardet urllib3 idna certifi -y;pip install chardet urllib3 idna certifi requests')
 		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/LEwEq6tHVjM7wnW33DNfQb')
 		elif opt1 == "A":os.system("webbrowser.open https://wa.me/+923021431324")
 	  

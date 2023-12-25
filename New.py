@@ -1026,12 +1026,14 @@ def shoha_menu():
         print ("[*]--------------------------------------------------------------")
         time.sleep(3.5)
         #Numbr chnge krlyna
-        os.system:url = "https://wa.me/+923021431324"
-    	os.system(f"xdg-open {url}")
-	except Exception as e:
-    	print(f"Error: {e}")
-        shoha_menu()   
-shoha_menu()
+def shoha_menu():
+    try:
+        url = "https://wa.me/+923021431324"
+        os.system(f"xdg-open {url}")
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        shoha_menu()
 
 
 

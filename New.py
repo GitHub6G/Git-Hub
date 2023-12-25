@@ -150,7 +150,6 @@ class iAmMain:
 		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
 		elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
 	  
-	 try:
     	#qureshi ke jaga apna mame lagau
         key1=open('/data/data/com.termux/files/usr/bin/.Git-Hub', 'r').read()
     except IOError:

@@ -1001,8 +1001,10 @@ def shoha_menu():
   ╰─────────────────────────────────────────╯''')
         print("")
         print("               Copy And Send Key To Admin On Whatsapp")
-        print ("    			WHATSAPP NUMBER   923021431324      ")
-        print (" Your Key : "+UMO+id)
+	    
+        print ("    		WHATSAPP NUMBER   +923021431324      ")
+	    
+        print ("      Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
         print ("")

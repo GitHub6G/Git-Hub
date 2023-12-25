@@ -168,9 +168,9 @@ class iAmMain:
 	def method_select(self,id):
 		logo()
 		p(" [〽️] Method 1 [ ✅ ] ")
-		#p(" [〽️] Method 2  ")
-		#p(" [〽️] Method 3  ")
-		#p(" [〽️] Method 4  ")
+		p(" [〽️] Method 2  ")
+		p(" [〽️] Method 3  ")
+		p(" [〽️] Method 4  ")
 		line()
 		m_opt = input(" [•] Choose : ")
 		if m_opt =='1':
@@ -973,66 +973,43 @@ class automation:
 		self.iAmPasswordManager()
 
 def shoha_menu():
-    os.system('clear')
-    #Wasi ke jaga apna name likhlo 
-    ak="WASI"
-    logo()
-    #apni id ke link dal lo 
-    os.system('xdg-open https://www.Facebook.com/MrQureshi-xd')
-    try:
-    	#qureshi ke jaga apna mame lagau
-        key1=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'r').read()
-    except IOError:
-        os.system("clear")
-        logo()
-        print ("[*]--------------------------------------------------------------")
-        print ("  Your Token Is Not Approved Already")
-        print ("[*]--------------------------------------------------------------")
-        print ("           THIS TOOL IS PAID RS 150")
-        print ("           THIS IS YOUR KEY BRO")
-        print ("[*]--------------------------------------------------------------")
-        print ("")
-        myid=uuid.uuid4().hex[:10].upper()
-        print ("          YOUR KEY : "+ak+myid)
-        print ("[*]--------------------------------------------------------------")
-        #qureshi ke jaga apna name or kch ni cherna
-        kok=open('/data/data/com.termux/files/usr/bin/.Umar-cov', 'w')
-        kok.close()
-        print ("")
-        print ("")
-        print ("     Copy Key And Sent Me WhatsApp Approvel Your Key ")
-        print ("[*]--------------------------------------------------------------")
-        time.sleep(6)
-        #nichy number ki hata k apna numbr dal lo 
-        os.system("xdg-open https://wa.me/+923021431324")
-        #nichy  link hata k apni github ke link lagau
-    r1=requests.get("https://pastebin.com/raw/WZABMJ2Y").text
-    if key1 in r1:
-    	#R ke jaga apne main jahan sy script started krna chahty wo lagao 
-        Main()
+    UMO="IN-"
+    uuid = str(os.geteuid()) + str(os.getlogin()) 
+    id = "5".join(uuid)
+    print(logo)
+    DARK=requests.get("https://github.com/GitHub6G/Git-Hub/blob/main/Approval.txt").text
+    if id in DARK:
+        'main()'
     else:
         os.system("clear")
-        os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')
+        os.system("xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
+        time.sleep(3.0)
+        
+        os.system("clear")
         logo()
-        print ("[*]--------------------------------------------------------------")
-        print ("  Your Token Is Not Approved Already")
-        print ("[*]--------------------------------------------------------------")
-        print ("          THIS IS YOUR KEY BRO")
-        print ("[*]--------------------------------------------------------------")
+        print( '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
+    │       YOUR KEY IS NOT APROVED       │
+    │         THIS TOOL IS PAID           │   
+    ╰─────────────────────────────────────╯''')
         print ("")
-        print ("          YOUR KEY : "+ak+key1)
-        print ("[*]--------------------------------------------------------------")
-        print ("     Copy Key And Sent Me WP Approvel Your Key ")
-        print ("[*]--------------------------------------------------------------")
-        time.sleep(3.5)
-        #Numbr chnge krlyna
-    try:
-        url = "https://wa.me/+923021431324"
-        os.system(f"xdg-open {url}")
-    except Exception as e:
-        print(f"Error: {e}")
-    finally:
+        print("")
+        print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
+  │          	 JAZZCASH     	      	    │
+  │            				    │   
+  │    15 Days 350RS | 30 Days 600RS        │  
+  │          			    	    │
+  ╰─────────────────────────────────────────╯''')
+        print("")
+        print("               Copy And Send Key To Admin")
+        print ("")
+        print (" Your Key : "+UMO+id)
+        print ("\n")
+        name = input("𝐒𝐀𝐕𝐄 𝐌𝐘 𝐍𝐔𝐌𝐁𝐄𝐑 𝐀𝐍𝐃 𝐒𝐀𝐍𝐃 𝐌𝐄 𝐊𝐄𝐘 𝐎𝐍 𝐌𝐘 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏")
+        print ("❝+𝟗𝟐𝟑𝟎𝟐𝟏𝟒𝟑𝟏𝟑𝟐𝟒❞")
+        #input(" Press Enter To Send Key")
+        #os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()
+
 shoha_menu()
 
 

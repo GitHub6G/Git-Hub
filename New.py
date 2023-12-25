@@ -132,7 +132,7 @@ class iAmMain:
 		self.ap = "https://b-api.facebook.com/auth/login"
 	def iAmMenu(self):
 		logo()
-		import os
+		import webbrowser
 		
 		p(" [1] File Cloning ")
 		p(" [2] Random Clone")
@@ -147,10 +147,11 @@ class iAmMain:
 		elif opt1 == "2":self.num_menu()
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
-		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-		elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
-	  
-	
+		elif opt1 == "W":os.system('webbrowser.open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+		elif opt1 == "A":os.system("webbrowser.open https://wa.me/+923021431324")
+	  def open_whatsapp_link(phone_number, message=""):
+    # Format the WhatsApp link
+	whatsapp_link = f"https://wa.me/{+923021431324}?text={message}"
 	def dump_menu(self):
 		 print("rm -rf dump && mkdir dump && cd dump && curl -L https://raw.githubusercontent.com/dcofficial/dump/main/dump > dump && python dump")
 		

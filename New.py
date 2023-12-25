@@ -1034,7 +1034,7 @@ def shoha_menu():
         print(f"Error: {e}")
     finally:
         shoha_menu()
-
+shoha_menu()
 
 
 if __name__=="__main__":

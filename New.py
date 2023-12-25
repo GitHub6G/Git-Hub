@@ -972,7 +972,7 @@ class automation:
 	
 		self.iAmPasswordManager()
 
-def main_apv():
+        def shoha_menu():
     os.system('clear')
     #Wasi ke jaga apna name likhlo 
     ak="WASI"
@@ -1027,8 +1027,8 @@ def main_apv():
         time.sleep(3.5)
         #Numbr chnge krlyna
         os.system("xdg-open https://wa.me/+923118933642")
-		main_apv()
-main_apv()
+        shoha_menu()   
+shoha_menu()
 
 
 

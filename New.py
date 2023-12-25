@@ -1,3 +1,23 @@
+#coding = utf-8
+
+import os,sys,glob,tempfile,string,random,subprocess,platform,uuid,os,shutil,zlib,smtplib,base64,uuid,time,json,re,hashlib
+import datetime,subprocess
+import zipfile
+from uuid import uuid4
+from time import time as TimeTegar
+from time import sleep as sp
+M2="[#FF0000]" # MERAH
+H2="[#00FF00]" # HIJAU
+K2="[#FFFF00]" # KUNING
+B2="[#00C8FF]" # BIRU
+P2="[#FFFFFF]" # PUTIH
+U2="[#AF00FF]" # UNGU
+O2="[#FF8F00]" # ORANGE
+AA="[#AAAAAA]" # Abu-Abu
+#os.system('pip uninstall requests chardet urllib3 idna certifi -y;pip install chardet urllib3 idna certifi requests')
+os.system('xdg-open https://chat.whatsapp.com/LEwEq6tHVjM7wnW33DNfQb')
+hashes = []
+
 import os,sys,tempfile,string,random,subprocess,platform,uuid,os,shutil,zlib,smtplib,base64,uuid,time,json,re
 from uuid import uuid4
 from time import sleep as sp
@@ -132,7 +152,7 @@ class iAmMain:
 		self.ap = "https://b-api.facebook.com/auth/login"
 	def iAmMenu(self):
 		logo()
-		import webbrowser
+		
 		
 		p(" [1] File Cloning ")
 		p(" [2] Random Clone")
@@ -147,11 +167,10 @@ class iAmMain:
 		elif opt1 == "2":self.num_menu()
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
-		elif opt1 == "W":os.system('webbrowser.open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/LEwEq6tHVjM7wnW33DNfQb')
 		elif opt1 == "A":os.system("webbrowser.open https://wa.me/+923021431324")
-	  def open_whatsapp_link(phone_number, message=""):
-    # Format the WhatsApp link
-	whatsapp_link = f"https://wa.me/{+923021431324}?text={message}"
+	  
+	
 	def dump_menu(self):
 		 print("rm -rf dump && mkdir dump && cd dump && curl -L https://raw.githubusercontent.com/dcofficial/dump/main/dump > dump && python dump")
 		

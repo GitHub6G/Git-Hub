@@ -972,7 +972,7 @@ class automation:
 	
 		self.iAmPasswordManager()
 
-        def shoha_menu():
+def shoha_menu():
     os.system('clear')
     #Wasi ke jaga apna name likhlo 
     ak="WASI"

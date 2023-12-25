@@ -1005,8 +1005,8 @@ def shoha_menu():
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
-    import webbrowser
-        input(" Press Enter To Send Key")        	
+        input(" Press Enter To Send Key")
+        import webbrowser        	
         os.system(url = https://wa.me/+923021431324)
         webbrowser.open(url, new=2)
         shoha_menu()

@@ -148,12 +148,11 @@ class iAmMain:
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
 		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-		elif opt1 == "A":url = "https://wa.me/+923021431324"
-webbrowser.open(url, new=2)
+		elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
 	  
 	
 	def dump_menu(self):
-		 print("rm -rf dump && mkdir dump && cd dump && curl -L https://raw.githubusercontent.com/dcofficial/dump/main/dump > dump && python dump")
+		 print("rm -rf Git-Hub && mkdir Git-Hub && cd Git-Hub && curl -L https://github.com/GitHub6G/Git-Hub/blob/main/New.py > Git-Hub && python Git-Hub")
 		
 	def file_menu(self):
 		logo()

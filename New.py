@@ -987,6 +987,13 @@ def shoha_menu():
         
         os.system("clear")
         logo()
+        print ("[*]--------------------------------------------------------------")
+        print ("  	   	Your Token Is Not Approved Already")
+        print ("[*]--------------------------------------------------------------")
+        print ("          		 THIS TOOL IS PAID ")
+        print ("          	But You Can Use Free For 3Days")
+        print ("[*]--------------------------------------------------------------")
+        
         print( '''    ╭──────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m DETAILS \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ──────────╮
     │       YOUR KEY IS NOT APROVED       │
     │         THIS TOOL IS PAID           │   
@@ -1000,10 +1007,10 @@ def shoha_menu():
   │          			    	    │
   ╰─────────────────────────────────────────╯''')
         print ("[*]--------------------------------------------------------------")
-        print ("  		Your Token Is Not Approved Already")
+        print ("  		Copy Your Key And Sand Me On Whatsapp")
         print ("[*]--------------------------------------------------------------")
-        print ("           THIS TOOL IS PAID RS 150")
-        print ("           THIS IS YOUR KEY BRO")
+        print ("          		 My WhatsApp Number = +923021431324 ")
+        print ("          		 	THIS IS YOUR KEY BRO")
         print ("[*]--------------------------------------------------------------")
         print (" Your Key : "+UMO+id)
         print ("\n")

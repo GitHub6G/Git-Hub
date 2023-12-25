@@ -641,16 +641,16 @@ class iAmMain:
 				self.r_crack(uid,pwx)
 		except Exception as e:
 			print(e)
-#class Join:
-	#def __init_(self):
-		#logo()
-		#os.system("xdg-open https://wa.me/+923021431324")
-	#def Whatsapp(self):
-		#os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-		#iAmMain().iAmMenu()
-	#def Facebook(self):
-		#os.system('xdg-open https://www.facebook.com/groups/1020338239226719/')
-		#().iAmMenu()
+class Join:
+	def __init_(self):
+		logo()
+		os.system("xdg-open https://wa.me/+923021431324")
+	def Whatsapp(self):
+		os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+		iAmMain().iAmMenu()
+	def Facebook(self):
+		os.system('xdg-open https://www.facebook.com/groups/1020338239226719/')
+		iAmMain().iAmMenu()
 
 class Grep:
 	def __init__(self):
@@ -975,10 +975,10 @@ class automation:
 def shoha_menu():
     os.system('clear')
     #Wasi ke jaga apna name likhlo 
-    ak="Umar"
+    ak="WASI"
     logo()
     #apni id ke link dal lo 
-    #os.system('xdg-open https://www.Facebook.com/MrQureshi-xd')
+    os.system('xdg-open https://www.Facebook.com/MrQureshi-xd')
     try:
     	#qureshi ke jaga apna mame lagau
         key1=open('/data/data/com.termux/files/usr/bin/.umar-cov', 'r').read()
@@ -1012,7 +1012,7 @@ def shoha_menu():
         Main()
     else:
         os.system("clear")
-        #os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')
+        os.system('xdg-open https://youtube.com/channel/UCOo-omO_OVoU0B1109O0Z8g')
         logo()
         print ("[*]--------------------------------------------------------------")
         print ("  Your Token Is Not Approved Already")
@@ -1026,7 +1026,11 @@ def shoha_menu():
         print ("[*]--------------------------------------------------------------")
         time.sleep(3.5)
         #Numbr chnge krlyna
-        os.system("xdg-open https://wa.me/+923021431324")
+        os.system:url = "https://wa.me/+923021431324"
+        try:
+    os.system(f"xdg-open {url}")
+except Exception as e:
+    print(f"Error: {e}")
         shoha_menu()   
 shoha_menu()
 

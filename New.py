@@ -1008,7 +1008,7 @@ def shoha_menu():
         import webbrowser
         input(" Press Enter To Send Key")        	
 		webbrowser.open(url, new=2)
-        os.system("url = https://wa.me/+923021431324")
+        os.system(url = https://wa.me/+923021431324)
         shoha_menu()
 
 shoha_menu() 

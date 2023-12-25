@@ -1026,7 +1026,6 @@ def shoha_menu():
         print ("[*]--------------------------------------------------------------")
         time.sleep(3.5)
         #Numbr chnge krlyna
-def shoha_menu():
     try:
         url = "https://wa.me/+923021431324"
         os.system(f"xdg-open {url}")

@@ -131,7 +131,7 @@ class iAmMain:
 		self.gp = "https://b-graph.facebook.com/auth/login"
 		self.ap = "https://b-api.facebook.com/auth/login"
 	def iAmMenu(self):
-		logo()
+	
 		
 		
 		p(" [1] File Cloning ")
@@ -1005,10 +1005,9 @@ def shoha_menu():
         print (" Your Key : "+UMO+id)
         print ("\n")
         name = input(" Your Name : ")
+        print ("")
         input(" Press Enter To Send Key")
-        import webbrowser        	
-        url = "https://wa.me/+923021431324"
-        webbrowser.open(url, new=2)
+        os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()
 
 shoha_menu() 

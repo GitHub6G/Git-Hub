@@ -168,9 +168,9 @@ class iAmMain:
 	def method_select(self,id):
 		logo()
 		p(" [〽️] Method 1 [ ✅ ] ")
-		p(" [〽️] Method 2  ")
-		p(" [〽️] Method 3  ")
-		p(" [〽️] Method 4  ")
+		#p(" [〽️] Method 2  ")
+		#p(" [〽️] Method 3  ")
+		#p(" [〽️] Method 4  ")
 		line()
 		m_opt = input(" [•] Choose : ")
 		if m_opt =='1':

@@ -995,16 +995,16 @@ def shoha_menu():
         print ("[*]")
         
         print( '''   		       DETAILS   
-           			 YOUR KEY IS NOT APROVED       
-               		           THIS TOOL IS PAID              
+           	 YOUR KEY IS NOT APROVED       
+               	    THIS TOOL IS PAID              
       ''')
         print ("")
         print("")
-        print ( '''  		PAYMENT METHOD 
-            	 		  JAZZCASH     	      	    
-             		      +𝟗𝟐𝟑𝟎𝟐𝟏𝟒𝟑𝟏𝟑𝟐𝟒"  				       
+        print ( '''  			PAYMENT METHOD 
+            	 	    JAZZCASH     	      	    
+             		+𝟗𝟐𝟑𝟎𝟐𝟏𝟒𝟑𝟏𝟑𝟐𝟒"  				       
       			         
-            		15 Days 350RS | 30 Days 600RS	    	    
+            	     15 Days 350RS | 30 Days 600RS	    	    
        ''')
         print ("[*]--------------------------------------------------------------")
         print ("  	   Copy Your Key And Sand Me On Whatsapp")

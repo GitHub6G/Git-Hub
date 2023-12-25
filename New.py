@@ -1004,8 +1004,9 @@ def shoha_menu():
         print ("")
         print (" Your Key : "+UMO+id)
         print ("\n")
-        name = input("𝐒𝐀𝐕𝐄 𝐌𝐘 𝐍𝐔𝐌𝐁𝐄𝐑 𝐀𝐍𝐃 𝐒𝐀𝐍𝐃 𝐌𝐄 𝐊𝐄𝐘 𝐎𝐍 𝐌𝐘 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏")
-        print ("❝+𝟗𝟐𝟑𝟎𝟐𝟏𝟒𝟑𝟏𝟑𝟐𝟒❞")
+        name = input("			𝐒𝐀𝐕𝐄 𝐌𝐘 𝐍𝐔𝐌𝐁𝐄𝐑 𝐀𝐍𝐃 𝐒𝐀𝐍𝐃 𝐌𝐄 𝐊𝐄𝐘 𝐎𝐍 𝐌𝐘 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏")
+        
+        name = input("						+𝟗𝟐𝟑𝟎𝟐𝟏𝟒𝟑𝟏𝟑𝟐𝟒")
         #input(" Press Enter To Send Key")
         #os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()

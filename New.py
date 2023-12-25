@@ -138,8 +138,8 @@ class iAmMain:
 		p(" [2] Random Clone")
 		p(" [3] Dump Tool")
 		p(" [4] Pass changer ")
-		p(' [W] Join Whatsapp Group ')
-		p(" [A] Admin Contact ")
+		#p(' [W] Join Whatsapp Group ')
+		#p(" [A] Admin Contact ")
 		line()
 		opt1 = input(" {√} Select An Option : ")
 		if opt1 == "1":self.file_menu()
@@ -147,8 +147,8 @@ class iAmMain:
 		elif opt1 == "2":self.num_menu()
 		elif opt1 == "4":automation().menu()
 		elif opt1 == "3":Grep().links_only()
-		elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
-		elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
+		#elif opt1 == "W":os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+		#elif opt1 == "A":os.system("xdg-open https://wa.me/+923021431324")
 	  
 	
 	def dump_menu(self):
@@ -644,12 +644,12 @@ class iAmMain:
 class Join:
 	def __init_(self):
 		logo()
-		os.system("xdg-open https://wa.me/+923021431324")
-	def Whatsapp(self):
-		os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
+		#os.system("xdg-open https://wa.me/+923021431324")
+	#def Whatsapp(self):
+		#os.system('xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf')
 		iAmMain().iAmMenu()
 	def Facebook(self):
-		os.system('xdg-open https://www.facebook.com/groups/1020338239226719/')
+		#os.system('xdg-open https://www.facebook.com/groups/1020338239226719/')
 		iAmMain().iAmMenu()
 
 class Grep:
@@ -982,7 +982,7 @@ def shoha_menu():
         'main()'
     else:
         os.system("clear")
-        os.system("xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
+        #os.system("xdg-open https://chat.whatsapp.com/KQaGgAfTTQOI3UtM3EyIKf")
         time.sleep(3.0)
         
         os.system("clear")
@@ -995,7 +995,7 @@ def shoha_menu():
         print("")
         print ( '''  ╭─────  \x1b[1;92m•\x1b[1;91m•\x1b[1;96m• \x1b[0m PAYMENT METHOD \x1b[1;96m•\x1b[1;91m•\x1b[1;92m• \x1b[0m  ────────╮
   │          	 JAZZCASH     	      	    │
-  │            				    │   
+  │          +𝟗𝟐𝟑𝟎𝟐𝟏𝟒𝟑𝟏𝟑𝟐𝟒"  				    │   
   │    15 Days 350RS | 30 Days 600RS        │  
   │          			    	    │
   ╰─────────────────────────────────────────╯''')
@@ -1004,9 +1004,10 @@ def shoha_menu():
         print ("")
         print (" Your Key : "+UMO+id)
         print ("\n")
-        name = input("			𝐒𝐀𝐕𝐄 𝐌𝐘 𝐍𝐔𝐌𝐁𝐄𝐑 𝐀𝐍𝐃 𝐒𝐀𝐍𝐃 𝐌𝐄 𝐊𝐄𝐘 𝐎𝐍 𝐌𝐘 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏")
+        name = input("")        
+        print( '''    			𝐒𝐀𝐕𝐄 𝐌𝐘 𝐍𝐔𝐌𝐁𝐄𝐑 𝐀𝐍𝐃 𝐒𝐀𝐍𝐃 𝐌𝐄 𝐊𝐄𝐘 𝐎𝐍 𝐌𝐘 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 
+    										+𝟗𝟐𝟑𝟎𝟐𝟏𝟒𝟑𝟏𝟑𝟐𝟒					''')
         
-        name = input("						+𝟗𝟐𝟑𝟎𝟐𝟏𝟒𝟑𝟏𝟑𝟐𝟒")
         #input(" Press Enter To Send Key")
         #os.system("xdg-open https://wa.me/+923021431324")
         shoha_menu()

